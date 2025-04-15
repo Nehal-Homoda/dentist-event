@@ -8,7 +8,7 @@ export default function defaultlayout({
     children: React.ReactNode;
 }>) {
     return (
-        <div>
+        <div className="h-full">
             <AppNavBar />
             {children}
             <AppFooter />

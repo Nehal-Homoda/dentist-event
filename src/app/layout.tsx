@@ -26,7 +26,14 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-            <body className={`${geistSans.variable} ${geistMono.variable}`}>  
+            <head>
+
+            <link
+                rel="stylesheet"
+                href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"
+            ></link>
+            </head>
+            <body className={`${geistSans.variable} ${geistMono.variable}`}>
                 {children}
             </body>
         </html>
