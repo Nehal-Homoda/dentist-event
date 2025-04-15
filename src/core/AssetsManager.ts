@@ -10,8 +10,10 @@ export const brand = {
 export const icons = {};
 //========= [BG]
 import footer_bg from "@/assets/images/bg/footer-bg.png";
+import header_bg from "@/assets/images/bg/header.png"
 export const bg = {
     footer_bg,
+    header_bg
 };
 //========= [ELEMENTS]
 import sponsor1 from "@/assets/images/elements/sponsor-1.png";

@@ -7,9 +7,10 @@ export default function defaultlayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+
     return (
-        <div className="h-full">
-            <AppNavBar />
+        <div className="h-[200vh] relative">
+            <AppNavBar isWithSponsors={true} colorInverted={true} />
             {children}
             <AppFooter />
         </div>
