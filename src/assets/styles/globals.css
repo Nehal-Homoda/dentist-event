@@ -77,3 +77,9 @@ a {
         color-scheme: dark;
     }
 } */
+
+@layer components {
+    .outline-input{
+        @apply h-10 px-3 rounded-lg border border-primary bg-background
+    }
+}
