@@ -14,8 +14,9 @@ module.exports = {
           foreground: " var(--color-foreground)",
           muted: "var(--color-text-muted)",
           error: "var(--color-error)",
+        //   buttonGradient:"var(--color-button-gradient)",
           primary: {
-              default: "var(--color-primary)",
+              DEFAULT: "var(--color-primary)",
               100: "var(--color-primary-100)",
               200: "var(--color-primary-200)",
               300: "var(--color-primary-300)",
@@ -23,7 +24,7 @@ module.exports = {
               500: "var(--color-primary-500)",
               600: "var(--color-primary-600)",
               light: {
-                  default: "var(--color-primary-light)",
+                  DEFAULT: "var(--color-primary-light)",
                   100: "var(--color-primary-light-100)",
                   200: "var(--color-primary-light-200)",
                   300: "var(--color-primary-light-300)",

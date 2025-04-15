@@ -1,8 +1,8 @@
 
 export default function Home() {
   return (
-    <div className="text-background">
-    drfdrfdrfd
+    <div className="h-[200vh]">
+   
     </div>
   );
 }
