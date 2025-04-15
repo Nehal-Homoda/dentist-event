@@ -9,7 +9,7 @@ export default function defaultlayout({
 }>) {
     return (
         <div className="h-full">
-            <AppNavBar />
+            {/* <AppNavBar /> */}
             {children}
             <AppFooter />
         </div>
