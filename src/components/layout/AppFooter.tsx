@@ -5,7 +5,7 @@ export default function AppFooter() {
     return (
         <>
             <div className="container pb-10">
-                {/* <footer
+                <footer
                     className="text-white w-full py-10 px-5 bg-cover rounded-t-2xl"
                     style={{
                         backgroundImage: `url('${bg.footer_bg.src}')`,
@@ -86,7 +86,7 @@ export default function AppFooter() {
                             </div>
                         </div>
                     </div>
-                </footer> */}
+                </footer>
             </div>
         </>
     );
