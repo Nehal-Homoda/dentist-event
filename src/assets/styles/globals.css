@@ -82,4 +82,7 @@ a {
     .outline-input{
         @apply h-10 px-3 rounded-lg border border-primary bg-background
     }
+    .countDown-item{
+        @apply  w-14 aspect-[1/1.5] bg-gradient-to-b from-primary-light-400 to-primary text-background text-3xl font-bold rounded-lg relative
+    }
 }
