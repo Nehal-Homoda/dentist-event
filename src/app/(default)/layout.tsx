@@ -10,7 +10,7 @@ export default function defaultlayout({
 
     return (
         <div className="h-[200vh] relative">
-            <AppNavBar isWithSponsors={true} colorInverted={true} />
+            <AppNavBar isWithSponsors={false} colorInverted={false} />
             {children}
             <AppFooter />
         </div>

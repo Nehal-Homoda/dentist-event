@@ -83,6 +83,6 @@ a {
         @apply h-10 px-3 rounded-lg border border-primary bg-background
     }
     .countDown-item{
-        @apply  lg:w-14 lg:aspect-[1/1.5] md:w-10 md:aspect-[1/1.5] w-8 aspect-[1/2] bg-gradient-to-b from-primary-light-400 to-primary text-background lg:text-3xl text-xl font-bold rounded-lg relative
+        @apply  lg:w-16 lg:aspect-[1/1.5] md:w-10 md:aspect-[1/1.5] w-8 aspect-[1/2] bg-gradient-to-b from-primary-light-400 to-primary text-background lg:text-3xl text-xl font-bold rounded-lg relative
     }
 }

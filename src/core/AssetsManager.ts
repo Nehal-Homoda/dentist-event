@@ -11,9 +11,11 @@ export const icons = {};
 //========= [BG]
 import footer_bg from "@/assets/images/bg/footer-bg.png";
 import header_bg from "@/assets/images/bg/header.png"
+import header_img_bg from "@/assets/images/bg/header-img.png"
 export const bg = {
     footer_bg,
-    header_bg
+    header_bg,
+    header_img_bg
 };
 //========= [ELEMENTS]
 import sponsor1 from "@/assets/images/elements/sponsor-1.png";
@@ -22,13 +24,15 @@ import sponsor3 from "@/assets/images/elements/sponsor-3.png";
 import sponsor4 from "@/assets/images/elements/sponsor-4.png";
 import card_frame from "@/assets/images/elements/card-frame.png";
 import logo_year from "@/assets/images/elements/logo-year.png";
+import logo_year_clear from "@/assets/images/elements/logo-year-clear.png";
 export const elements = {
     sponsor1,
     sponsor2,
     sponsor3,
     sponsor4,
     card_frame,
-    logo_year
+    logo_year,
+    logo_year_clear
 };
 //========= [HEROS]
 import why_submit from "@/assets/images/heros/why-submit.png";

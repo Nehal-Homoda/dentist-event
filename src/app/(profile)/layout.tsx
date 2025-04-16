@@ -10,7 +10,7 @@ type Props={
 export default function profilelayout({children}:Props) {
   return (
     <div>
-        <AppNavBar isWithSponsors={false} colorInverted={true}></AppNavBar>
+        <AppNavBar isWithSponsors={true} colorInverted={true}></AppNavBar>
         {children}
         <AppFooter/>
     </div>

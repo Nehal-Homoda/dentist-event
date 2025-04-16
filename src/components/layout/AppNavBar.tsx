@@ -33,7 +33,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     const pathName = usePathname();
     return (
         <>
-            <div className="container absolute left-[50%] -translate-x-[50%]  top-10 ">
+            <div className="container absolute z-30 left-[50%] -translate-x-[50%]  top-10 ">
                 {isWithSponsors && (
                     <div className="w-full bg-background flex justify-between items-center  px-12 ">
                         <div className="w-24 h-24">
@@ -64,7 +64,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                     className={` ${
                         colorInverted
                             ? "bg-primary-light "
-                            : "bg-white rounded-md gap-12"
+                            : "bg-white text-primary rounded-md gap-12"
                     }  text-background  flex justify-between   px-12 py-4`}
                 >
                     {navLinks.map((item, index) => (
@@ -73,7 +73,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                             href={item.link}
                             className={
                                 item.link == pathName
-                                    ? "relative before:absolute before:w-full before:content-[''] before:bg-background  before:h-1  before:top-7 "
+                                    ? `relative before:absolute before:w-full before:content-[''] ${colorInverted ? 'before:bg-background' : 'before:bg-primary'} before:bg-background  before:h-1  before:top-7 `
                                     : "bg-yellow"
                             }
                         >

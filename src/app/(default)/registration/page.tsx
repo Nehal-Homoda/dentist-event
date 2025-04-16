@@ -2,6 +2,7 @@ import BaseRegisterCard from "@/components/shared/SharedRegisterCard";
 import React from "react";
 import { bg, elements, heros } from "@/core/AssetsManager";
 import SharedCountDown from "@/components/shared/SharedCountDown";
+import SharedHeader from "@/components/shared/SharedHeader";
 
 const cards = [
     {
@@ -151,7 +152,7 @@ export default function page() {
     return (
         <>
             <div className="">
-                <header className="h-56"></header>
+               <SharedHeader pageName="Registeration"/>
                 <div className="container">
                     {packages.map((packageItem, packageIndex) => {
                         return (
