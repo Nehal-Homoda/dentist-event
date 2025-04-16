@@ -5,7 +5,7 @@ import BaseBtn from "../Base/BaseBtn";
 export default function AppFooter() {
     return (
         <>
-            <div className="container pb-10">
+            <div className="container">
                 <footer
                     className="text-white w-full bg-cover px-5 rounded-t-2xl"
                     style={{
