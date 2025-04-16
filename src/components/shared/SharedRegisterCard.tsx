@@ -8,7 +8,7 @@ type Props = {
     programList: Array<string>;
 };
 
-export default function BaseRegisterCard({
+export default function SharedRegisterCard({
     image,
     userTypeTitle,
     price,

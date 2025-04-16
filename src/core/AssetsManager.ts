@@ -20,11 +20,18 @@ import sponsor1 from "@/assets/images/elements/sponsor-1.png";
 import sponsor2 from "@/assets/images/elements/sponsor-2.png";
 import sponsor3 from "@/assets/images/elements/sponsor-3.png";
 import sponsor4 from "@/assets/images/elements/sponsor-4.png";
+import card_frame from "@/assets/images/elements/card-frame.png";
+import logo_year from "@/assets/images/elements/logo-year.png";
 export const elements = {
     sponsor1,
     sponsor2,
     sponsor3,
     sponsor4,
+    card_frame,
+    logo_year
 };
 //========= [HEROS]
-export const heros = {};
+import why_submit from "@/assets/images/heros/why-submit.png";
+export const heros = {
+    why_submit
+};
