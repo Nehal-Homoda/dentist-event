@@ -1,4 +1,5 @@
 "use client";
+import { elements } from "@/core/AssetsManager";
 import React, { useEffect, useState } from "react";
 
 export default function () {
@@ -54,7 +55,7 @@ export default function () {
                 </h1>
             </div>
 
-            <div className="flex justify-center    lg:gap-3 gap-2">
+            <div className="flex justify-center  mb-5   lg:gap-3 gap-2">
                 <div className="timer-days flex flex-col items-center gap-4">
                     <div className="flex lg:gap-3 gap-2">
                         <div className="countDown-item ">
@@ -127,6 +128,10 @@ export default function () {
                     </div>
                     <span>Seconds</span>
                 </div>
+            </div>
+
+            <div className="mx-auto w-[34rem]  ">
+                <img className="w-full object-contain"  src={elements.logo_year_clear.src} alt="" />
             </div>
         </div>
     );
