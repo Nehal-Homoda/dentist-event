@@ -6,7 +6,7 @@ import RoutesManager from "@/core/RoutesManager";
 import { elements,brand } from "@/core/AssetsManager";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import Button from "../Base/button";
+import BaseBtn from "@/components/Base/BaseBtn";
 
 const navLinks = [
     { name: "Home", link: RoutesManager.home },
@@ -50,9 +50,9 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                                 />
                             </div>
                         ))}
-                        <Button isWithArrow={false}>
+                        <BaseBtn isWithArrow={false}>
                             <span>Register Now !</span>
-                        </Button>
+                        </BaseBtn>
                     </div>
                 )}
                 <div
