@@ -1,20 +1,65 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 
 export default function () {
+    const [day, setDay] = useState("00-");
+    const [hour, setHour] = useState("00");
+    const [minute, setMinute] = useState("00");
+    const [second, setSecond] = useState("00");
+
+    const countDown = () => {
+        const endsAt = "2025-06-03";
+        const endsAtTime = new Date(endsAt).getTime();
+        const currentLocalDate = new Date().toLocaleString("en-US", {
+            timeZone: "Asia/Dubai",
+        });
+        const currentTime = new Date(currentLocalDate).getTime();
+        const distance = endsAtTime - currentTime;
+        let d, h, m, s;
+
+        d = Math.floor(distance / (1000 * 60 * 60 * 24)).toString();
+        h = Math.floor(
+            (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        ).toString();
+        m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)).toString();
+        s = Math.floor((distance % (1000 * 60)) / 1000).toString();
+
+        // d = d <= 0 ? 0 : d;
+        // h = h <= 0 ? 0 : h;
+        // m = m <= 0 ? 0 : m;
+        // s = s <= 0 ? 0 : s;
+
+        // d = d < 10 ? "0" + d : d;
+        // h = h < 10 ? "0" + h : h;
+        // m = m < 10 ? "0" + m : m;
+        // s = s < 10 ? "0" + s : s;
+
+        setDay(d);
+        setHour(h);
+        setMinute(m);
+        setSecond(s);
+    };
+
+    
+
+    useEffect(() => {
+        countDown();
+    }, []);
+
     return (
-        <div className="container py-20">
+        <div className="container  py-20">
             <div className="card-title text-center mb-16">
                 <h1 className="lg:text-4xl text-2xl font-medium mb-4">
                     THE COUNTDOWN
                 </h1>
             </div>
 
-            <div className="flex justify-center   gap-3">
+            <div className="flex justify-center    lg:gap-3 gap-2">
                 <div className="timer-days flex flex-col items-center gap-4">
-                    <div className="flex gap-3">
+                    <div className="flex lg:gap-3 gap-2">
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                62
+                                {day}
                             </span>
                         </div>
                         <div className="countDown-item ">
@@ -25,15 +70,15 @@ export default function () {
                     </div>
                     <span>Days</span>
                 </div>
-                <span className="text-3xl mt-4  text-primary font-bold">
+                <span className="text-3xl mt-6  text-primary font-bold">
                     &#x3a;
                 </span>
 
                 <div className="timer-hours flex flex-col items-center gap-4">
-                    <div className="flex gap-3">
+                    <div className="flex lg:gap-3 gap-2">
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                43
+                                {hour}
                             </span>
                         </div>
                         <div className="countDown-item ">
@@ -44,15 +89,15 @@ export default function () {
                     </div>
                     <span>Hours</span>
                 </div>
-                <span className="text-3xl mt-4  text-primary font-bold">
+                <span className="text-3xl mt-6  text-primary font-bold">
                     &#x3a;
                 </span>
 
                 <div className="timer-minutes flex flex-col items-center gap-4">
-                    <div className="flex gap-3">
+                    <div className="flex lg:gap-3 gap-2">
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                34
+                                {minute}
                             </span>
                         </div>
                         <div className="countDown-item ">
@@ -63,15 +108,15 @@ export default function () {
                     </div>
                     <span>Minutes</span>
                 </div>
-                <span className="text-3xl mt-4  text-primary font-bold">
+                <span className="text-3xl mt-6  text-primary font-bold">
                     &#x3a;
                 </span>
 
                 <div className="timer-minutes flex flex-col items-center gap-4">
-                    <div className="flex gap-3">
+                    <div className="flex lg:gap-3 gap-2">
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                45
+                                {second}
                             </span>
                         </div>
                         <div className="countDown-item ">

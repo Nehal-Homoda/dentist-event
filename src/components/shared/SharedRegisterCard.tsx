@@ -15,7 +15,7 @@ export default function SharedRegisterCard({
     programList,
 }: Props) {
     return (
-        <div className="bg-background rounded-3xl px-8 py-7 shadow-xl  ">
+        <div className="bg-background rounded-3xl px-8 py-7 shadow-[0_0_2rem_#00000020]  ">
             <div className="w-full aspect-[4/2.5]  rounded-2xl overflow-hidden">
                 <img className="w-full h-full object-cover" src={image} alt="" />
             </div>
@@ -31,8 +31,8 @@ export default function SharedRegisterCard({
                         key={index}
                         className="text-secondary-500 flex items-center "
                     >
-                        <span className="mdi mdi-checkbox-marked-outline text-3xl me-3"></span>
-                        <span className="text-lg">{item}</span>
+                        <span className="mdi mdi-checkbox-marked-outline text-xl me-3"></span>
+                        <span className="">{item}</span>
                     </ul>
                 ))}
             </div>
