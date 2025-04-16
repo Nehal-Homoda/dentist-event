@@ -1,3 +1,5 @@
+import InterduceSection from "@/components/static/InterduceSection";
+import RegisterSectionWithVedio from "@/components/static/RegisterSectionWithVedio";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
 
 export default function Home() {
@@ -7,7 +9,9 @@ export default function Home() {
                 <div className="w-full aspect-[1.5/1] bg-[url('@/assets/images/bg/header.png')] bg-no-repeat bg-cover bg-top"></div>
 
                 <div className="container">
+                    <InterduceSection></InterduceSection>
                     <WhySubmitSection></WhySubmitSection>
+                    <RegisterSectionWithVedio></RegisterSectionWithVedio>
                 </div>
             </div>
         </>

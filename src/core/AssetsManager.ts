@@ -32,6 +32,10 @@ export const elements = {
 };
 //========= [HEROS]
 import why_submit from "@/assets/images/heros/why-submit.png";
+import register_with_video_thumbnail from "@/assets/images/heros/register-with-vedio-thumbnail.png";
+import interduce_thumbnail from "@/assets/images/heros/intreduce-vedio-thumbnail.png";
 export const heros = {
-    why_submit
+    why_submit,
+    register_with_video_thumbnail,
+    interduce_thumbnail
 };
