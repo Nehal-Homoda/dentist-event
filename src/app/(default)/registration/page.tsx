@@ -7,7 +7,18 @@ const cards = [
         title: "Member",
         price: "250$",
         image: elements.sponsor1.src,
-        programs: ["asa", "adad", "suidh"],
+        programs: [
+            "asa",
+            "adad",
+            "suidh",
+            "asa",
+            "adad",
+            "suidh",
+            "suidh",
+            "asa",
+            "adad",
+            "suidh",
+        ],
     },
     {
         title: "Premium",
@@ -25,18 +36,20 @@ const cards = [
 // const programList = ["asa", "adad", "ads"];
 export default function page() {
     return (
-      <div className="py-[300px]">
-
-        <div className="grid grid-cols-3 gap-14 container ">
-            {cards.map((item, index) => (
-                <BaseRegisterCard  key={index}
-                    image={elements.sponsor1.src}
-                    price="250$"
-                    programList={item.programs}
-                    userTypeTitle="Member"
-                ></BaseRegisterCard>
-            ))}
+        <div className="py-[300px]">
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-14 container ">
+                {cards.map((item, index) => (
+                    <div className="">
+                        <BaseRegisterCard
+                            key={index}
+                            image={elements.sponsor1.src}
+                            price="250$"
+                            programList={item.programs}
+                            userTypeTitle="Member"
+                        ></BaseRegisterCard>
+                    </div>
+                ))}
+            </div>
         </div>
-      </div>
     );
 }
