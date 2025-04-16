@@ -156,8 +156,8 @@ export default function page() {
                     {packages.map((packageItem, packageIndex) => {
                         return (
                             <div key={packageIndex} className="py-20">
-                                <div className="card-title text-center py-5">
-                                    <h1 className="lg:text-4xl text-2xl font-bold mb-4">
+                                <div className="card-title text-center mb-10">
+                                    <h1 className="lg:text-4xl text-3xl font-semibold mb-4">
                                         {packageItem.title}
                                     </h1>
                                     <span className="lg:text-2xl text-xl  text-secondary-400">

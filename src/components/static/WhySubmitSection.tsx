@@ -42,7 +42,7 @@ export default function WhySubmitSection() {
                             and scra
                         </p>
 
-                        <BaseBtn>Register now</BaseBtn>
+                        <BaseBtn minWidth="min-w-[175px]">Register now</BaseBtn>
                     </div>
                 </div>
             </div>

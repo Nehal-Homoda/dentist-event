@@ -6,7 +6,7 @@ export default function InterduceSection() {
     return (
         <>
             <div className="my-20 grid grid-cols-1 lg:grid-cols-5 lg:gap-20 gap-10">
-                <div className="lg:col-span-2 aspect-[3/1.5] lg:aspect-[3/2] relative rounded-xl overflow-hidden">
+                <div className="lg:col-span-2 aspect-[3/1.5] lg:aspect-[3/2.75] relative rounded-xl overflow-hidden">
                     <img
                         src={heros.interduce_thumbnail.src}
                         alt=""
