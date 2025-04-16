@@ -16,7 +16,7 @@ export default function SharedRegisterCard({
 }: Props) {
     return (
         <div className="bg-background rounded-3xl px-8 py-7 shadow-xl  ">
-            <div className="w-full aspect-[4/2.5]  rounded-2xl overflow-hidden bg-error">
+            <div className="w-full aspect-[4/2.5]  rounded-2xl overflow-hidden">
                 <img className="w-full h-full object-cover" src={image} alt="" />
             </div>
             <div className="py-5">
