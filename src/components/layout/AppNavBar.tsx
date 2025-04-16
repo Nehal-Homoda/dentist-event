@@ -8,7 +8,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BaseBtn from "@/components/Base/BaseBtn";
 import BaseOutlineBtn from "../Base/BaseOutlineBtn";
-import BaseRegisterCard from "../shared/BaseRegisterCard";
+import BaseRegisterCard from "../shared/SharedRegisterCard";
 
 const navLinks = [
     { name: "Home", link: RoutesManager.home },
@@ -21,7 +21,6 @@ const navLinks = [
     { name: "profile", link: RoutesManager.profile },
 ];
 
-const programList=['asa','adad','ads']
 
 type Props = {
     colorInverted: Boolean;
@@ -64,7 +63,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                 <div
                     className={` ${
                         colorInverted
-                            ? "bg-primary-light rounded-b-md"
+                            ? "bg-primary-light "
                             : "bg-white rounded-md gap-12"
                     }  text-background  flex justify-between   px-12 py-4`}
                 >
