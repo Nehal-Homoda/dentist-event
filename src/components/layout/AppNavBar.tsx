@@ -7,6 +7,8 @@ import { elements,brand } from "@/core/AssetsManager";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BaseBtn from "@/components/Base/BaseBtn";
+import BaseOutlineBtn from "../Base/BaseOutlineBtn";
+import BaseRegisterCard from "../shared/BaseRegisterCard";
 
 const navLinks = [
     { name: "Home", link: RoutesManager.home },
@@ -18,6 +20,8 @@ const navLinks = [
     { name: "sponsors", link: RoutesManager.sponsors },
     { name: "profile", link: RoutesManager.profile },
 ];
+
+const programList=['asa','adad','ads']
 
 type Props = {
     colorInverted: Boolean;
@@ -53,6 +57,8 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                         <BaseBtn isWithArrow={false}>
                             <span>Register Now !</span>
                         </BaseBtn>
+                       
+
                     </div>
                 )}
                 <div
@@ -76,6 +82,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                         </Link>
                     ))}
                 </div>
+              
             </div>
         </>
     );
