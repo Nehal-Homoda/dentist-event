@@ -7,7 +7,12 @@ export const brand = {
     logo_text,
 };
 //========= [ICONS]
-export const icons = {};
+import icon_calender_colorful from '@/assets/images/icons/icon-calendar-colorful.png'
+import icon_location_colorful from '@/assets/images/icons/icon-location-colorful.png'
+export const icons = {
+    icon_calender_colorful,
+    icon_location_colorful
+};
 //========= [BG]
 import footer_bg from "@/assets/images/bg/footer-bg.png";
 import header_bg from "@/assets/images/bg/header.png"

@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "@/assets/styles/globals.css";
 import AppNavBar from "@/components/layout/AppNavBar";
 import AppFooter from "@/components/layout/AppFooter";
+import ScreensIndicator from "@/components/Base/ScreensIndicator";
 
 // const geistSans = Geist({
 //     variable: "--font-geist-sans",
@@ -34,6 +35,7 @@ export default function RootLayout({
             ></link>
             </head>
             <body>
+                <ScreensIndicator />
                 {children}
             </body>
         </html>
