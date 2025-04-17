@@ -4,8 +4,7 @@ import InterduceSection from "@/components/static/InterduceSection";
 import RegisterSectionWithVedio from "@/components/static/RegisterSectionWithVedio";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
 
-import { elements, heros ,icons } from "@/core/AssetsManager";
-
+import { elements, heros, icons } from "@/core/AssetsManager";
 
 export default function Home() {
     const courses = [
@@ -83,6 +82,33 @@ export default function Home() {
     ];
 
     const sponsorsImg = [
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
         elements.sponsor1,
         elements.sponsor2,
         elements.sponsor3,
@@ -165,18 +191,28 @@ export default function Home() {
                         <SharedCardWithShadow /> */}
                         </div>
                     </div>
+
+                    <WhySubmitSection></WhySubmitSection>
+                    <RegisterSectionWithVedio></RegisterSectionWithVedio>
+
                     <div className="py-20 ">
                         <h1 className="text-3xl text-center mb-16 font-semibold'">
                             Program At A Galance
                         </h1>
                         <div className="grid lg:grid-cols-2 gap-5">
                             {galance.map((item, index) => (
-                                <div key={index} className="bg-primary-light-800 px-9 py-16 rounded-xl text-muted ">
+                                <div
+                                    key={index}
+                                    className="bg-primary-light-800 px-9 py-16 rounded-xl text-muted "
+                                >
                                     <h1 className="text-2xl text-primary mb-10 ">
                                         {item.day}
                                     </h1>
                                     {item.program.map((item, index) => (
-                                        <div key={index} className="h-auto outline-input grid grid-cols-8 py-2 mb-6">
+                                        <div
+                                            key={index}
+                                            className="h-auto outline-input grid grid-cols-8 py-2 mb-6"
+                                        >
                                             <div className="col-span-3 border-primary border-r">
                                                 <h1 className="">
                                                     {item.date}
@@ -191,21 +227,39 @@ export default function Home() {
                             ))}
                         </div>
                     </div>
-                    <div className="py-20">
-                        <div className="flex justify-center gap-10 swipper ">
-                            {sponsorsImg.map((item, index) => (
-                                <div className="w-24 h-24 " key={index}>
-                                    <img
-                                        className="w-full h-full object-contain"
-                                        src={item.src}
-                                        alt=""
-                                    />
-                                </div>
-                            ))}
+                    <div className="py-20 overflow-hidden">
+                        <h1 className="lg:text-3xl text-2xl text-center mb-16 font-bold'">
+                            Join the 150+ companies trusting maxline company
+                        </h1>
+                        <div className="w-full  relative   before:absolute before:w-24 before:left-0 before:top-0 before:h-full before:content-['']  before:bg-gradient-to-r before:from-white  before:z-40 before:via-white/50 before:to-transparent after:z-40 after:absolute after:w-24 after:right-0 after:top-0 after:h-full after:content-['']  after:bg-gradient-to-r after:from-transparent after:via-white/50 after:to-white ">
+                            <div className="flex-grow-0 flex-shrink-0   flex animate-[swip_25s_linear_infinite] justify-center gap-5  ">
+                                {sponsorsImg.slice(0, 6).map((item, index) => (
+                                    <div
+                                        className="flex-grow-0 flex-shrink-0 w-[20%] h-20"
+                                        key={index}
+                                    >
+                                        <img
+                                            className="w-full h-full object-contain"
+                                            src={item.src}
+                                            alt=""
+                                        />
+                                    </div>
+                                ))}
+                                {sponsorsImg.slice(0, 6).map((item, index) => (
+                                    <div
+                                        className="flex-grow-0 flex-shrink-0 w-[20%] h-20"
+                                        key={index}
+                                    >
+                                        <img
+                                            className="w-full h-full object-contain"
+                                            src={item.src}
+                                            alt=""
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </div>
-                    <WhySubmitSection></WhySubmitSection>
-                    <RegisterSectionWithVedio></RegisterSectionWithVedio>
                 </div>
             </div>
         </>

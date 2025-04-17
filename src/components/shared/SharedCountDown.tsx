@@ -46,7 +46,7 @@ export default function () {
     }, []);
 
     return (
-        <div className="container  py-20">
+        <div className="container  pt-20">
             <div className="card-title text-center mb-16">
                 <h1 className="lg:text-4xl text-2xl font-medium mb-4">
                     THE COUNTDOWN
