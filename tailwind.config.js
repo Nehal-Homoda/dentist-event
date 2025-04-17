@@ -10,6 +10,15 @@ module.exports = {
     ],
     theme: {
         extend: {
+            keyframes: {
+                swip: {
+                    "0%": { transform: "translate-x-0" },
+                    "100%": { transform: "translate-x-full" },
+                },
+            },
+            animation:{
+              swipper:'swip 1s ease-in-out infinite '
+            },
             colors: {
                 background: "var(--color-background)",
                 foreground: " var(--color-foreground)",
