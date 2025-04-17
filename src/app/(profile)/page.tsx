@@ -20,12 +20,12 @@ export default function Home() {
             title: "Lorem Ipsum is simply dummy text of the printing",
         },
     ];
-
     const headerStats = [
         { amount: 500, title: "Visitors" },
         { amount: 150, title: "Speakers" },
         { amount: 1000, title: "Doctors" },
         { amount: 75, title: "Sponsors" },
+    ];
     const galance = [
         {
             day: "Thursday , May 22 , 2025",
@@ -54,7 +54,10 @@ export default function Home() {
         {
             day: "Thursday , May 22 , 2025",
             program: [
-                { date: "07 : 30 - 09:30 pm", course: "Master Classes Master Classes Master Classes Master Classes Master Classes  Master Classes  Master Classes  Master Classes " },
+                {
+                    date: "07 : 30 - 09:30 pm",
+                    course: "Master Classes Master Classes Master Classes Master Classes Master Classes  Master Classes  Master Classes  Master Classes ",
+                },
                 { date: "07 : 30 - 09:30 pm", course: "Master Classes" },
                 { date: "07 : 30 - 09:30 pm", course: "Master Classes" },
             ],
@@ -82,8 +85,6 @@ export default function Home() {
                 <header className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.4] bg-[url('@/assets/images/bg/header.png')] bg-no-repeat bg-cover bg-top">
                     <div className="w-full h-full bg-black/50 flex flex-col justify-end">
                         <div className="container ">
-
-
                             <div className="wrap flex gap-5 sm:gap-10 mb-5 md:mb-10">
                                 {/* CALENDER */}
                                 <div className=" sm:text-xl flex items-center gap-3">
