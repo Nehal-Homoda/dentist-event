@@ -7,6 +7,7 @@
     --color-foreground: #171717;
     --color-text-muted: #434343;
     --color-error: #f03939;
+   
     /* --color-button-gradient:linear-gradient(to right,rgb(217, 171, 82,1),rgba(240, 198, 119, 1)); */
 
     --color-primary: #d9ab52;
@@ -83,6 +84,6 @@ a {
         @apply h-10 px-3 rounded-lg border border-primary bg-background
     }
     .countDown-item{
-        @apply  lg:w-16 lg:aspect-[1/1.5] md:w-10 md:aspect-[1/1.5] w-8 aspect-[1/2] bg-gradient-to-b from-primary-light-400 to-primary text-background lg:text-3xl text-xl font-bold rounded-lg relative
+        @apply  lg:w-16 lg:aspect-[2/3] md:w-14 md:aspect-[2/3] w-9 aspect-[2/3.5] bg-gradient-to-b from-primary-light-400 to-primary text-background lg:text-3xl text-xl font-bold rounded-lg relative
     }
 }

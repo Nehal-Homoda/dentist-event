@@ -15,6 +15,7 @@ module.exports = {
               foreground: " var(--color-foreground)",
               muted: "var(--color-text-muted)",
               error: "var(--color-error)",
+           
               //   buttonGradient:"var(--color-button-gradient)",
               primary: {
                   DEFAULT: "var(--color-primary)",
