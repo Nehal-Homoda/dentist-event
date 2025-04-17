@@ -29,7 +29,7 @@ export default function SharedRegisterCard({
                 {programList.map((item, index) => (
                     <ul
                         key={index}
-                        className="text-secondary-500 flex items-center "
+                        className="text-secondary-500 flex "
                     >
                         <span className="mdi mdi-checkbox-marked-outline text-xl me-3"></span>
                         <span className="">{item}</span>

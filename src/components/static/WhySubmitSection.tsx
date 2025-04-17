@@ -28,11 +28,11 @@ export default function WhySubmitSection() {
                     </div>
                     <div className="md:col-span-3">
                         <p className=" text-sm font-semibold">Why Submit ?</p>
-                        <h3 className="text-3xl md:text-4xl mt-5 mb-5">
+                        <h2 className="section-title mt-5 mb-5">
                             Lorem Ipsum is
                             <br />
                             simply dummy text of printing
-                        </h3>
+                        </h2>
 
                         <p className="text-muted text-justify mb-10 lg:pe-20">
                             Lorem Ipsum  is simply dummy text of the printing
