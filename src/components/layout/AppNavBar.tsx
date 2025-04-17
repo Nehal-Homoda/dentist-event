@@ -7,8 +7,7 @@ import { elements,brand } from "@/core/AssetsManager";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BaseBtn from "@/components/Base/BaseBtn";
-import BaseOutlineBtn from "../Base/BaseOutlineBtn";
-import BaseRegisterCard from "../shared/SharedRegisterCard";
+
 
 const navLinks = [
     { name: "Home", link: RoutesManager.home },

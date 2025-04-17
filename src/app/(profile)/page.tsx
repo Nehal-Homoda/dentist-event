@@ -3,7 +3,9 @@ import SharedCountDown from "@/components/shared/SharedCountDown";
 import InterduceSection from "@/components/static/InterduceSection";
 import RegisterSectionWithVedio from "@/components/static/RegisterSectionWithVedio";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
-import { heros, icons } from "@/core/AssetsManager";
+
+import { elements, heros ,icons } from "@/core/AssetsManager";
+
 
 export default function Home() {
     const courses = [
@@ -78,6 +80,12 @@ export default function Home() {
                 { date: "07 : 30 - 09:30 pm", course: "Master Classes" },
             ],
         },
+    ];
+
+    const sponsorsImg = [
+        elements.sponsor1,
+        elements.sponsor2,
+        elements.sponsor3,
     ];
     return (
         <>
@@ -157,18 +165,18 @@ export default function Home() {
                         <SharedCardWithShadow /> */}
                         </div>
                     </div>
-                    <div className="py-20  ">
+                    <div className="py-20 ">
                         <h1 className="text-3xl text-center mb-16 font-semibold'">
                             Program At A Galance
                         </h1>
                         <div className="grid lg:grid-cols-2 gap-5">
                             {galance.map((item, index) => (
-                                <div className="bg-primary-light-800 px-9 py-16 rounded-xl text-muted ">
+                                <div key={index} className="bg-primary-light-800 px-9 py-16 rounded-xl text-muted ">
                                     <h1 className="text-2xl text-primary mb-10 ">
                                         {item.day}
                                     </h1>
                                     {item.program.map((item, index) => (
-                                        <div className="h-auto outline-input grid grid-cols-8 py-2 mb-6">
+                                        <div key={index} className="h-auto outline-input grid grid-cols-8 py-2 mb-6">
                                             <div className="col-span-3 border-primary border-r">
                                                 <h1 className="">
                                                     {item.date}
@@ -179,6 +187,19 @@ export default function Home() {
                                             </div>
                                         </div>
                                     ))}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className="py-20">
+                        <div className="flex justify-center gap-10 swipper ">
+                            {sponsorsImg.map((item, index) => (
+                                <div className="w-24 h-24 " key={index}>
+                                    <img
+                                        className="w-full h-full object-contain"
+                                        src={item.src}
+                                        alt=""
+                                    />
                                 </div>
                             ))}
                         </div>
