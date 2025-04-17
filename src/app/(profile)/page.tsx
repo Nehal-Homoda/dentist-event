@@ -20,7 +20,6 @@ export default function Home() {
             title: "Lorem Ipsum is simply dummy text of the printing",
         },
     ];
-
     const headerStats = [
         { amount: 500, title: "Visitors" },
         { amount: 150, title: "Speakers" },
