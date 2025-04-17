@@ -48,7 +48,7 @@ export default function Home() {
         {
             day: "Thursday , May 22 , 2025",
             program: [
-                { date: "07 : 30 - 09:30 pm", course: "Master Classes" },
+                { date: "07 : 30 - 09:30 pm", course: "Master Classes Master Classes Master Classes Master Classes Master Classes  Master Classes  Master Classes  Master Classes " },
                 { date: "07 : 30 - 09:30 pm", course: "Master Classes" },
                 { date: "07 : 30 - 09:30 pm", course: "Master Classes" },
             ],
@@ -106,14 +106,14 @@ export default function Home() {
                                         {item.day}
                                     </h1>
                                     {item.program.map((item, index) => (
-                                        <div className="outline-input grid grid-cols-8 items-center mb-6">
-                                            <div className="col-span-3">
-                                                <h1 className=" border-primary border-r ">
+                                        <div className="h-auto outline-input grid grid-cols-8 py-2 mb-6">
+                                            <div className="col-span-3 border-primary border-r">
+                                                <h1 className="">
                                                     {item.date}
                                                 </h1>
                                             </div>
                                             <div className="col-span-5 ms-5">
-                                                {item.course}
+                                                <div>{item.course}</div>
                                             </div>
                                         </div>
                                     ))}
