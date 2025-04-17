@@ -3,10 +3,10 @@ import { elements } from "@/core/AssetsManager";
 import React, { useEffect, useState } from "react";
 
 export default function () {
-    const [day, setDay] = useState("00-");
-    const [hour, setHour] = useState("00");
-    const [minute, setMinute] = useState("00");
-    const [second, setSecond] = useState("00");
+    const [day, setDay] = useState("0");
+    const [hour, setHour] = useState("0");
+    const [minute, setMinute] = useState("0");
+    const [second, setSecond] = useState("0");
 
     // const countDown = () => {
     //     const endsAt = "2025-06-03";
@@ -63,7 +63,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                45
+                                5
                             </span>
                         </div>
                     </div>
@@ -82,7 +82,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                45
+                                5
                             </span>
                         </div>
                     </div>
@@ -101,7 +101,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                45
+                                6
                             </span>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                45
+                             6
                             </span>
                         </div>
                     </div>

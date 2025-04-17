@@ -1,11 +1,25 @@
 import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
+import SharedCountDown from "@/components/shared/SharedCountDown";
 import InterduceSection from "@/components/static/InterduceSection";
 import RegisterSectionWithVedio from "@/components/static/RegisterSectionWithVedio";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
+import { heros } from "@/core/AssetsManager";
 
 export default function Home() {
-
-    const courses=[{image:''}]
+    const courses = [
+        {
+            image: heros.interduce_thumbnail.src,
+            title: "Lorem Ipsum is simply dummy text of the printing",
+        },
+        {
+            image: heros.interduce_thumbnail.src,
+            title: "Lorem Ipsum is simply dummy text of the printing",
+        },
+        {
+            image: heros.interduce_thumbnail.src,
+            title: "Lorem Ipsum is simply dummy text of the printing",
+        },
+    ];
     return (
         <>
             <div className="home-page">
@@ -13,10 +27,23 @@ export default function Home() {
 
                 <div className="container">
                     <InterduceSection></InterduceSection>
-                    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container gap-10 mt-10">
-                        <SharedCardWithShadow />
-                        <SharedCardWithShadow />
-                        <SharedCardWithShadow />
+                    <SharedCountDown/>
+                    <div className="">
+                        <h1 className="text-2xl text-center mb-16 ">
+                            Lorem Ipsum is <br />
+                            simply dummy text of the printing{" "}
+                        </h1>
+                        <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 container gap-10 mt-10">
+                            {courses.map((item, index) => (
+                                <SharedCardWithShadow
+                                    key={index}
+                                    image={item.image}
+                                    title={item.title}
+                                />
+                            ))}
+                            {/* <SharedCardWithShadow />
+                        <SharedCardWithShadow /> */}
+                        </div>
                     </div>
                     <WhySubmitSection></WhySubmitSection>
                     <RegisterSectionWithVedio></RegisterSectionWithVedio>
