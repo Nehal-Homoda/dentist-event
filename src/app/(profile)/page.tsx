@@ -231,7 +231,7 @@ export default function Home() {
                         <h1 className="lg:text-3xl text-2xl text-center mb-16 font-bold'">
                             Join the 150+ companies trusting maxline company
                         </h1>
-                        <div className="w-full  relative   before:absolute before:w-5 before:left-0 before:top-0 before:h-full before:content-['']  before:bg-gradient-to-r before:from-transparent before:to-black/10 after:absolute after:w-5 after:right-0 after:top-0 after:h-full after:content-['']  after:bg-gradient-to-r after:from-transparent after:to-black/10 ">
+                        <div className="w-full  relative   before:absolute before:w-24 before:left-0 before:top-0 before:h-full before:content-['']  before:bg-gradient-to-r before:from-white  before:z-40 before:via-white/50 before:to-transparent after:z-40 after:absolute after:w-24 after:right-0 after:top-0 after:h-full after:content-['']  after:bg-gradient-to-r after:from-transparent after:via-white/50 after:to-white ">
                             <div className="flex-grow-0 flex-shrink-0   flex animate-[swip_25s_linear_infinite] justify-center gap-5  ">
                                 {sponsorsImg.slice(0, 6).map((item, index) => (
                                     <div
