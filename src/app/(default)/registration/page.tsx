@@ -3,6 +3,7 @@ import React from "react";
 import { bg, elements, heros } from "@/core/AssetsManager";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
+import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
 
 const cards = [
     {
@@ -153,6 +154,7 @@ export default function page() {
         <>
             <div className="">
                <SharedHeader pageName="Registeration"/>
+              
                 <div className="container">
                     {packages.map((packageItem, packageIndex) => {
                         return (
