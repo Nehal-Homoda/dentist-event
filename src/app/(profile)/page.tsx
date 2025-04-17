@@ -28,7 +28,7 @@ export default function Home() {
                 <div className="container">
                     <InterduceSection></InterduceSection>
                     <SharedCountDown/>
-                    <div className="">
+                    <div className="py-20">
                         <h1 className="text-2xl text-center mb-16 ">
                             Lorem Ipsum is <br />
                             simply dummy text of the printing{" "}
