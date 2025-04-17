@@ -60,7 +60,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                     </div>
                 )}
                 <div
-                    className={` ${
+                    className={`overflow-auto  ${
                         colorInverted
                             ? "bg-primary-light "
                             : "bg-white text-primary rounded-md gap-12"
