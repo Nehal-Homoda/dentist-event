@@ -160,14 +160,14 @@ export default function page() {
                         return (
                             <div key={packageIndex} className="py-20">
                                 <div className="card-title text-center mb-10">
-                                    <h1 className="lg:text-4xl text-3xl font-semibold mb-4">
+                                    <h2 className="section-title mb-5">
                                         {packageItem.title}
-                                    </h1>
+                                    </h2>
                                     <span className="lg:text-2xl text-xl  text-secondary-400">
                                         {packageItem.date}
                                     </span>
                                 </div>
-                                <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-14 container ">
+                                <div className="grid md:grid-cols-3 gap-5 sm:gap-3 xl:gap-14 container ">
                                     {packageItem.offers.map((item, index) => (
                                         <div key={index} className="">
                                             <BaseRegisterCard

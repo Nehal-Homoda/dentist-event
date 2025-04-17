@@ -8,11 +8,11 @@ export default function RegisterSectionWithVedio() {
             <div className="my-20 bg-gradient-to-br from-primary to-primary-light flex flex-col-reverse lg:flex-row  rounded-xl overflow-hidden">
                 <div className="lg:w-[45%] h-full py-20 px-10 text-white">
                     <p className=" text-sm font-semibold">Watch Some Video</p>
-                    <h3 className="text-3xl lg:text-4xl mt-5 mb-5">
+                    <h2 className="section-title mt-5 mb-5">
                         What is Lorem
                         <br />
                         Ipsum?
-                    </h3>
+                    </h2>
 
                     <p className="text-justify mb-10 lg:pe-10">
                         Lorem Ipsum  is simply dummy text of the printing and

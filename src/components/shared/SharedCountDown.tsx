@@ -48,9 +48,9 @@ export default function () {
     return (
         <div className="container  pt-20">
             <div className="card-title text-center mb-16">
-                <h1 className="lg:text-4xl text-2xl font-medium mb-4">
+                <h2 className="section-title uppercase">
                     THE COUNTDOWN
-                </h1>
+                </h2>
             </div>
 
             <div className="flex justify-center mx-auto  mb-5   lg:gap-4 md:gap-2 gap-1">

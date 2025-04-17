@@ -18,11 +18,11 @@ export default function InterduceSection() {
                     </button>
                 </div>
                 <div className="lg:col-span-3">
-                    <h3 className="text-3xl lg:text-4xl mb-5">
+                    <h2 className="section-title mb-5">
                         A Welcome Message from 
                         <br />
                         the <span className="text-primary">EAOMS</span> President
-                    </h3>
+                    </h2>
 
                     <p className="text-justify text-muted mb-10 lg:pe-28 leading-7">
                         Lorem Ipsum  is simply dummy text of the printing and
