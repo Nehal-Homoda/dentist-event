@@ -1,5 +1,6 @@
 import React from "react";
 import BaseOutlineBtn from "../Base/BaseOutlineBtn";
+import BaseRadioGroup from "../Base/BaseRadioGroup";
 
 type Props = {
     image: string;
@@ -26,15 +27,17 @@ export default function SharedRegisterCard({
                 <p className="text-primary font-semibold text-3xl">{price}</p>
             </div>
             <div className="mb-5 ">
-                {programList.map((item, index) => (
-                    <ul
-                        key={index}
-                        className="text-secondary-500 flex "
-                    >
-                        <span className="mdi mdi-checkbox-marked-outline text-xl me-3"></span>
-                        <span className="">{item}</span>
-                    </ul>
-                ))}
+                {/* {programList.map((item, index) => (
+                    // <ul
+                    //     key={index}
+                    //     className="text-secondary-500 flex "
+                    // >
+                    //     <span className="mdi mdi-checkbox-marked-outline text-xl me-3"></span>
+                    //     <span className="">{item}</span>
+                    // </ul>
+                    <BaseRadioGroup key={index}></BaseRadioGroup>
+                ))} */}
+                <BaseRadioGroup></BaseRadioGroup>
             </div>
             <BaseOutlineBtn>
                 <span>Get Now</span>
