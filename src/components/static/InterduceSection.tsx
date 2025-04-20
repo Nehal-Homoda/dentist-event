@@ -1,5 +1,5 @@
 import React from "react";
-import { heros } from "@/core/AssetsManager";
+import { brand, heros } from "@/core/AssetsManager";
 import BaseBtn from "../Base/BaseBtn";
 
 export default function InterduceSection() {
@@ -12,10 +12,9 @@ export default function InterduceSection() {
                         alt=""
                         className="w-full h-full object-cover"
                     />
-
-                    <button className="play-btn w-16 h-16 text-4xl ps-2 text-primary bg-white rounded-full absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
+                    {/* <button className="play-btn w-16 h-16 text-4xl ps-2 text-primary bg-white rounded-full absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
                         <span className="mdi mdi-play-outline"></span>
-                    </button>
+                    </button> */}
                 </div>
                 <div className="lg:col-span-3">
                     <h2 className="section-title mb-5">

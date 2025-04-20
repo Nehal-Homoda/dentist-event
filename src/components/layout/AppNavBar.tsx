@@ -34,7 +34,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
         <>
             <div className="container absolute z-30 left-[50%] -translate-x-[50%]  top-10 ">
                 {isWithSponsors && (
-                    <div className="w-full bg-background flex justify-between items-center  px-12 ">
+                    <div className="w-full bg-background flex justify-between items-center px-3 lg:px-12 ">
                         <div className="w-24 h-24">
                             <img
                                 src={brand.logo_text.src}
@@ -43,7 +43,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                             />
                         </div>
 
-                        {sponsorsImg.map((item, index) => (
+                        {/* {sponsorsImg.map((item, index) => (
                             <div key={index} className="w-28 h-28 ">
                                 <img
                                     className="w-full h-full object-contain"
@@ -51,7 +51,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                                     alt=""
                                 />
                             </div>
-                        ))}
+                        ))} */}
                         <BaseBtn isWithArrow={false}>
                             <span>Register Now !</span>
                         </BaseBtn>
@@ -64,7 +64,8 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                         colorInverted
                             ? "bg-primary-light "
                             : "bg-white text-primary rounded-md gap-12"
-                    }  text-background  flex justify-between   px-12 py-4`}
+                    }  text-background  flex gap-7 px-5  lg:px-12 py-4`}
+                    // }  text-background  flex justify-between px-5  lg:px-12 py-4`}
                 >
                     {navLinks.map((item, index) => (
                         <Link
