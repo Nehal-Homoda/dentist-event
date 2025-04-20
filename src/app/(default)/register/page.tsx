@@ -6,24 +6,17 @@ import { brand, icons } from '@/core/AssetsManager'
 import Link from 'next/link'
 import React from 'react'
 
-export default function loginpage() {
+export default function page() {
     return (
         <div>
-            <SharedHeader pageName="Login" />
+
+            <SharedHeader pageName="Register" />
             <div className="grid md:grid-cols-10 container py-20 ">
-                <FormCard colNum="md:col-span-6 md:order-1 order-2" title='Sign-In' actionName='Sign In'>
+                <FormCard colNum="md:col-span-6 md:order-1 order-2" title='Registration for EAOMS Members' actionName='Send Now'>
                     <div className="grid md:grid-cols-2 gap-4 mb-4">
-                        <input className="outline-input" type="text" placeholder="enter usename" />
-                        <input className="outline-input" type="text" placeholder="enter usename" />
+                  
                     </div>
-                    <div className="text-center mb-5">
-                        <p className="text-primary mb-4">Or sign in with</p>
-                        <div className="w-10 h-10 mx-auto mb-2">
-                            <img className="w-full h-full object-contain" src={icons.google_icon.src} alt="" />
-                        </div>
-                        <h2 className="text-primary ">Don't have account ?</h2>
-                        <Link className="underline" href="">Create your account</Link>
-                    </div>
+                    
 
 
                 </FormCard>
@@ -36,6 +29,9 @@ export default function loginpage() {
 
             </div>
             <SharedCountDown />
+
+
+
         </div>
     )
 }
