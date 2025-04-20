@@ -102,6 +102,9 @@ a {
     .section-title {
         @apply lg:text-4xl text-3xl mb-12 font-medium;
     }
+    .base-input {
+        @apply w-full bg-white rounded-lg border-none outline-none px-3 h-9 ring-1 ring-primary placeholder:text-xs
+    }
 }
 @keyframes swip {
     0% {
