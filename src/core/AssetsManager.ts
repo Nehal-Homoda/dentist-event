@@ -9,9 +9,11 @@ export const brand = {
 //========= [ICONS]
 import icon_calender_colorful from '@/assets/images/icons/icon-calendar-colorful.png'
 import icon_location_colorful from '@/assets/images/icons/icon-location-colorful.png'
+import google_icon from '@/assets/images/icons/google-icon.png'
 export const icons = {
     icon_calender_colorful,
-    icon_location_colorful
+    icon_location_colorful,
+    google_icon
 };
 //========= [BG]
 import footer_bg from "@/assets/images/bg/footer-bg.png";

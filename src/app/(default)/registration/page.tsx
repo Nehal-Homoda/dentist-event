@@ -1,9 +1,11 @@
 import BaseRegisterCard from "@/components/shared/SharedRegisterCard";
 import React from "react";
-import { bg, elements, heros } from "@/core/AssetsManager";
+import { bg, brand, elements, heros, icons } from "@/core/AssetsManager";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
+import BaseBtn from "@/components/Base/BaseBtn";
+import Link from "next/link";
 
 const cards = [
     {
@@ -153,8 +155,12 @@ export default function page() {
     return (
         <>
             <div className="">
-               <SharedHeader pageName="Registeration"/>
-              
+                <SharedHeader pageName="Registeration" />
+
+             
+
+
+
                 <div className="container">
                     {packages.map((packageItem, packageIndex) => {
                         return (
