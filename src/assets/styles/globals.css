@@ -20,7 +20,7 @@
 
     /* --color-button-gradient:linear-gradient(to right,rgb(217, 171, 82,1),rgba(240, 198, 119, 1)); */
 
-    --color-primary: #d9ab52;
+    --color-primary: 217, 171, 82;
     --color-primary-100: #c39a4a;
     --color-primary-200: #ae8942;
     --color-primary-300: #987839;

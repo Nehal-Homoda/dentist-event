@@ -20,7 +20,7 @@ module.exports = {
 
                 //   buttonGradient:"var(--color-button-gradient)",
                 primary: {
-                    DEFAULT: "var(--color-primary)",
+                    DEFAULT: "rgba(var(--color-primary))",
                     100: "var(--color-primary-100)",
                     200: "var(--color-primary-200)",
                     300: "var(--color-primary-300)",

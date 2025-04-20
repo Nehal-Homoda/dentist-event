@@ -12,13 +12,23 @@ import BaseBtn from "@/components/Base/BaseBtn";
 const navLinks = [
     { name: "Home", link: RoutesManager.home },
     { name: "Registration", link: RoutesManager.registration },
-    { name: "Schedule", link: RoutesManager.schedule },
-    { name: "Abstract", link: RoutesManager.abstract },
-    { name: "about", link: RoutesManager.about },
-    { name: "accomedation", link: RoutesManager.accomedation },
-    { name: "sponsors", link: RoutesManager.sponsors },
-    { name: "profile", link: RoutesManager.profile },
+    { name: "Schedule", link: '' },
+    { name: "Abstract", link: '' },
+    { name: "about", link: '' },
+    { name: "accomedation", link: '' },
+    { name: "sponsors", link: '' },
+    { name: "profile", link: '' },
 ];
+// const navLinks = [
+//     { name: "Home", link: RoutesManager.home },
+//     { name: "Registration", link: RoutesManager.registration },
+//     { name: "Schedule", link: RoutesManager.schedule },
+//     { name: "Abstract", link: RoutesManager.abstract },
+//     { name: "about", link: RoutesManager.about },
+//     { name: "accomedation", link: RoutesManager.accomedation },
+//     { name: "sponsors", link: RoutesManager.sponsors },
+//     { name: "profile", link: RoutesManager.profile },
+// ];
 
 
 type Props = {

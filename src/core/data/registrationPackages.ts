@@ -1,114 +1,146 @@
 import { heros } from "@/core/AssetsManager";
+import type { RegistrationPackage } from "@/types/shared";
 
-export const REGISTRATION_PACKAGES_OFFERS = {
-    packages: [
-        {
-            title: "Early Bird Registration",
-            date: "March 17, 2025",
-            offers: [
-                {
-                    title: "EAOMS Members",
-                    price: "$150",
-                    image: heros.package_card_img_1.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Non IAOMS Members",
-                    price: "$250",
-                    image: heros.package_card_img_2.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Trainees / Residents",
-                    price: "$170",
-                    image: heros.package_card_img_3.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-            ],
-        },
-        {
-            title: "Regular Registration",
-            date: "March 18 - May 14, 2025",
-            offers: [
-                {
-                    title: "EAOMS Members",
-                    price: "$150",
-                    image: heros.package_card_img_1.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Non IAOMS Members",
-                    price: "$250",
-                    image: heros.package_card_img_2.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Trainees / Residents",
-                    price: "$170",
-                    image: heros.package_card_img_3.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-            ],
-        },
-        {
-            title: "Late/On-Site Registration",
-            date: "May 15 - May 25, 2025",
-            offers: [
-                {
-                    title: "EAOMS Members",
-                    price: "$150",
-                    image: heros.package_card_img_1.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Non IAOMS Members",
-                    price: "$250",
-                    image: heros.package_card_img_2.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Trainees / Residents",
-                    price: "$170",
-                    image: heros.package_card_img_3.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-            ],
-        },
-    ],
-};
+
+
+
+export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
+    {
+        title: "Early Bird Registration",
+        description: "March 17, 2025",
+        offers: [
+            {
+                title: "Egyption Member",
+                price: "$150",
+                image: heros.package_card_img_1.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Egyption Non-Member",
+                price: "$250",
+                image: heros.package_card_img_2.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Non-Egyption Member",
+                price: "$170",
+                image: heros.package_card_img_3.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Non-Egyption Non-Member",
+                price: "$170",
+                image: heros.package_card_img_4.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+        ],
+    },
+    {
+        title: "Early Bird Registration",
+        description: "March 17, 2025",
+        offers: [
+            {
+                title: "Egyption Member",
+                price: "$150",
+                image: heros.package_card_img_1.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Egyption Non-Member",
+                price: "$250",
+                image: heros.package_card_img_2.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Non-Egyption Member",
+                price: "$170",
+                image: heros.package_card_img_3.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Non-Egyption Non-Member",
+                price: "$170",
+                image: heros.package_card_img_4.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+        ],
+    },
+    {
+        title: "Early Bird Registration",
+        description: "March 17, 2025",
+        offers: [
+            {
+                title: "Egyption Member",
+                price: "$150",
+                image: heros.package_card_img_1.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Egyption Non-Member",
+                price: "$250",
+                image: heros.package_card_img_2.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Non-Egyption Member",
+                price: "$170",
+                image: heros.package_card_img_3.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+            {
+                title: "Non-Egyption Non-Member",
+                price: "$170",
+                image: heros.package_card_img_4.src,
+                programs: [
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_2" },
+                    { title: "$500", subtitle: "Till, 17 Jul", id: "offer_3" },
+                ],
+            },
+        ],
+    },
+];
