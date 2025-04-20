@@ -48,6 +48,7 @@ import interduce_thumbnail from "@/assets/images/heros/intreduce-vedio-thumbnail
 import package_card_img_1 from '@/assets/images/heros/package-card-img-1.png';
 import package_card_img_2 from '@/assets/images/heros/package-card-img-2.png';
 import package_card_img_3 from '@/assets/images/heros/package-card-img-3.png';
+import package_card_img_4 from '@/assets/images/heros/package-card-img-4.png';
 
 export const heros = {
     why_submit,
@@ -56,4 +57,5 @@ export const heros = {
     package_card_img_1,
     package_card_img_2,
     package_card_img_3,
+    package_card_img_4
 };
