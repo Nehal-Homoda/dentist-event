@@ -1,154 +1,13 @@
 import BaseRegisterCard from "@/components/shared/SharedRegisterCard";
 import React from "react";
-import { bg, elements, heros } from "@/core/AssetsManager";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
-import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
+import { REGISTRATION_PACKAGES_OFFERS } from "@/core/data/registrationPackages";
 
-const cards = [
-    {
-        title: "EAOMS Members",
-        price: "$150",
-        image: heros.why_submit.src,
-        programs: [
-            "Lorem  Ipsum ",
-            "Your Startup",
-            "Winning Metric for Your Startup",
-        ],
-    },
-    {
-        title: "Non IAOMS Members",
-        price: "$250",
-        image: heros.why_submit.src,
-        programs: [
-            "Lorem  Ipsum ",
-            "Your Startup",
-            "Winning Metric for Your Startup",
-        ],
-    },
-    {
-        title: "Trainees / Residents",
-        price: "$170",
-        image: heros.why_submit.src,
-        programs: [
-            "Lorem  Ipsum ",
-            "Your Startup",
-            "Winning Metric for Your Startup",
-        ],
-    },
-];
-// const programList = ["asa", "adad", "ads"];
+
 export default function page() {
-    const packages = [
-        {
-            title: "Early Bird Registration",
-            date: "March 17, 2025",
-            offers: [
-                {
-                    title: "EAOMS Members",
-                    price: "$150",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Non IAOMS Members",
-                    price: "$250",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Trainees / Residents",
-                    price: "$170",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-            ],
-        },
-        {
-            title: "Regular Registration",
-            date: "March 18 - May 14, 2025",
-            offers: [
-                {
-                    title: "EAOMS Members",
-                    price: "$150",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Non IAOMS Members",
-                    price: "$250",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Trainees / Residents",
-                    price: "$170",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-            ],
-        },
-        {
-            title: "Late/On-Site Registration",
-            date: "May 15 - May 25, 2025",
-            offers: [
-                {
-                    title: "EAOMS Members",
-                    price: "$150",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Non IAOMS Members",
-                    price: "$250",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-                {
-                    title: "Trainees / Residents",
-                    price: "$170",
-                    image: heros.why_submit.src,
-                    programs: [
-                        "Lorem  Ipsum ",
-                        "Your Startup",
-                        "Winning Metric for Your Startup",
-                    ],
-                },
-            ],
-        },
-    ];
+
+    const { packages } =  REGISTRATION_PACKAGES_OFFERS
 
     return (
         <>
@@ -171,7 +30,7 @@ export default function page() {
                                     {packageItem.offers.map((item, index) => (
                                         <div key={index} className="">
                                             <BaseRegisterCard
-                                                image={heros.why_submit.src}
+                                                image={item.image}
                                                 price={item.price}
                                                 programList={item.programs}
                                                 userTypeTitle={item.title}

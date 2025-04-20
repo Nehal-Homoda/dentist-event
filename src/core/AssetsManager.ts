@@ -43,8 +43,15 @@ export const elements = {
 import why_submit from "@/assets/images/heros/why-submit.png";
 import register_with_video_thumbnail from "@/assets/images/heros/register-with-vedio-thumbnail.png";
 import interduce_thumbnail from "@/assets/images/heros/intreduce-vedio-thumbnail.png";
+import package_card_img_1 from '@/assets/images/heros/package-card-img-1.png';
+import package_card_img_2 from '@/assets/images/heros/package-card-img-2.png';
+import package_card_img_3 from '@/assets/images/heros/package-card-img-3.png';
+
 export const heros = {
     why_submit,
     register_with_video_thumbnail,
-    interduce_thumbnail
+    interduce_thumbnail,
+    package_card_img_1,
+    package_card_img_2,
+    package_card_img_3,
 };
