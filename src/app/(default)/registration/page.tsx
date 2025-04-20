@@ -1,5 +1,7 @@
 import BaseRegisterCard from "@/components/shared/SharedRegisterCard";
 import React from "react";
+
+import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import { REGISTRATION_PACKAGES_OFFERS } from "@/core/data/registrationPackages";
@@ -12,8 +14,12 @@ export default function page() {
     return (
         <>
             <div className="">
-               <SharedHeader pageName="Registeration"/>
-              
+                <SharedHeader pageName="Registeration" />
+
+             
+
+
+
                 <div className="container">
                     {packages.map((packageItem, packageIndex) => {
                         return (
