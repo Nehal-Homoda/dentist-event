@@ -14,7 +14,7 @@ type Props = {
 export default function
     ({ children, title, actionName,colNum }: Props) {
     return (
-        <div className={` ${colNum} 'bg-primary-light-800 px-5 py-7 rounded-2xl'`}>
+        <div className={` ${colNum} bg-primary-light-800 px-5 py-7 rounded-2xl`}>
             <h2 className="mb-5 text-primary text-2xl">{title}</h2>
             {children}
             <BaseBtn minWidth="w-40">
