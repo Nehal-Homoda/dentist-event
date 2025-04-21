@@ -19,7 +19,7 @@ export default function page() {
                 >
                     <SharedUploadPhoto></SharedUploadPhoto>
                     <p className="text-primary mt-2 mb-6">Profile Photo</p>
-                    <div className="grid md:grid-cols-2 gap-4 mb-4">
+                    <div className="grid md:grid-cols-2 gap-4 mb-16">
                         <input
                             type="text"
                             className="outline-input col-span-2"
