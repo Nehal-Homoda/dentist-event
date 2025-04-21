@@ -1,13 +1,27 @@
+"use client";
+
 import BaseBtn from "@/components/Base/BaseBtn";
 import FormCard from "@/components/Base/FormCard";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
-import { brand, icons } from "@/core/AssetsManager";
+import { brand, elements, heros, icons } from "@/core/AssetsManager";
 
-import React from "react";
+import React, { useState } from "react";
 
 export default function page() {
+    const [imageSentFromChild, setImageSentFromChild] = useState(null);
+    const imageChanged = (e) => {
+        const file = e;
+        const reader = new FileReader();
+        if (file) {
+            reader.onloadend = () => {
+                setImageSentFromChild(reader.result);
+            };
+            reader.readAsDataURL(file);
+        }
+        setImageSentFromChild(e);
+    };
     return (
         <div>
             <SharedHeader pageName="Register" />
@@ -17,7 +31,14 @@ export default function page() {
                     title="Registration for EAOMS Members"
                     actionName="Send Now"
                 >
-                    <SharedUploadPhoto></SharedUploadPhoto>
+                    <SharedUploadPhoto
+                        imageUploaded={
+                            imageSentFromChild
+                                ? imageSentFromChild
+                                : elements.sponsor2.src
+                        }
+                        changeImageUploaded={imageChanged}
+                    ></SharedUploadPhoto>
                     <p className="text-primary mt-2 mb-6">Profile Photo</p>
                     <div className="grid md:grid-cols-2 gap-4 mb-16">
                         <input
@@ -77,11 +98,11 @@ export default function page() {
                         <input className="outline-input py-1" type="file" />
                     </div>
                 </FormCard>
-                <div className="md:col-span-4 md:order-2 order-1 mx-auto my-auto ">
-                    <div className="lg:w-72 lg:h-72 w-52 h-52">
+                <div className="md:col-span-4 md:order-2 order-1 mx-auto my-20">
+                    <div className="w-[80%] ">
                         <img
                             className="w-full h-full object-contain"
-                            src={brand.logo_text.src}
+                            src={heros.register_img.src}
                             alt=""
                         />
                     </div>
