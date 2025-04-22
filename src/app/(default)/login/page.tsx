@@ -4,6 +4,7 @@ import FormCard from "@/components/Base/FormCard";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import { brand, icons } from "@/core/AssetsManager";
+import { validateAllInputs, validateInput } from "@/utils/shared";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import * as Yup from "yup";
@@ -31,53 +32,54 @@ export default function loginpage() {
         password: Yup.string().required().min(8),
     });
 
-    const validateAllInputs = async () => {
-        try {
-            // Form Is Valid
-            await formSchema.validate(formData, { abortEarly: false });
+    // const validateAllInputs = async () => {
+    //     try {
+    //         // Form Is Valid
+    //         await formSchema.validate(formData, { abortEarly: false });
 
-            formErrors.username = null;
-            formErrors.password = null;
-        } catch (err) {
-            // Form Is Invalid
-            if (err instanceof Yup.ValidationError == false) return;
+    //         formErrors.username = null;
+    //         formErrors.password = null;
+    //     } catch (err) {
+    //         // Form Is Invalid
+    //         if (err instanceof Yup.ValidationError == false) return;
 
-            const newErrors: Record<string, string> = {};
+    //         const newErrors: Record<string, string> = {};
 
-            err.inner.forEach((error) => {
-                if (error.path) {
-                    newErrors[error.path] = error.message;
-                }
-            });
+    //         err.inner.forEach((error) => {
+    //             if (error.path) {
+    //                 newErrors[error.path] = error.message;
+    //             }
+    //         });
 
-            setFormErrors({
-                username: newErrors["username"] ? newErrors["username"] : null,
-                password: newErrors["password"] ? newErrors["password"] : null,
-            });
-        }
-    };
-    const validateInput = async (
-        inputName: keyof FormDataInputs,
-        newValue: string
-    ) => {
-        try {
-            const newFormDataToCheck = { ...formData, [inputName]: newValue };
+    //         setFormErrors({
+    //             username: newErrors["username"] ? newErrors["username"] : null,
+    //             password: newErrors["password"] ? newErrors["password"] : null,
+    //         });
+    //     }
+    // };
 
-            await formSchema.validateAt(inputName, newFormDataToCheck);
+    // const validateInput = async (
+    //     inputName: keyof FormDataInputs,
+    //     newValue: string
+    // ) => {
+    //     try {
+    //         const newFormDataToCheck = { ...formData, [inputName]: newValue };
 
-            setFormErrors((prev) => ({
-                ...prev,
-                [inputName]: "",
-            }));
-        } catch (err) {
-            if (err instanceof Yup.ValidationError == false) return;
+    //         await formSchema.validateAt(inputName, newFormDataToCheck);
 
-            setFormErrors((prev) => ({
-                ...prev,
-                [inputName]: err.message,
-            }));
-        }
-    };
+    //         setFormErrors((prev) => ({
+    //             ...prev,
+    //             [inputName]: "",
+    //         }));
+    //     } catch (err) {
+    //         if (err instanceof Yup.ValidationError == false) return;
+
+    //         setFormErrors((prev) => ({
+    //             ...prev,
+    //             [inputName]: err.message,
+    //         }));
+    //     }
+    // };
     const inputChangeHandler = async (
         e: React.ChangeEvent<HTMLInputElement>,
         inputName: keyof FormDataInputs
@@ -89,17 +91,30 @@ export default function loginpage() {
             [inputName]: value,
         }));
 
-        await validateInput(inputName, value);
+        const message = await validateInput(formSchema, inputName, value);
+
+        setFormErrors((prev) => ({
+            ...prev,
+            [inputName]: message ? message : "",
+        }));
     };
     const submit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        await validateAllInputs();
+        const messages = await validateAllInputs<FormDataInputs>(formSchema, formData);
+
+
+        if (messages) {
+
+            setFormErrors({...messages})
+        }
 
         if (formErrors.password || formErrors.username) return;
         if (!formData.password || !formData.username) return;
+
+        
         console.log("submitted");
-        console.log('submitted', {...formData})
+        console.log("submitted", { ...formData });
     };
 
     useEffect(() => {
@@ -161,7 +176,7 @@ export default function loginpage() {
                             <h2 className="text-primary ">
                                 Don't have account ?
                             </h2>
-                            <Link className="underline" href="">
+                            <Link className="underline" href="/registerForm">
                                 Create your account
                             </Link>
                         </div>
