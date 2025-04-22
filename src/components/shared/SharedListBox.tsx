@@ -9,9 +9,9 @@ import React, { useEffect, useState } from "react";
 
 type Props = {
     items: any[];
-    itemTitle: string;
-    itemValue: string;
-    handleChangeOption: (selectedOption) => void;
+    itemTitle?: string;
+    itemValue?: string;
+    handleChangeOption: (selectedOption:any) => void;
 };
 
 export default function SharedListBox({
@@ -20,9 +20,10 @@ export default function SharedListBox({
     itemValue,
     handleChangeOption,
 }: Props) {
-    const changeSelectedOption = (e) => {
+    const changeSelectedOption = (e:any) => {
         setSelected(e);
-        console.log(e);
+        handleChangeOption(e)
+       
     };
 
     const [selected, setSelected] = useState<any>(null);
@@ -32,22 +33,27 @@ export default function SharedListBox({
 
     
     useEffect(() => {
-      const selectedObj = items.find((item, index) => {
+      const result = items.find((item, index) => {
+        if(!itemValue){
+          return item==selected
+        } 
         return item[itemValue] == selected;
+
       });
-      if (!selectedObj) {
+
+      if (!result) {
         setSelectedObj(items[0]);
         return
       }
-      setSelectedObj(selectedObj)
-      console.log(selectedObj);
-    });
+      setSelectedObj(result)
+      console.log(result);
+    },[selected]);
 
     return (
         <div className="outline-input">
             <Listbox value={selected} onChange={changeSelectedOption}>
                 <ListboxButton className="relative block w-full h-full rounded-lg  py-1.5 pr-8 pl-3 text-left text-sm/6 text-black focus:border-none focus:outline-none">
-                    { selectedObj ? selectedObj[itemTitle] :''}
+                    {selectedObj && itemTitle && selectedObj[itemTitle]  ? selectedObj[itemTitle] : selectedObj}
                     <span className="mdi mdi-menu-down group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"></span>
                 </ListboxButton>
                 <ListboxOptions
@@ -58,11 +64,11 @@ export default function SharedListBox({
                     {items.map((item, index) => (
                         <ListboxOption
                             key={index}
-                            value={item[itemValue] ? item[itemValue] : item}
+                            value={  itemValue && item[itemValue] ? item[itemValue] : item}
                             className="group flex cursor-pointer items-center gap-2 rounded-lg py-1.5 px-3 bg-white select-none "
                         >
                             <div className="text-sm/6 text-black">
-                                {item[itemTitle] ? item[itemTitle] : item}
+                                {itemTitle && item[itemTitle] ? item[itemTitle] : item }
                             </div>
                         </ListboxOption>
                     ))}
