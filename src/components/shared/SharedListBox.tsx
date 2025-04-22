@@ -5,13 +5,13 @@ import {
     ListboxOption,
     ListboxOptions,
 } from "@headlessui/react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 type Props = {
     items: Array<AcademicDegree>;
-    itemTitle:string;
-    itemValue:string;
-    handleChangeOption: (selected) => void;
+    itemTitle: keyof AcademicDegree | string;
+    itemValue: keyof AcademicDegree | string;
+    handleChangeOption: (selectedOption) => void;
 };
 
 export default function SharedListBox({
@@ -20,16 +20,24 @@ export default function SharedListBox({
     itemValue,
     handleChangeOption,
 }: Props) {
-   
     const changeSelectedOption = (e) => {
-        handleChangeOption(e);
+        setSelected(e);
+        console.log(e);
     };
+
+    const [selected, setSelected] = useState<AcademicDegree| null>(null);
+
+    useEffect(() => {
+        if (!selected) {
+            setSelected(items[0]);
+        }
+    });
 
     return (
         <div className="outline-input">
-            <Listbox value={itemValue} onChange={changeSelectedOption}>
+            <Listbox value={selected} onChange={changeSelectedOption}>
                 <ListboxButton className="relative block w-full h-full rounded-lg  py-1.5 pr-8 pl-3 text-left text-sm/6 text-black focus:border-none focus:outline-none">
-                    {itemTitle}
+                    {selected ? selected[itemTitle] : selected}
                     <span className="mdi mdi-menu-down group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"></span>
                 </ListboxButton>
                 <ListboxOptions
@@ -39,12 +47,12 @@ export default function SharedListBox({
                 >
                     {items.map((item, index) => (
                         <ListboxOption
-                            key={item.id}
-                            value={item}
+                            key={index}
+                            value={item[itemValue] ? item[itemValue] : item}
                             className="group flex cursor-pointer items-center gap-2 rounded-lg py-1.5 px-3 bg-white select-none "
                         >
                             <div className="text-sm/6 text-black">
-                                {item.name}
+                                {item[itemTitle] ? item[itemTitle] : item}
                             </div>
                         </ListboxOption>
                     ))}

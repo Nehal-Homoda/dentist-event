@@ -9,7 +9,7 @@ import SharedListBox from "@/components/shared/SharedListBox";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 export default function page() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
@@ -20,9 +20,9 @@ export default function page() {
         { id: "2", name: "Egyptain" },
     ];
     const academicDegreeList = [
-        { 'id': "1", name: "Professor" },
-        { 'id': "2", name: "Associate Professor" },
-        { 'id': "3", name: "Resident Doctor" },
+        { id: "1", name: "Professor" },
+        { id: "2", name: "Associate Professor" },
+        { id: "3", name: "Resident Doctor" },
     ];
     const imageChanged = (file, image) => {
         console.log(file, image);
@@ -31,10 +31,17 @@ export default function page() {
 
 
     const takeSelectedOption=(e)=>{
+        console.log(e)
        setItemName(e.name)
        setItemValue(e.id)
+       
 
     }
+
+    useEffect(()=>{
+       
+    },[])
+
     return (
         <div>
             <SharedHeader pageName="Register" />
