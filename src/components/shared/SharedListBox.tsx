@@ -1,0 +1,55 @@
+import { AcademicDegree } from "@/types/shared";
+import {
+    Listbox,
+    ListboxButton,
+    ListboxOption,
+    ListboxOptions,
+} from "@headlessui/react";
+import React, { useState } from "react";
+
+type Props = {
+    items: Array<AcademicDegree>;
+    itemTitle:string;
+    itemValue:string;
+    handleChangeOption: (selected) => void;
+};
+
+export default function SharedListBox({
+    items,
+    itemTitle,
+    itemValue,
+    handleChangeOption,
+}: Props) {
+   
+    const changeSelectedOption = (e) => {
+        handleChangeOption(e);
+    };
+
+    return (
+        <div className="outline-input">
+            <Listbox value={itemValue} onChange={changeSelectedOption}>
+                <ListboxButton className="relative block w-full h-full rounded-lg  py-1.5 pr-8 pl-3 text-left text-sm/6 text-black focus:border-none focus:outline-none">
+                    {itemTitle}
+                    <span className="mdi mdi-menu-down group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"></span>
+                </ListboxButton>
+                <ListboxOptions
+                    anchor="bottom"
+                    transition
+                    className="w-[var(--button-width)] mt-2 rounded-xl border p-1 [--anchor-gap:var(--spacing-1)] focus:outline-none  ring-1 ring-primary"
+                >
+                    {items.map((item, index) => (
+                        <ListboxOption
+                            key={item.id}
+                            value={item}
+                            className="group flex cursor-pointer items-center gap-2 rounded-lg py-1.5 px-3 bg-white select-none "
+                        >
+                            <div className="text-sm/6 text-black">
+                                {item.name}
+                            </div>
+                        </ListboxOption>
+                    ))}
+                </ListboxOptions>
+            </Listbox>
+        </div>
+    );
+}
