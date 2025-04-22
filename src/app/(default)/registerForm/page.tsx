@@ -2,8 +2,10 @@
 
 import BaseBtn from "@/components/Base/BaseBtn";
 import FormCard from "@/components/Base/FormCard";
+import SharedComboBox from "@/components/shared/SharedComboBox";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
+import SharedSelectInput from "@/components/shared/SharedSelectInput";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
 
@@ -11,16 +13,18 @@ import React, { useState } from "react";
 
 export default function page() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
-    const imageChanged = (e) => {
-        const file = e;
-        const reader = new FileReader();
-        if (file) {
-            reader.onloadend = () => {
-                setImageSentFromChild(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-        setImageSentFromChild(e);
+    const nationalityList = [
+        { id: "1", name: "Egyptain" },
+        { id: "2", name: "Egyptain" },
+    ];
+    const academicDegreeList = [
+        { id: "1", name: "Professor" },
+        { id: "2", name: "Associate Professor" },
+        { id: "3", name: "Resident Doctor" },
+    ];
+    const imageChanged = (file, image) => {
+        console.log(file, image);
+        setImageSentFromChild(image);
     };
     return (
         <div>
@@ -56,19 +60,12 @@ export default function page() {
                             type="email"
                             placeholder="Enter Your Email"
                         />
-                        <div className="outline-input">
-                            <select
-                                className="border-none outline-none w-full h-full"
-                                name=""
-                                id=""
-                            >
-                                <option value="" className="">
-                                    select your nationality
-                                </option>
-                                <option value="">Egyptian</option>
-                                <option value="">Not Egyptian</option>
-                            </select>
-                        </div>
+
+                        <SharedComboBox
+                            btnName="Select Your Nationality"
+                            listItem={nationalityList}
+                        ></SharedComboBox>
+
                         <input
                             type="text"
                             className="outline-input"
@@ -81,27 +78,18 @@ export default function page() {
                         />
                         <input className="outline-input py-1" type="file" />
 
-                        <div className="outline-input">
-                            <select
-                                className="border-none outline-none w-full h-full"
-                                name=""
-                                id=""
-                            >
-                                <option value="" className="">
-                                    select your academic degree
-                                </option>
-                                <option value="">Professor</option>
-                                <option value="">Associate Professor</option>
-                                <option value="">Resident Doctor</option>
-                            </select>
-                        </div>
+                        <SharedComboBox
+                            btnName="Select Your Academic Degree"
+                            listItem={academicDegreeList}
+                        ></SharedComboBox>
+
                         <input className="outline-input py-1" type="file" />
                     </div>
                 </FormCard>
-                <div className="md:col-span-4 md:order-2 order-1 mx-auto my-20">
-                    <div className="w-[80%] ">
+                <div className="md:col-span-4 md:order-2 order-1 mx-auto  ">
+                    <div className="w-full h-full  ">
                         <img
-                            className="w-full h-full object-contain"
+                            className="w-full h-full object-contain rounded-r-2xl"
                             src={heros.register_img.src}
                             alt=""
                         />
