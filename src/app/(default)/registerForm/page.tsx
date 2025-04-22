@@ -13,8 +13,8 @@ import React, { useEffect, useState } from "react";
 
 export default function page() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
-    const [itemName,setItemName]=useState('')
-    const [itemValue,setItemValue]=useState('')
+    const [itemName, setItemName] = useState("");
+    const [itemValue, setItemValue] = useState("");
     const nationalityList = [
         { id: "1", name: "Egyptain" },
         { id: "2", name: "Egyptain" },
@@ -29,18 +29,13 @@ export default function page() {
         setImageSentFromChild(image);
     };
 
+    const takeSelectedOption = (e) => {
+        console.log(e);
+        setItemName(e.name);
+        setItemValue(e.id);
+    };
 
-    const takeSelectedOption=(e)=>{
-        console.log(e)
-       setItemName(e.name)
-       setItemValue(e.id)
-       
-
-    }
-
-    useEffect(()=>{
-       
-    },[])
+    useEffect(() => {}, []);
 
     return (
         <div>
@@ -96,11 +91,9 @@ export default function page() {
                         <input className="outline-input py-1" type="file" />
 
                         <SharedListBox
-                        handleChangeOption={
-                            takeSelectedOption
-                        }
-                            itemTitle={itemName}
-                            itemValue={itemValue}
+                            handleChangeOption={takeSelectedOption}
+                            itemTitle="name"
+                            itemValue="id"
                             items={academicDegreeList}
                         ></SharedListBox>
 

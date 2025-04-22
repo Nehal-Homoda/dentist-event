@@ -8,9 +8,9 @@ import {
 import React, { useEffect, useState } from "react";
 
 type Props = {
-    items: Array<AcademicDegree>;
-    itemTitle: keyof AcademicDegree | string;
-    itemValue: keyof AcademicDegree | string;
+    items: any[];
+    itemTitle: string;
+    itemValue: string;
     handleChangeOption: (selectedOption) => void;
 };
 
@@ -25,19 +25,29 @@ export default function SharedListBox({
         console.log(e);
     };
 
-    const [selected, setSelected] = useState<AcademicDegree| null>(null);
+    const [selected, setSelected] = useState<any>(null);
+    const [selectedObj,setSelectedObj]=useState(null);
 
+  
+
+    
     useEffect(() => {
-        if (!selected) {
-            setSelected(items[0]);
-        }
+      const selectedObj = items.find((item, index) => {
+        return item[itemValue] == selected;
+      });
+      if (!selectedObj) {
+        setSelectedObj(items[0]);
+        return
+      }
+      setSelectedObj(selectedObj)
+      console.log(selectedObj);
     });
 
     return (
         <div className="outline-input">
             <Listbox value={selected} onChange={changeSelectedOption}>
                 <ListboxButton className="relative block w-full h-full rounded-lg  py-1.5 pr-8 pl-3 text-left text-sm/6 text-black focus:border-none focus:outline-none">
-                    {selected ? selected[itemTitle] : selected}
+                    { selectedObj ? selectedObj[itemTitle] :''}
                     <span className="mdi mdi-menu-down group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"></span>
                 </ListboxButton>
                 <ListboxOptions
