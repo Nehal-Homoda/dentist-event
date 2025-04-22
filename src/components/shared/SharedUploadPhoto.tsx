@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 type Props = {
     imageUploaded: string;
-    changeImageUploaded: (file: File,convertedImage:string) => void;
+    changeImageUploaded: (file: File, convertedImage: string) => void;
 };
 
 export default function SharedUploadPhoto({
@@ -19,10 +19,10 @@ export default function SharedUploadPhoto({
             const reader = new FileReader();
             reader.onloadend = () => {
                 setImage(reader.result);
+                changeImageUploaded(file, image);
             };
             reader.readAsDataURL(file);
         }
-        changeImageUploaded(file,image);
     };
     useEffect(() => {
         if (imageUploaded) {

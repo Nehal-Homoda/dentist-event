@@ -31,11 +31,7 @@ export default function loginpage() {
         password: Yup.string().required().min(8),
     });
 
-    const checkValidate = async (formData: any) => {
-        await formSchema.validateAt("username", { username: "" });
-
-        return;
-
+    const validateAllInputs = async () => {
         try {
             // Form Is Valid
             await formSchema.validate(formData, { abortEarly: false });
@@ -44,84 +40,71 @@ export default function loginpage() {
             formErrors.password = null;
         } catch (err) {
             // Form Is Invalid
-            if (err instanceof Yup.ValidationError) {
-                const newErrors: Record<string, string> = {};
+            if (err instanceof Yup.ValidationError == false) return;
 
-                err.inner.forEach((error) => {
-                    if (error.path) {
-                        newErrors[error.path] = error.message;
-                    }
-                });
+            const newErrors: Record<string, string> = {};
 
-                setFormErrors({
-                    username: newErrors["username"]
-                        ? newErrors["username"]
-                        : null,
-                    password: newErrors["password"]
-                        ? newErrors["password"]
-                        : null,
-                });
+            err.inner.forEach((error) => {
+                if (error.path) {
+                    newErrors[error.path] = error.message;
+                }
+            });
 
-                // do something with newErrors
-            }
+            setFormErrors({
+                username: newErrors["username"] ? newErrors["username"] : null,
+                password: newErrors["password"] ? newErrors["password"] : null,
+            });
         }
     };
+    const validateInput = async (
+        inputName: keyof FormDataInputs,
+        newValue: string
+    ) => {
+        try {
+            const newFormDataToCheck = { ...formData, [inputName]: newValue };
 
+            await formSchema.validateAt(inputName, newFormDataToCheck);
+
+            setFormErrors((prev) => ({
+                ...prev,
+                [inputName]: "",
+            }));
+        } catch (err) {
+            if (err instanceof Yup.ValidationError == false) return;
+
+            setFormErrors((prev) => ({
+                ...prev,
+                [inputName]: err.message,
+            }));
+        }
+    };
+    const inputChangeHandler = async (
+        e: React.ChangeEvent<HTMLInputElement>,
+        inputName: keyof FormDataInputs
+    ) => {
+        const value = e.target.value;
+
+        setFormData((prev) => ({
+            ...prev,
+            [inputName]: value,
+        }));
+
+        await validateInput(inputName, value);
+    };
     const submit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const target = e.target as typeof e.target & {
-            username: { value: string };
-            password: { value: string };
-        };
-
-        const formData = {
-            username: target.username.value,
-            password: target.password.value,
-        };
-
-        await checkValidate(formData);
+        await validateAllInputs();
 
         if (formErrors.password || formErrors.username) return;
+        if (!formData.password || !formData.username) return;
         console.log("submitted");
+        console.log('submitted', {...formData})
     };
 
-    const usernameChangeHandler = async (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        const value = e.target.value;
-        setFormData((prev) => {
-            const updated = {
-                ...prev,
-                username: value,
-            };
-
-            try {
-                formSchema.validateAt("username", updated);
-                setFormErrors((prev) => {
-                    const updated = {
-                        ...prev,
-                        username: "",
-                    };
-
-                    return updated;
-                });
-            } catch (err) {
-                console.log(err.path);
-                console.log(err.message);
-                setFormErrors((prev) => {
-                    const updated = {
-                        ...prev,
-                    };
-                    updated[err.path] = err.message;
-
-                    return updated;
-                });
-            }
-
-            return updated;
-        });
-    };
+    useEffect(() => {
+        console.log("formData updated:", formData);
+    }, [formData]);
 
     return (
         <div>
@@ -140,7 +123,9 @@ export default function loginpage() {
                                     type="text"
                                     name="username"
                                     value={formData.username}
-                                    onChange={usernameChangeHandler}
+                                    onChange={(e) =>
+                                        inputChangeHandler(e, "username")
+                                    }
                                     placeholder="Enter your usename"
                                 />
                                 <span className="error text-error text-xs">
@@ -148,13 +133,16 @@ export default function loginpage() {
                                 </span>
                             </div>
                             <div className="">
-                                {/* <input
+                                <input
                                     className="outline-input"
                                     type="password"
                                     name="password"
-                                    value={password}
+                                    value={formData.password}
+                                    onChange={(e) =>
+                                        inputChangeHandler(e, "password")
+                                    }
                                     placeholder="Enter your password"
-                                /> */}
+                                />
                                 <span className="error text-error text-xs">
                                     {" "}
                                     {formErrors.password}{" "}
