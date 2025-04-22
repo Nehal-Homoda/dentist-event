@@ -1,11 +1,18 @@
-import React from "react";
-import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
+import React, { useState } from "react";
+import {
+    Menu,
+    MenuButton,
+    MenuItem,
+    MenuItems,
+} from "@headlessui/react";
+
 
 type Props = {
     btnName: string;
     listItem: string[];
 };
-export default function SharedSelectUnput({ btnName, listItem }: Props) {
+export default function SharedSelectInput({ btnName, listItem }: Props) {
+  
     return (
         <div className="w-full h-full text-right outline-input">
             <Menu>
@@ -27,6 +34,7 @@ export default function SharedSelectUnput({ btnName, listItem }: Props) {
                     ))}
                 </MenuItems>
             </Menu>
+         
         </div>
     );
 }

@@ -2,9 +2,10 @@
 
 import BaseBtn from "@/components/Base/BaseBtn";
 import FormCard from "@/components/Base/FormCard";
+import SharedComboBox from "@/components/shared/SharedComboBox";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
-import SharedSelectUnput from "@/components/shared/SharedSelectUnput";
+import SharedSelectInput from "@/components/shared/SharedSelectInput";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
 
@@ -12,22 +13,18 @@ import React, { useState } from "react";
 
 export default function page() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
-    const nationalityList = ["Egyptain", "Not Egyptain"];
-    const academicDegreeList = [
-        "Professor",
-        "Associate Professor",
-        "Resident Doctor",
+    const nationalityList = [
+        { id: "1", name: "Egyptain" },
+        { id: "2", name: "Egyptain" },
     ];
-    const imageChanged = (e) => {
-        const file = e;
-        const reader = new FileReader();
-        if (file) {
-            reader.onloadend = () => {
-                setImageSentFromChild(reader.result);
-            };
-            reader.readAsDataURL(file);
-        }
-        setImageSentFromChild(e);
+    const academicDegreeList = [
+        { id: "1", name: "Professor" },
+        { id: "2", name: "Associate Professor" },
+        { id: "3", name: "Resident Doctor" },
+    ];
+    const imageChanged = (file, image) => {
+        console.log(file, image);
+        setImageSentFromChild(image);
     };
     return (
         <div>
@@ -64,9 +61,10 @@ export default function page() {
                             placeholder="Enter Your Email"
                         />
 
-                        <SharedSelectUnput btnName="Select Your Nationality"
+                        <SharedComboBox
+                            btnName="Select Your Nationality"
                             listItem={nationalityList}
-                        ></SharedSelectUnput>
+                        ></SharedComboBox>
 
                         <input
                             type="text"
@@ -80,9 +78,10 @@ export default function page() {
                         />
                         <input className="outline-input py-1" type="file" />
 
-                        <SharedSelectUnput btnName="Select Your Academic Degree"
+                        <SharedComboBox
+                            btnName="Select Your Academic Degree"
                             listItem={academicDegreeList}
-                        ></SharedSelectUnput>
+                        ></SharedComboBox>
 
                         <input className="outline-input py-1" type="file" />
                     </div>
