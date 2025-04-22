@@ -2,10 +2,10 @@
 
 import BaseBtn from "@/components/Base/BaseBtn";
 import FormCard from "@/components/Base/FormCard";
-import SharedComboBox from "@/components/shared/SharedComboBox";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
-import SharedSelectInput from "@/components/shared/SharedSelectInput";
+import SharedListBox from "@/components/shared/SharedListBox";
+
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
 
@@ -13,19 +13,28 @@ import React, { useState } from "react";
 
 export default function page() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
+    const [itemName,setItemName]=useState('')
+    const [itemValue,setItemValue]=useState('')
     const nationalityList = [
         { id: "1", name: "Egyptain" },
         { id: "2", name: "Egyptain" },
     ];
     const academicDegreeList = [
-        { id: "1", name: "Professor" },
-        { id: "2", name: "Associate Professor" },
-        { id: "3", name: "Resident Doctor" },
+        { 'id': "1", name: "Professor" },
+        { 'id': "2", name: "Associate Professor" },
+        { 'id': "3", name: "Resident Doctor" },
     ];
     const imageChanged = (file, image) => {
         console.log(file, image);
         setImageSentFromChild(image);
     };
+
+
+    const takeSelectedOption=(e)=>{
+       setItemName(e.name)
+       setItemValue(e.id)
+
+    }
     return (
         <div>
             <SharedHeader pageName="Register" />
@@ -61,10 +70,11 @@ export default function page() {
                             placeholder="Enter Your Email"
                         />
 
-                        <SharedComboBox
-                            btnName="Select Your Nationality"
-                            listItem={nationalityList}
-                        ></SharedComboBox>
+                        {/* <SharedListBox
+                            items={nationalityList}
+                            itemTitle={academicDegreeList[0].name}
+                            itemValue={academicDegreeList[0].id}
+                        ></SharedListBox> */}
 
                         <input
                             type="text"
@@ -78,10 +88,14 @@ export default function page() {
                         />
                         <input className="outline-input py-1" type="file" />
 
-                        <SharedComboBox
-                            btnName="Select Your Academic Degree"
-                            listItem={academicDegreeList}
-                        ></SharedComboBox>
+                        <SharedListBox
+                        handleChangeOption={
+                            takeSelectedOption
+                        }
+                            itemTitle={itemName}
+                            itemValue={itemValue}
+                            items={academicDegreeList}
+                        ></SharedListBox>
 
                         <input className="outline-input py-1" type="file" />
                     </div>
