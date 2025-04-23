@@ -7,44 +7,36 @@ type Props = {
 export default function SharedUploadFile({ fileName }: Props) {
     const [selectedImg, setSelectedImg] = useState(null)
     const [selectedFileName, setSelectedFileName] = useState(null)
-    const openFile = () => {
-        const input = document.getElementById('uploadInput')
-        if (input) {
-            input.click()
-        }
-    }
 
-    const imageElm = document.getElementById('selectedImage')
-    const fileInput = document.getElementById('uploadInput')
-    if (fileInput) {
-        fileInput.addEventListener('change', () => {
-            const file = fileInput.files[0]
-            const fileName = file.name
-            const fileType = file.type
+    const handleInputChange = (e) => {
+        const file = e.target.files[0]
+        const fileName = file.name
+        const fileType = file.type
 
-            if (fileType.includes('image') && file) {
-                const reader = new FileReader()
-                reader.onloadend = () => {
-                    setSelectedImg(reader.result)
-                }
-                reader.readAsDataURL(file)
-            } else {
-                setSelectedFileName(fileName)
+        if (fileType.includes('image') && file) {
+            const reader = new FileReader()
+            reader.onloadend = () => {
+                setSelectedImg(reader.result)
             }
-        })
+            reader.readAsDataURL(file)
+        } else {
+            setSelectedFileName(fileName)
+        }
 
     }
+
+
     return (
         <div className=''>
             <div className=' text-primary '>
-                <input type="file" className='hidden' id="uploadInput" />
-                <div className='cursor-pointer'>
-                    <span className='' id="uploadFile" onClick={openFile}>{fileName}</span>
+                <div className='cursor-pointer relative'>
+                    <input onChange={handleInputChange} type="file" className='opacity-0 absolute w-full h-full' id="uploadInput" />
+                    <span className='' >{fileName}</span>
                     <span className="mdi mdi-tray-arrow-up text-primary ms-2"></span>
                 </div>
 
                 <div>
-                    <img src={selectedImg ?selectedImg : null } className='w-10 h-10 rounded-full' id="selectedImage" alt="" />
+                    <img src={selectedImg ? selectedImg : null} className='w-10 h-10 rounded-full' id="selectedImage" alt="" />
                 </div>
                 <span>{selectedFileName}</span>
             </div>
