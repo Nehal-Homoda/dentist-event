@@ -176,7 +176,7 @@ export default function loginpage() {
                             <h2 className="text-primary ">
                                 Don't have account ?
                             </h2>
-                            <Link className="underline" href="/registerForm">
+                            <Link className="underline" href="/register">
                                 Create your account
                             </Link>
                         </div>

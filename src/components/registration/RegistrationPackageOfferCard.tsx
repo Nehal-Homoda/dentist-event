@@ -7,6 +7,7 @@ import {
     RegistrationPackageOffer,
     RegistrationPackageOfferProgram,
 } from "@/types/shared";
+import { useRouter } from "next/navigation";
 
 type Props = {
     offer: RegistrationPackageOffer;
@@ -20,9 +21,11 @@ export default function SharedRegisterCard({ offer, actionHander }: Props) {
     const [selected, setSelected] = useState<RegistrationPackageOfferProgram>(
         offer.programs[0]
     );
-
+    
+    const router=useRouter()
     const getNowHander = () => {
-        actionHander(offer, selected);
+        // actionHander(offer, selected);
+        router.push('/login')
     };
 
     return (
