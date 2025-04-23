@@ -25,6 +25,7 @@ export default function page() {
         { id: "2", name: "Associate Professor" },
         { id: "3", name: "Resident Doctor" },
     ];
+
     const workSpecialty = [
         { id: "1", name: "Hosiptal" },
         { id: "2", name: "University" },
@@ -115,6 +116,7 @@ export default function page() {
                             placeholder="Enter Your Email"
                         />
 
+
                         <SharedListBox
                             items={nationalityList}
                             itemTitle="name"
@@ -122,6 +124,12 @@ export default function page() {
                             handleChangeOption={takeSelectedOption}
                         ></SharedListBox>
 
+                        <div>
+                            <input type="radio" id="nationalId" name="passport" value="nationalId" />
+                            <label className="ms-2" htmlFor="nationalId">National ID</label>
+                            <input className="ms-4" type="radio" id="passport" name="passport" value="passport" />
+                            <label className="ms-2" htmlFor="passport">Passport</label>
+                        </div>
                         <SharedListBox
                             handleChangeOption={takeSelectedOption}
                             itemTitle="name"
