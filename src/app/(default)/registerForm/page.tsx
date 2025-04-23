@@ -5,6 +5,7 @@ import FormCard from "@/components/Base/FormCard";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedListBox from "@/components/shared/SharedListBox";
+import SharedUploadFile from "@/components/shared/SharedUploadFile";
 
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
@@ -13,7 +14,7 @@ import React, { useEffect, useState } from "react";
 
 export default function page() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
-   
+
     const nationalityList = [
         { id: "1", name: "Egyptain" },
         { id: "2", name: "Egyptain" },
@@ -24,9 +25,9 @@ export default function page() {
         { id: "3", name: "Resident Doctor" },
     ];
     const DegreeList = [
-       "Professor" ,
-         "Associate Professor", 
-         "Resident Doctor" 
+        "Professor",
+        "Associate Professor",
+        "Resident Doctor"
     ];
     const imageChanged = (file, image) => {
         console.log(file, image);
@@ -34,11 +35,11 @@ export default function page() {
     };
 
     const takeSelectedOption = (e) => {
-       
-       
+
+
     };
 
-    useEffect(() => {}, []);
+    useEffect(() => { }, []);
 
     return (
         <div>
@@ -95,12 +96,13 @@ export default function page() {
 
                         <SharedListBox
                             handleChangeOption={takeSelectedOption}
-                           itemTitle="name"
-                           itemValue="id"
+                            itemTitle="name"
+                            itemValue="id"
                             items={academicDegreeList}
                         ></SharedListBox>
 
                         <input className="outline-input py-1" type="file" />
+                        <SharedUploadFile fileName="Upload Your Passport" />
                     </div>
                 </FormCard>
                 <div className="md:col-span-4 md:order-2 order-1 mx-auto  ">
