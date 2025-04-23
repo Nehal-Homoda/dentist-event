@@ -16,3 +16,9 @@ export interface RegistrationPackageOfferProgram {
     subtitle: string;
     id: string;
 }
+
+export interface AcademicDegree{
+  id:string;
+  name:string;
+    
+}

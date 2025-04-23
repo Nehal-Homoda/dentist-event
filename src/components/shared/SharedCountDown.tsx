@@ -8,7 +8,7 @@ export default function () {
     const [minute, setMinute] = useState("00");
     const [second, setSecond] = useState("00");
 
-    const [isEventOver, setIsEventOver] = useState(false)
+    const [isEventOver, setIsEventOver] = useState(false);
 
     // const countDown = () => {
     //     const endsAt = "2025-06-03";
@@ -43,60 +43,58 @@ export default function () {
     //     setSecond(s);
     // };
 
-
-
-
-
-    const countDownTimerBySeconds = (seconds) => {
-        if (!seconds) return {
-            days: '00',
-            hours: '00',
-            minutes: '00',
-            seconds: '00',
-        }
+    const countDownTimerBySeconds = (seconds: any) => {
+        if (!seconds)
+            return {
+                days: "00",
+                hours: "00",
+                minutes: "00",
+                seconds: "00",
+            };
 
         const days = Math.floor(seconds / (24 * 60 * 60));
         const hours = Math.floor((seconds % (24 * 60 * 60)) / (60 * 60));
         const minutes = Math.floor((seconds % (60 * 60)) / 60);
         const remainingSeconds = seconds % 60;
 
-        let d = days < 0 ? 0 : days;
-        let h = hours < 0 ? 0 : hours;
-        let m = minutes < 0 ? 0 : minutes;
-        let s = remainingSeconds < 0 ? 0 : remainingSeconds;
+        let d: any = days < 0 ? 0 : days;
+        let h: any = hours < 0 ? 0 : hours;
+        let m: any = minutes < 0 ? 0 : minutes;
+        let s: any = remainingSeconds < 0 ? 0 : remainingSeconds;
 
-
-        d = d < 10 ? '0' + d : d;
-        h = h < 10 ? '0' + h : h;
-        m = m < 10 ? '0' + m : m;
-        s = s < 10 ? '0' + s : s;
+        d = d < 10 ? "0" + d : d;
+        h = h < 10 ? "0" + h : h;
+        m = m < 10 ? "0" + m : m;
+        s = s < 10 ? "0" + s : s;
 
         return {
             days: d.toString(),
             hours: h.toString(),
             minutes: m.toString(),
             seconds: s.toString(),
-        }
-
-    }
+        };
+    };
     const countDownBySeconds = () => {
-        const endDate = new Date("2025-06-20");
+        const endDate = new Date("2025-10-1");
         const currentDate = new Date();
 
-        const diffInSeconds = Math.floor((endDate.getTime() - currentDate.getTime()) / 1000);
-        const { days, hours, minutes, seconds } = countDownTimerBySeconds(diffInSeconds);
+        const diffInSeconds = Math.floor(
+            (endDate.getTime() - currentDate.getTime()) / 1000
+        );
+        const { days, hours, minutes, seconds } =
+            countDownTimerBySeconds(diffInSeconds);
         setDay(days);
         setHour(hours);
         setMinute(minutes);
         setSecond(seconds);
         if (endDate.getDate() <= 0) {
-            setIsEventOver(true)
+            setIsEventOver(true);
             return;
         }
-        setIsEventOver(false)
+        setIsEventOver(false);
     };
     useEffect(() => {
-        countDownBySeconds()
+        countDownBySeconds();
         const intervalId = setInterval(() => {
             countDownBySeconds();
         }, 1000);
@@ -106,9 +104,7 @@ export default function () {
     return (
         <div className="container  pt-20">
             <div className="card-title text-center mb-16">
-                <h2 className="section-title uppercase">
-                    THE COUNTDOWN
-                </h2>
+                <h2 className="section-title uppercase">THE COUNTDOWN</h2>
             </div>
 
             <div className="flex justify-center mx-auto  mb-5   lg:gap-4 md:gap-2 gap-1">
@@ -121,7 +117,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                {day.slice(1, 2)}
+                                {day.slice(1)}
                             </span>
                         </div>
                     </div>
@@ -135,12 +131,12 @@ export default function () {
                     <div className="flex lg:gap-4 gap-2">
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                              {hour.slice(1,2)}    
+                                {hour.slice(0, 1)}
                             </span>
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                {hour.slice(1, 2)}
+                                {hour.slice(1)}
                             </span>
                         </div>
                     </div>
@@ -159,7 +155,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                {minute.slice(1, 2)}
+                                {minute.slice(1)}
                             </span>
                         </div>
                     </div>
@@ -178,7 +174,7 @@ export default function () {
                         </div>
                         <div className="countDown-item ">
                             <span className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%]">
-                                {second.slice(1, 2)}
+                                {second.slice(1)}
                             </span>
                         </div>
                     </div>

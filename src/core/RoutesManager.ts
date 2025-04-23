@@ -6,7 +6,7 @@ const about = "/about";
 const accomedation = "/acomedation";
 const sponsors = "/sponsors";
 const profile = "/profile";
-const register="/register"
+const register="/signup";
 
 export default {
     home,

@@ -7,22 +7,22 @@ export const brand = {
     logo_text,
 };
 //========= [ICONS]
-import icon_calender_colorful from '@/assets/images/icons/icon-calendar-colorful.png'
-import icon_location_colorful from '@/assets/images/icons/icon-location-colorful.png'
-import google_icon from '@/assets/images/icons/google-icon.png'
+import icon_calender_colorful from "@/assets/images/icons/icon-calendar-colorful.png";
+import icon_location_colorful from "@/assets/images/icons/icon-location-colorful.png";
+import google_icon from "@/assets/images/icons/google-icon.png";
 export const icons = {
     icon_calender_colorful,
     icon_location_colorful,
-    google_icon
+    google_icon,
 };
 //========= [BG]
 import footer_bg from "@/assets/images/bg/footer-bg.png";
-import header_bg from "@/assets/images/bg/header.png"
-import header_img_bg from "@/assets/images/bg/header-img.png"
+import header_bg from "@/assets/images/bg/header.png";
+import header_img_bg from "@/assets/images/bg/header-img.png";
 export const bg = {
     footer_bg,
     header_bg,
-    header_img_bg
+    header_img_bg,
 };
 //========= [ELEMENTS]
 import sponsor1 from "@/assets/images/elements/sponsor-1.png";
@@ -39,16 +39,17 @@ export const elements = {
     sponsor4,
     card_frame,
     logo_year,
-    logo_year_clear
+    logo_year_clear,
 };
 //========= [HEROS]
 import why_submit from "@/assets/images/heros/why-submit.png";
 import register_with_video_thumbnail from "@/assets/images/heros/register-with-vedio-thumbnail.png";
 import interduce_thumbnail from "@/assets/images/heros/intreduce-vedio-thumbnail.png";
-import package_card_img_1 from '@/assets/images/heros/package-card-img-1.png';
-import package_card_img_2 from '@/assets/images/heros/package-card-img-2.png';
-import package_card_img_3 from '@/assets/images/heros/package-card-img-3.png';
-import package_card_img_4 from '@/assets/images/heros/package-card-img-4.png';
+import package_card_img_1 from "@/assets/images/heros/package-card-img-1.png";
+import package_card_img_2 from "@/assets/images/heros/package-card-img-2.png";
+import package_card_img_3 from "@/assets/images/heros/package-card-img-3.png";
+import package_card_img_4 from "@/assets/images/heros/package-card-img-4.png";
+import register_img from "@/assets/images/heros/register-img.png";
 
 export const heros = {
     why_submit,
@@ -57,5 +58,6 @@ export const heros = {
     package_card_img_1,
     package_card_img_2,
     package_card_img_3,
-    package_card_img_4
+    package_card_img_4,
+    register_img,
 };
