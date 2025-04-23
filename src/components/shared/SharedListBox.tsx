@@ -65,7 +65,8 @@ export default function SharedListBox({
                         <ListboxOption
                             key={index}
                             value={  itemValue && item[itemValue] ? item[itemValue] : item}
-                            className="group flex cursor-pointer items-center gap-2 rounded-lg py-1.5 px-3 bg-white select-none "
+                            className="group flex cursor-pointer items-center gap-2 rounded-l
+                            g py-1.5 px-3 bg-white select-none "
                         >
                             <div className="text-sm/6 text-black">
                                 {itemTitle && item[itemTitle] ? item[itemTitle] : item }
