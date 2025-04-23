@@ -35,9 +35,9 @@ export default function SharedUploadFile({ fileName }: Props) {
                     <span className="mdi mdi-tray-arrow-up text-primary ms-2"></span>
                 </div>
 
-                <div>
-                    <img src={selectedImg ? selectedImg : null} className='w-10 h-10 rounded-full' id="selectedImage" alt="" />
-                </div>
+                {selectedImg && <div>
+                    <img src={selectedImg} className='w-10 h-10 rounded-full' id="selectedImage" alt="" />
+                </div>}
                 <span>{selectedFileName}</span>
             </div>
 

@@ -17,13 +17,16 @@ export default function page() {
 
     const nationalityList = [
         { id: "1", name: "Egyptain" },
-        { id: "2", name: "Egyptain" },
+        { id: "2", name: "Not Egyptain" },
     ];
     const academicDegreeList = [
         { id: "1", name: "Professor" },
         { id: "2", name: "Associate Professor" },
         { id: "3", name: "Resident Doctor" },
     ];
+
+
+
     const DegreeList = [
         "Professor",
         "Associate Professor",
@@ -76,24 +79,14 @@ export default function page() {
                             placeholder="Enter Your Email"
                         />
 
-                        {/* <SharedListBox
-                            items={nationalityList}
-                            itemTitle={academicDegreeList[0].name}
-                            itemValue={academicDegreeList[0].id}
-                        ></SharedListBox> */}
+                        <SharedListBox items={nationalityList} itemTitle="name" itemValue="id" handleChangeOption={takeSelectedOption} />
 
-                        <input
-                            type="text"
-                            className="outline-input"
-                            placeholder="Enter Your Address"
-                        />
-                        <input
-                            className="outline-input"
-                            type="number"
-                            placeholder="Enter Your Nationality Id"
-                        />
-                        <input className="outline-input py-1" type="file" />
-
+                        <div>
+                            <input type="radio" id="nationalId" name="passport" value="nationalId" />
+                            <label className="ms-2" htmlFor="nationalId">National ID</label>
+                            <input className="ms-4" type="radio" id="passport" name="passport" value="passport" />
+                            <label className="ms-2" htmlFor="passport">Passport</label>
+                        </div>
                         <SharedListBox
                             handleChangeOption={takeSelectedOption}
                             itemTitle="name"
@@ -101,8 +94,18 @@ export default function page() {
                             items={academicDegreeList}
                         ></SharedListBox>
 
-                        <input className="outline-input py-1" type="file" />
+                       
+
+
+                        <input
+                            type="text"
+                            className="outline-input"
+                            placeholder="Enter Your Address"
+                        />
+                        
+
                         <SharedUploadFile fileName="Upload Your Passport" />
+                        <SharedUploadFile fileName="Upload Your Syndicate Card" />
                     </div>
                 </FormCard>
                 <div className="md:col-span-4 md:order-2 order-1 mx-auto  ">
