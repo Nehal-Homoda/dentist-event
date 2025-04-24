@@ -3,22 +3,40 @@
 import React, { useEffect, useState } from "react";
 import { bg, brand } from "@/core/AssetsManager";
 import BaseBtn from "../Base/BaseBtn";
-import { fetchFooterSetting } from "@/services/settings/footerSetting";
+// import { fetchFooterSetting } from "@/services/settings/footerSetting";
 
 export default function AppFooter() {
 
     const [footerData, setFooterData] = useState()
 
 
-    const catchFooterData = async () => {
-        const result = await fetchFooterSetting()
-        setFooterData(result)
+    // const catchFooterData = async () => {
+    //     const result = await fetchFooterSetting()
+    //     setFooterData(result)
 
+    // }
+
+    const fetchData = async () => {
+
+        try {
+            const res = await fetch('http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting');
+
+            if (!res.ok) throw('connection error');
+
+            const data = res.json();
+
+            console.log("response data =>> ", data)
+        } catch (error) {
+
+            //@ts-ignore
+            console.log(error.message)
+        }
     }
 
 
     useEffect(() => {
-        catchFooterData()
+        // catchFooterData()
+        fetchData();
     }, [])
 
     return (

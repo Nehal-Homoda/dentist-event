@@ -9,7 +9,7 @@ import SponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection
 import WhySubmitSection from "@/components/static/WhySubmitSection";
 
 import { elements, heros, icons, bg } from "@/core/AssetsManager";
-import { fetchMasterClasses } from "@/services/classes/masterClasses";
+// import { fetchMasterClasses } from "@/services/classes/masterClasses";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -34,13 +34,13 @@ export default function Home() {
         { amount: 75, title: "Sponsors" },
     ];
 
-    const [masterCourses, setMasterCourse] = useState()
-    const catchMaterCourses = async () => {
-        const result = await fetchMasterClasses()
-        setMasterCourse(result)
-    }
+    // const [masterCourses, setMasterCourse] = useState()
+    // const catchMaterCourses = async () => {
+    //     const result = await fetchMasterClasses()
+    //     setMasterCourse(result)
+    // }
     useEffect(() => {
-        catchMaterCourses()
+        // catchMaterCourses()
     }, [])
 
     return (
