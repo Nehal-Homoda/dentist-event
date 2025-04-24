@@ -1,3 +1,5 @@
+'use client'
+
 import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import InterduceSection from "@/components/static/InterduceSection";
@@ -6,7 +8,9 @@ import RegisterSectionWithVedio from "@/components/static/RegisterSectionWithVed
 import SponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
 
-import { elements, heros, icons ,bg } from "@/core/AssetsManager";
+import { elements, heros, icons, bg } from "@/core/AssetsManager";
+import { fetchMasterClasses } from "@/services/classes/masterClasses";
+import { useEffect, useState } from "react";
 
 export default function Home() {
     const courses = [
@@ -30,10 +34,19 @@ export default function Home() {
         { amount: 75, title: "Sponsors" },
     ];
 
+    const [masterCourses, setMasterCourse] = useState()
+    const catchMaterCourses = async () => {
+        const result = await fetchMasterClasses()
+        setMasterCourse(result)
+    }
+    useEffect(() => {
+        catchMaterCourses()
+    }, [])
+
     return (
         <>
             <div className="home-page">
-                <header style={{backgroundImage:`url('${bg.header_bg.src}')`}} className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.4]  bg-no-repeat bg-cover bg-top">
+                <header style={{ backgroundImage: `url('${bg.header_bg.src}')` }} className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.4]  bg-no-repeat bg-cover bg-top">
                     <div className="w-full h-full bg-black/50 flex flex-col justify-end">
                         <div className="container ">
                             <div className="wrap flex gap-5 sm:gap-10 mb-5 md:mb-10">
