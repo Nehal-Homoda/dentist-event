@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "c4af5fc1-f400-4a2e-9bfb-3d5fca5fce13",
+		"name": "EAOMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9625780",
+		"_collection_link": "https://grey-shadow-7239.postman.co/workspace/My-Workspace~0eaed8ae-3d90-43a4-891f-d71c09057367/collection/9625780-c4af5fc1-f400-4a2e-9bfb-3d5fca5fce13?action=share&source=collection_link&creator=9625780"
+	},
+	"item": [
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"getdate()"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"GetSetting"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetMasterClasses",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer xE8CZ8XetMLofwGbn_qIt_KG-mJrg8uANJVnJV7Tlpq01hl50It2x03pnubv6eFEhXnfkwKMJOSZGinL92KukzB5javXi9NmXj9WRe_5KNT6GNh9S2lSvRh_coEoDYXEM3Z_kievBHknwm2lQvne2v8Lq8HwgXjBoLjl6gUJBFBGdrphHSZLel2qLfkHbaPP5Wh0WE3vGuwAts-fYA3OzFBy0I3-4GJ23y4QNv9yR5e5vOgB_WyUsi1co8zmXrhocmkrre5aPhPU0APDSDcQ1VUrjd-1UJnmj6k1HvJWptxPcTf-Ag_CFII6Acozjtse-MLIdJZ-WI60znlBo6XyXTijbjbDHs8u7PHBbHccRI1fq3djjiAlUGLXW16UiXK46X20pvxvt1M09rVnCkzJRRQasKjgkyJoVWY6YfFZuFKvfhRpkvPthgFcWhOidpgYPdPawYppC3hm98BmvnGnoCKFExjiQm8-xol_OvKHqjRALdhErimU8n_6VVjcJIMurD_SidiVapN7MVOBos0LN069-Ci2HsAeJ_k_YlmeFryerP5I_sz8Ho-Ao_BkIySn",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetMasterClasses",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"GetMasterClasses"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Upload",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"type": "file",
+							"src": "/C:/Users/MG/Downloads/Reguister form.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Upload",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"Upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Registration",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "bearer xE8CZ8XetMLofwGbn_qIt_KG-mJrg8uANJVnJV7Tlpq01hl50It2x03pnubv6eFEhXnfkwKMJOSZGinL92KukzB5javXi9NmXj9WRe_5KNT6GNh9S2lSvRh_coEoDYXEM3Z_kievBHknwm2lQvne2v8Lq8HwgXjBoLjl6gUJBFBGdrphHSZLel2qLfkHbaPP5Wh0WE3vGuwAts-fYA3OzFBy0I3-4GJ23y4QNv9yR5e5vOgB_WyUsi1co8zmXrhocmkrre5aPhPU0APDSDcQ1VUrjd-1UJnmj6k1HvJWptxPcTf-Ag_CFII6Acozjtse-MLIdJZ-WI60znlBo6XyXTijbjbDHs8u7PHBbHccRI1fq3djjiAlUGLXW16UiXK46X20pvxvt1M09rVnCkzJRRQasKjgkyJoVWY6YfFZuFKvfhRpkvPthgFcWhOidpgYPdPawYppC3hm98BmvnGnoCKFExjiQm8-xol_OvKHqjRALdhErimU8n_6VVjcJIMurD_SidiVapN7MVOBos0LN069-Ci2HsAeJ_k_YlmeFryerP5I_sz8Ho-Ao_BkIySn",
+						"type": "default",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n\"RegistrationData\" :\r\n{\r\n  \"Id\": 0,\r\n  \"FullName\" : \"Aziza rezk\",\r\n  \"AcademicDegree\" : 1,\r\n  \"PhoneNumber\": \"01097875745\",\r\n  \"Email\": \"Azizarezk2@gmail.com\",\r\n  \"Nationality\": 1,\r\n  \"NationalId\": \"8788\",\r\n\"NationalIdPath\":\"\",\r\n\"SyndicateCard\":\"\",\r\n\"PersonalPhoto\":\"\",\r\n\"Address\":\"\"\r\n}\r\n,\r\n\"EventData\":\r\n{\r\n  \"Id\": 0,\r\n  \"MedicalSpecialty\": \"Medical Specialty text\",\r\n  \"Workplace\": 2,\r\n  \"Country\": \"Country text\",\r\n  \"TypeofParticipation\": 3,\r\n \"TitleOfLecture\":\"Title Of Lecture text\",\r\n\"AbstractOfLecture\": \"Abstract Of Lecture text\" ,\r\n\"AbstractOfLecturePath\":\"\",\r\n\"AttendanceDate\":\"2025-04-22T00:00:00Z\",\r\n\"CVPath\":\"\",\r\n\"SyndicateCard\":\"\",\r\n\"AccommodationBooking\"  :3,\r\n\"CertificatePath\":\"\",\r\n\"AttendanceCertificatePath\":\"\"\r\n}\r\n\r\n}\r\n\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Registration",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"Registration"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
