@@ -21,10 +21,27 @@ export default function AppFooter() {
             setData(response);
         })
         .catch(error => {
-            setErrorMessage(error)
+            setErrorMessage(error.message)
         })
 
+    } 
+    const fetchData = async () => {
+
+        try {
+            const res = await fetch('http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting');
+
+            if (!res.ok) throw('connection error');
+
+            const data = res.json();
+
+            console.log("response data =>> ", data)
+        } catch (error) {
+
+            //@ts-ignore
+            console.log(error.message)
+        }
     }
+    
 
     useEffect(() => {
         fetchFooterSetting();

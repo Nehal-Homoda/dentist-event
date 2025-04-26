@@ -16,7 +16,7 @@ export default function MasterClassesListing() {
             setData(resposne);
         })
         .catch(error => {
-            setErrorMessage(error);
+            setErrorMessage(error.message);
         })
     };
 
