@@ -1,4 +1,3 @@
-import { elements } from "@/core/AssetsManager";
 import React from "react";
 type Props={
     image:string,

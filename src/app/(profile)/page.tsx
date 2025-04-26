@@ -1,5 +1,3 @@
-'use client'
-
 import MasterClassesListing from "@/components/master-classes/MasterClassesListing";
 import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
 import SharedCountDown from "@/components/shared/SharedCountDown";
@@ -9,40 +7,18 @@ import RegisterSectionWithVedio from "@/components/static/RegisterSectionWithVed
 import SponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
 
-import { elements, heros, icons, bg } from "@/core/AssetsManager";
-// import { fetchMasterClasses } from "@/services/classes/masterClasses";
-import { useEffect, useState } from "react";
+import { icons, bg } from "@/core/AssetsManager";
 
 export default function Home() {
-    const courses = [
-        {
-            image: heros.interduce_thumbnail.src,
-            title: "Lorem Ipsum is simply dummy text of the printing",
-        },
-        {
-            image: heros.interduce_thumbnail.src,
-            title: "Lorem Ipsum is simply dummy text of the printing",
-        },
-        {
-            image: heros.interduce_thumbnail.src,
-            title: "Lorem Ipsum is simply dummy text of the printing",
-        },
-    ];
+
+    
     const headerStats = [
         { amount: 500, title: "Visitors" },
         { amount: 150, title: "Speakers" },
         { amount: 1000, title: "Doctors" },
         { amount: 75, title: "Sponsors" },
     ];
-
-    // const [masterCourses, setMasterCourse] = useState()
-    // const catchMaterCourses = async () => {
-    //     const result = await fetchMasterClasses()
-    //     setMasterCourse(result)
-    // }
-    useEffect(() => {
-        // catchMaterCourses()
-    }, [])
+    
 
     return (
         <>
