@@ -1,5 +1,6 @@
 'use client'
 
+import MasterClassesListing from "@/components/master-classes/MasterClassesListing";
 import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import InterduceSection from "@/components/static/InterduceSection";
@@ -104,21 +105,7 @@ export default function Home() {
                 <div className="container">
                     <InterduceSection></InterduceSection>
                     <SharedCountDown />
-                    <div className="py-20">
-                        <h2 className="section-title text-center">
-                            Lorem Ipsum is <br />
-                            simply dummy text of the printing{" "}
-                        </h2>
-                        <div className="grid md:grid-cols-3 grid-cols-1 container gap-5 lg:gap-10 mt-10">
-                            {courses.map((item, index) => (
-                                <SharedCardWithShadow
-                                    key={index}
-                                    image={item.image}
-                                    title={item.title}
-                                />
-                            ))}
-                        </div>
-                    </div>
+                    <MasterClassesListing></MasterClassesListing>
 
                     <WhySubmitSection></WhySubmitSection>
                     <RegisterSectionWithVedio></RegisterSectionWithVedio>

@@ -84,3 +84,30 @@ export const validateInput = async (
         return err.message; // Return the validation error message.
     }
 };
+
+
+
+
+/**
+ * errorHandler Utility Function
+ * Purpose:
+ *    This function standardizes error handling across the application.
+ *    It extracts and returns a user-friendly error message from an error object,
+ *    typically coming from Axios or Fetch API requests.
+ * Usage:
+ *    Use this function inside service functions to normalize error messages
+ *    before throwing them to the UI layer.
+ *
+ * @param {any} error - The error object caught in a catch block.
+ * @returns {string} - A user-friendly error message.
+ */
+export const errorHandler = (error: any): string => {
+    // Check if server responded with a message
+    if (error.response?.data?.message) return error.response.data.message;
+
+    // If a generic error message exists, return it
+    if (error.message) return error.message;
+
+    // Default fallback message
+    return "Something went wrong. Please try again.";
+};

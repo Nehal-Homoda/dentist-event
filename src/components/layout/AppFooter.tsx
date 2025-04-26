@@ -3,41 +3,35 @@
 import React, { useEffect, useState } from "react";
 import { bg, brand } from "@/core/AssetsManager";
 import BaseBtn from "../Base/BaseBtn";
+import { getSetting } from "@/services/appSharedServices";
+import { error } from "console";
+import { AppSettingData } from "@/types/shared";
 // import { fetchFooterSetting } from "@/services/settings/footerSetting";
 
 export default function AppFooter() {
 
-    const [footerData, setFooterData] = useState()
+    const [data, setData] = useState<AppSettingData | null>(null)
+    const [errorMessage, setErrorMessage] = useState('')
 
 
-    // const catchFooterData = async () => {
-    //     const result = await fetchFooterSetting()
-    //     setFooterData(result)
+    const fetchFooterSetting = async () => {
 
-    // }
+        getSetting()
+        .then(response => {
+            setData(response);
+        })
+        .catch(error => {
+            setErrorMessage(error)
+        })
 
-    const fetchData = async () => {
-
-        try {
-            const res = await fetch('http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting');
-
-            if (!res.ok) throw('connection error');
-
-            const data = res.json();
-
-            console.log("response data =>> ", data)
-        } catch (error) {
-
-            //@ts-ignore
-            console.log(error.message)
-        }
     }
 
-
     useEffect(() => {
-        // catchFooterData()
-        fetchData();
+        fetchFooterSetting();
     }, [])
+
+
+
 
     return (
         <>
@@ -65,7 +59,7 @@ export default function AppFooter() {
                             </h5>
                             <p className="text-xs ">
                                 <span className="mdi mdi-map-marker-outline me-1"></span>
-                                Egypt, Cairo
+                                {data?.location}
                             </p>
 
                             {/* contact info */}
@@ -74,15 +68,15 @@ export default function AppFooter() {
                             </h5>
                             <div className="flex gap-5">
                                 <a
-                                    href="mailto:EAOMS@mail.com"
+                                    href={`mailto:${data?.mail}`}
                                     className="text-xs "
                                 >
                                     <span className="mdi mdi-email-outline me-1"></span>
-                                    EAOMS@mail.com
+                                    {data?.mail}
                                 </a>
                                 <a href="tel:01201354511" className="text-xs ">
                                     <span className="mdi mdi-phone me-1"></span>
-                                    01201354511
+                                    { data?.phone }
                                 </a>
                             </div>
                             {/* social links */}
@@ -91,17 +85,18 @@ export default function AppFooter() {
                             </h5>
                             <div className="flex gap-5">
                                 <a
-                                    href="mailto:EAOMS@mail.com"
+                                    href={data?.facebookUrl}
+                                    target="_blank"
                                     className="text-xs "
                                 >
                                     <span className="mdi mdi-facebook me-1"></span>
                                     Facebook
                                 </a>
-                                <a href="tel:01201354511" className="text-xs ">
+                                <a href={data?.instagramUrl} target="_blank" className="text-xs ">
                                     <span className="mdi mdi-instagram me-1"></span>
                                     Instagram
                                 </a>
-                                <a href="tel:01201354511" className="text-xs ">
+                                <a href={data?.linkedinUrl} target="_blank" className="text-xs ">
                                     <span className="mdi mdi-linkedin me-1"></span>
                                     LinkedIn
                                 </a>
