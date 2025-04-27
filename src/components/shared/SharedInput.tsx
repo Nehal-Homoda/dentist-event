@@ -16,7 +16,7 @@ type Props = {
 export default function SharedTextInput({ id='', name='', placeholder='', value, type='text', errorMessage, sendInputValue }: Props) {
     return (
         <div>
-            <input className='outline-input' onChange={sendInputValue} type={type} id={id} name={name} placeholder={placeholder} value={value} />
+            <input required className='outline-input' onChange={sendInputValue} type={type} id={id} name={name} placeholder={placeholder} value={value} />
            <span className='text-error text-sm'>{errorMessage}</span>
         </div>
     )

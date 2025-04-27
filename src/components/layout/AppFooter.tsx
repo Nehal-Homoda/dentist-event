@@ -15,7 +15,6 @@ export default function AppFooter() {
 
 
     const fetchFooterSetting = async () => {
-
         getSetting()
         .then(response => {
             setData(response);
@@ -25,21 +24,25 @@ export default function AppFooter() {
         })
 
     } 
-    const fetchData = async () => {
+    // const fetchData = async () => {
 
-        try {
-            const res = await fetch('http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting');
+    //     try {
+    //         const res = await fetch('http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting');
 
-            if (!res.ok) throw('connection error');
+    //         if (!res.ok) throw('connection error');
 
-            const data = res.json();
+    //         const data = res.json();
 
-            console.log("response data =>> ", data)
-        } catch (error) {
+    //         console.log("response data =>> ", data)
+    //     } catch (error) {
 
-            //@ts-ignore
-            console.log(error.message)
-        }
+    //         //@ts-ignore
+    //         console.log(error.message)
+    //     }
+    // }
+
+    const sendAction=()=>{
+        
     }
     
 
@@ -136,7 +139,7 @@ export default function AppFooter() {
                                     placeholder="Enter your email"
                                     className="w-full rounded-full placeholder:text-xs text-foreground outline-none border-none px-5"
                                 />
-                                <BaseBtn minWidth="min-w-[5rem]">
+                                <BaseBtn handleBtnAction={sendAction} minWidth="min-w-[5rem]">
                                     Send Now
                                 </BaseBtn>
                             </div>

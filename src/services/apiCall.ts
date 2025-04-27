@@ -8,6 +8,7 @@ export const APP_API_HEADERS = (): HeadersInit => {
         Accept: "application/json",
         // "Client-Type": "web",
         // 'Content-Type': "multipart/form-data",
+        // "Content-Type": "application/json",
         ...(token && { Authorization: `bearer ${token}` }),
     };
 };

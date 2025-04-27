@@ -3,8 +3,9 @@ import React, { useState } from "react";
 
 type Props = {
     fileName: string;
+    changeFile:(file:File)=>void
 };
-export default function SharedUploadFile({ fileName }: Props) {
+export default function SharedUploadFile({ fileName, changeFile }: Props) {
     const [selectedImg, setSelectedImg] = useState(null);
     const [selectedFileName, setSelectedFileName] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -26,6 +27,7 @@ export default function SharedUploadFile({ fileName }: Props) {
         } else {
             setSelectedFileName(fileName);
         }
+        changeFile(file)
     };
 
     const close = () => {
@@ -37,10 +39,10 @@ export default function SharedUploadFile({ fileName }: Props) {
     };
 
     return (
-        <>
+        // <div>
             <div className="text-secondary-500 text-sm ">
                 <div className="outline-input  relative bg-white px-5 h-10 flex justify-between items-center mb-3 rounded-lg ">
-                    <input
+                    <input required
                         onChange={handleInputChange}
                         type="file"
                         className="cursor-pointer opacity-0 absolute w-full h-full left-0 top-0"
@@ -92,6 +94,6 @@ export default function SharedUploadFile({ fileName }: Props) {
                 )}
                 <span className="text-primary font-bold px-3">{selectedFileName}</span>
             </div>
-        </>
+        // </div>
     );
 }

@@ -42,3 +42,33 @@ export interface AppMasterClass {
     createBy: string;
     createDate: string;
 }
+export interface RegistrationData {
+    Id: number;
+    FullName: string;
+    AcademicDegree: number;
+    PhoneNumber: string;
+    Email: string;
+    Nationality: number;
+    NationalId: string;
+    NationalIdPath: string;
+    SyndicateCard: string;
+    PersonalPhoto: string;
+    Address: string;
+}
+
+export interface EventData {
+    Id: number;
+    MedicalSpecialty: string;
+    Workplace: number;
+    Country: string;
+    TypeofParticipation: number;
+    TitleOfLecture: string;
+    AbstractOfLecture: string;
+    AbstractOfLecturePath: string;
+    AttendanceDate: string;
+    CVPath: string;
+    SyndicateCard: string;
+    AccommodationBooking: number;
+    CertificatePath: string;
+    AttendanceCertificatePath: string;
+}
