@@ -73,7 +73,7 @@ export default function page() {
                     </div>
                     <div className="flex   gap-7 lg:pt-5 ">
                         <Link
-                            href={`/`}
+                            href={'/edit'}
                             className="font-semibold text-primary flex-grow-0 flex-shrink-0 underline  "
                         >
                             <span className="mdi mdi-pen text-primary me-2"></span>

@@ -36,7 +36,7 @@ export default function SharedUploadPhoto({
     },[]);
 
     return (
-        <div className="w-20 h-20 relative ">
+        <div className="w-24 h-24 relative ">
             <div className="relative bg-white w-full h-full rounded-full ring-1 ring-primary  ">
                 <input
                     onChange={showImage}

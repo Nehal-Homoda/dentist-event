@@ -17,7 +17,7 @@ const navLinks = [
     { name: "about", link: '' },
     { name: "accomedation", link: '' },
     { name: "sponsors", link: '' },
-    { name: "profile", link: '' },
+    { name: "profile", link: '/profile' },
 ];
 // const navLinks = [
 //     { name: "Home", link: RoutesManager.home },
