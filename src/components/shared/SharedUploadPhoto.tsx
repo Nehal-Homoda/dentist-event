@@ -56,7 +56,7 @@ export default function SharedUploadPhoto({
                 )}
                 <div className="cursor-pointer px-2  text-center bg-primary text-white  rounded-xl   absolute top-[80%] left-[80%] -translate-x-[50%] -translate-y-[50%]">
                     <span className="mdi mdi-plus text-sm"></span>
-                </div>{" "}
+                </div>
                 : <div></div>
             </div>
         </div>

@@ -10,10 +10,18 @@ export const brand = {
 import icon_calender_colorful from "@/assets/images/icons/icon-calendar-colorful.png";
 import icon_location_colorful from "@/assets/images/icons/icon-location-colorful.png";
 import google_icon from "@/assets/images/icons/google-icon.png";
+
+import icon_facebook from "@/assets/images/icons/icon-facebook.png";
+import icon_instgram from "@/assets/images/icons/icon-instgram.png";
+import icon_linkedin from "@/assets/images/icons/icon-linkedin.png";
+
 export const icons = {
     icon_calender_colorful,
     icon_location_colorful,
     google_icon,
+    icon_facebook,
+    icon_instgram,
+    icon_linkedin,
 };
 //========= [BG]
 import footer_bg from "@/assets/images/bg/footer-bg.png";

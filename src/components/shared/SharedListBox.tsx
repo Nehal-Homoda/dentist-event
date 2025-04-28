@@ -51,7 +51,7 @@ export default function SharedListBox({
                     {selectedObj && itemTitle && selectedObj[itemTitle]
                         ? selectedObj[itemTitle]
                         : selectedObj}
-                    <span className="mdi mdi-menu-down group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"></span>
+                    <span className="mdi mdi-chevron-down text-primary group pointer-events-none absolute top-2.5 right-2.5 size-4 fill-white/60"></span>
                 </ListboxButton>
                 <ListboxOptions
                     anchor="bottom"

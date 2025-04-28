@@ -53,8 +53,8 @@ export default function SharedUploadFile({ fileName, changeFile }: Props) {
                 </div>
 
                 {selectedImg && (
-                    <div className="px-3">
-                        <div className="w-20 h-20  rounded-md overflow-hidden ring-1 ring-primary" onClick={openModal}>
+                    <div className="px-3 ">
+                        <div className="w-20 h-20  rounded-md overflow-hidden ring-1 ring-primary " onClick={openModal}>
                             <img
                                 src={selectedImg}
                                 className=" w-full h-full object-contain"

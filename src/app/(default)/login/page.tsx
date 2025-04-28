@@ -3,6 +3,7 @@ import BaseBtn from "@/components/Base/BaseBtn";
 import FormCard from "@/components/Base/FormCard";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
+import SharedTextInput from "@/components/shared/SharedInput";
 import { brand, icons } from "@/core/AssetsManager";
 import { validateAllInputs, validateInput } from "@/utils/shared";
 import Link from "next/link";
@@ -101,18 +102,18 @@ export default function LoginPage() {
     const submit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        const messages = await validateAllInputs<FormDataInputs>(formSchema, formData);
-
+        const messages = await validateAllInputs<FormDataInputs>(
+            formSchema,
+            formData
+        );
 
         if (messages) {
-
-            setFormErrors({...messages})
+            setFormErrors({ ...messages });
         }
 
         if (formErrors.password || formErrors.username) return;
         if (!formData.password || !formData.username) return;
 
-        
         console.log("submitted");
         console.log("submitted", { ...formData });
     };
@@ -133,7 +134,7 @@ export default function LoginPage() {
                     >
                         <div className="grid md:grid-cols-2 gap-4 mb-4">
                             <div className="">
-                                <input
+                                {/* <input
                                     className="outline-input"
                                     type="text"
                                     name="username"
@@ -142,13 +143,22 @@ export default function LoginPage() {
                                         inputChangeHandler(e, "username")
                                     }
                                     placeholder="Enter your usename"
+                                /> */}
+                                <SharedTextInput
+                                    name="username"
+                                    value={formData.username}
+                                    id="username"
+                                    placeholder="Enter your usename"
+                                    sendInputValue={(e) =>
+                                        inputChangeHandler(e, "username")
+                                    }
                                 />
                                 <span className="error text-error text-xs">
                                     {formErrors.username}
                                 </span>
                             </div>
                             <div className="">
-                                <input
+                                {/* <input
                                     className="outline-input"
                                     type="password"
                                     name="password"
@@ -157,6 +167,16 @@ export default function LoginPage() {
                                         inputChangeHandler(e, "password")
                                     }
                                     placeholder="Enter your password"
+                                /> */}
+
+                                <SharedTextInput
+                                    name="password"
+                                    value={formData.password}
+                                    type="password"
+                                    placeholder="Enter your password"
+                                    sendInputValue={(e) =>
+                                        inputChangeHandler(e, "password")
+                                    }
                                 />
                                 <span className="error text-error text-xs">
                                     {" "}
@@ -180,6 +200,10 @@ export default function LoginPage() {
                                 Create your account
                             </Link>
                         </div>
+
+                        <BaseBtn minWidth="w-40">
+                            <span>Sign In</span>
+                        </BaseBtn>
                     </FormCard>
                     <div className="md:col-span-4 md:order-2 order-1 mx-auto my-auto ">
                         <div className="lg:w-72 lg:h-72 w-52 h-52">

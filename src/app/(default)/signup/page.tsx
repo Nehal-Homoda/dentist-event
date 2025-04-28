@@ -50,15 +50,7 @@ export default function SignupPage() {
     const [address, setAddressValue] = useState("");
     const [specialty, setSpecialtyValue] = useState("");
     const [password, setPasswordValue] = useState("");
-    const [associationFiles, setAssociatioFiles] = useState({
-        SyndicateCard: null,
-        NationalIdPath: null,
-        PersonalPhoto: null,
-        CVPath: null,
-        AbstractOfLecturePath: null,
-        CertificatePath: null,
-        AttendanceCertificatePath: null,
-    });
+
     const [associatioFormData, setAssociatioFormData] = useState({
         // id:11,
         FullName: "",
@@ -69,6 +61,16 @@ export default function SignupPage() {
         Nationality: 1,
         NationalId: "",
         Address: "",
+    });
+
+    const [associationFiles, setAssociatioFiles] = useState({
+        SyndicateCard: null,
+        NationalIdPath: null,
+        PersonalPhoto: null,
+        CVPath: null,
+        AbstractOfLecturePath: null,
+        CertificatePath: null,
+        AttendanceCertificatePath: null,
     });
 
     const [eventFormData, setEventFormData] = useState({
@@ -84,6 +86,24 @@ export default function SignupPage() {
         AccommodationBooking: 1,
     });
 
+    const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>, name: any) => {
+        const isAssociation = Object.keys(associatioFormData).includes(name);
+        if (isAssociation) {
+            setAssociatioFormData((prev) => ({
+                ...prev,
+                [name]: e.target.value,
+            }));
+            return;
+        }
+        setEventFormData((prev) => ({
+            ...prev,
+            [name]: e.target.value,
+        }));
+
+        // @ts-ignore
+        console.log(associatioFormData[name]);
+    };
+
     const fileInputChange = (file: any, image: any, inputName: string) => {
         console.log(file, image);
         setImageSentFromChild(image);
@@ -93,9 +113,9 @@ export default function SignupPage() {
         }));
     };
 
-    const takeSelectedOption = (e: any) => {};
+    const takeSelectedOption = (e: React.ChangeEvent<HTMLInputElement>) => {};
 
-    const handleRadioValue = (e: any) => {
+    const handleRadioValue = (e: React.ChangeEvent<HTMLInputElement>) => {
         console.log(e.target);
         const radioInput = e.target;
 
@@ -108,7 +128,7 @@ export default function SignupPage() {
             setIsFileInput(true);
         }
     };
-    const handleCompleteForm = (e: any) => {
+    const handleCompleteForm = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.checked) {
             setIsJoinEvent(true);
             return;
@@ -124,7 +144,7 @@ export default function SignupPage() {
                 ...associatioFormData,
             },
             EventData: {
-                ...eventFormData
+                ...eventFormData,
             },
         };
 
@@ -141,60 +161,39 @@ export default function SignupPage() {
         console.log("submitFile", fd);
 
         register(convertDataToJson)
-        .then((response) => {
-            setAssociatioFormData({
-                // id:11,
-                FullName: "",
-                Password: "",
-                AcademicDegree: 1,
-                PhoneNumber: "",
-                Email: "",
-                Nationality: 1,
-                NationalId: "",
-                Address: "",
+            .then((response) => {
+                setAssociatioFormData({
+                    // id:11,
+                    FullName: "",
+                    Password: "",
+                    AcademicDegree: 1,
+                    PhoneNumber: "",
+                    Email: "",
+                    Nationality: 1,
+                    NationalId: "",
+                    Address: "",
+                });
+                setEventFormData({
+                    packageId: "1",
+                    Workplace: 1,
+                    TitleOfLecture: "erwrewr",
+                    MedicalSpecialty: "",
+                    Country: "Egypt",
+                    TypeofParticipation: 1,
+                    AbstractOfLecture: "",
+                    // AbstractOfLecturePath: "",
+                    AttendanceDate: new Date(),
+                    AccommodationBooking: 1,
+                });
             })
-            setEventFormData({
-                packageId: "1",
-                Workplace: 1,
-                TitleOfLecture: "erwrewr",
-                MedicalSpecialty: "",
-                Country: "Egypt",
-                TypeofParticipation: 1,
-                AbstractOfLecture: "",
-                // AbstractOfLecturePath: "",
-                AttendanceDate: new Date(),
-                AccommodationBooking: 1,
-            })
-
-        })
-        .catch(error => {
-            console.log(error.message)
-        }) 
+            .catch((error) => {
+                console.log(error.message);
+            });
         registerFiles(fd)
-        .then((response) => {
-
-        })
-        .catch(error => {
-            console.log(error.message)
-        }) 
-    };
-
-    const handleChangeValue = (e: any, name: any) => {
-        const isAssociation = Object.keys(associatioFormData).includes(name);
-        if (isAssociation) {
-            setAssociatioFormData((prev) => ({
-                ...prev,
-                [name]: e.target.value,
-            }));
-            return;
-        }
-        setEventFormData((prev) => ({
-            ...prev,
-            [name]: e.target.value,
-        }));
-
-        // @ts-ignore
-        console.log(associatioFormData[name]);
+            .then((response) => {})
+            .catch((error) => {
+                console.log(error.message);
+            });
     };
 
     useEffect(() => {
@@ -381,9 +380,9 @@ export default function SignupPage() {
                                     )}
                                 </div>
 
-                                <div className="col-span-2">
+                                <div className="col-span-2 mt-8">
                                     <input
-                                        onClick={handleCompleteForm}
+                                        onClick={(e)=>handleCompleteForm}
                                         type="checkbox"
                                         id="complete"
                                         name="completeForm"
