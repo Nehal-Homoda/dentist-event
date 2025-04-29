@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./../assets/styles/globals.css";
 import ScreensIndicator from "@/components/Base/ScreensIndicator";
+import StoreProvider from "./storeProvider";
 
 // const geistSans = Geist({
 //     variable: "--font-geist-sans",
@@ -31,10 +32,12 @@ export default function RootLayout({
                 href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css"
             ></link>
             </head>
+            <StoreProvider>
             <body>
                 <ScreensIndicator />
                 {children}
             </body>
+            </StoreProvider>
         </html>
     );
 }

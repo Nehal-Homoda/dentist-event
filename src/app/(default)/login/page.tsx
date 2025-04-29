@@ -8,7 +8,10 @@ import { brand, icons } from "@/core/AssetsManager";
 import { validateAllInputs, validateInput } from "@/utils/shared";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
+import {login} from '@/stores/auth/authSlice'
+import { AppDispatch, RootState } from "@/stores/store";
 
 interface FormDataInputErrors {
     username: string | null;
@@ -32,6 +35,10 @@ export default function LoginPage() {
         username: Yup.string().required(),
         password: Yup.string().required().min(8),
     });
+
+
+    const dispatch = useDispatch<AppDispatch>()
+    const authErrorMsg=useSelector((state:RootState)=>state.counter.authErrorMsg)
 
     // const validateAllInputs = async () => {
     //     try {
@@ -113,9 +120,16 @@ export default function LoginPage() {
 
         if (formErrors.password || formErrors.username) return;
         if (!formData.password || !formData.username) return;
+        const fd = new FormData()
+        fd.append('username',formData.username)
+        fd.append('password',formData.password)
+        dispatch(login(fd))
 
         console.log("submitted");
         console.log("submitted", { ...formData });
+
+
+
     };
 
     useEffect(() => {
@@ -127,7 +141,7 @@ export default function LoginPage() {
             <SharedHeader pageName="Login" />
             <form onSubmit={submit}>
                 <div className="grid md:grid-cols-10 container py-20 ">
-                    <FormCard
+                    <FormCard isBackBtn={false}
                         colNum="md:col-span-6 md:order-1 order-2"
                         title="Sign-In"
                         actionName="Sign In"
