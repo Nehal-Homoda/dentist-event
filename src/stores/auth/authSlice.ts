@@ -1,40 +1,39 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { loginService } from '@/services/authService'
-import { errorHandler } from '@/utils/shared'
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { loginService } from "@/services/authService";
+import { errorHandler } from "@/utils/shared";
+import { User } from "@/types/shared";
 export interface AuthState {
-  user: { name: string, password: string }
-  token: string,
-  authErrorMsg: string
+    user: User | null;
+    token: string;
+    authErrorMsg: string;
 }
 
 const initialState: AuthState = {
-  user: { name: 'nehal', password: '0123' },
-  token: '',
-  authErrorMsg: ''
-}
+    user: null,
+    token: "",
+    authErrorMsg: "",
+};
 
 export const authSlice = createSlice({
-  name: 'auth',
-  initialState,
-  reducers: {
-    login: (state, action: PayloadAction<FormData>) => {
-      loginService(action.payload).then((response) => {
-        state.user = response
-        state.token = response.meta.token
-        localStorage.setItem('token', state.token)
-        localStorage.setItem('user', JSON.stringify(state.user))
-      }).catch((error) => {
-        const errorMsg = errorHandler(error)
-        state.authErrorMsg = errorMsg
-      })
-
-    }
-
-
-  },
-})
+    name: "auth",
+    initialState,
+    reducers: {
+        setUser: (state, action: PayloadAction<User>) => {
+            state.user = action.payload;
+        },
+        setError: (state, action: PayloadAction<string>) => {
+            state.authErrorMsg = action.payload;
+        },
+        enter: (state) => {
+          const x=localStorage.getItem('user')
+          if(x){
+            state.user = JSON.parse(x);
+          }
+        },
+    },
+});
 
 // Action creators are generated for each case reducer function
-export const {login } = authSlice.actions
+export const { setUser, setError, enter } = authSlice.actions;
 
-export default authSlice.reducer
+export default authSlice.reducer;

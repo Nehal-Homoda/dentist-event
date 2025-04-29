@@ -205,6 +205,7 @@ export default function SignupPage() {
             <SharedHeader pageName="Register" />
             <div className="grid md:grid-cols-10 container py-20 ">
                 <FormCard
+                isBackBtn={false}
                     colNum="md:col-span-6 md:order-1 order-2"
                     title="Registration for EAOMS Members"
                     actionName="s"

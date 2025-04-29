@@ -7,7 +7,9 @@ const accomedation = "/acomedation";
 const sponsors = "/sponsors";
 const profile = "/profile";
 const register = "/signup";
-const edit="/edit"
+const edit = "/edit";
+
+const editpassword = "/editpassword";
 
 export default {
     home,
@@ -19,5 +21,6 @@ export default {
     sponsors,
     profile,
     register,
-    edit
+    edit,
+    editpassword,
 };

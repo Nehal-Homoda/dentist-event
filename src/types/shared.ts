@@ -72,3 +72,26 @@ export interface EventData {
     CertificatePath: string;
     AttendanceCertificatePath: string;
 }
+
+export interface User {
+    id: number
+    fullName: string
+    academicDegree: number
+    phoneNumber: string
+    email: string
+    nationality: number
+    nationalId: string
+    nationalIdPath: any
+    syndicateCard: any
+    personalPhoto: any
+    address: string
+    deleted: number
+    password: string
+    userID: string
+    jobTitle: any
+    facebookUrl: string
+    instagramUrl: any
+    linkedinUrl: any
+    createDate: string
+  }
+  

@@ -1,23 +1,26 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 
 import RoutesManager from "@/core/RoutesManager";
-import { elements,brand } from "@/core/AssetsManager";
+import { elements, brand } from "@/core/AssetsManager";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import BaseBtn from "@/components/Base/BaseBtn";
-
+import { useDispatch } from "react-redux";
+import { AppDispatch } from "@/stores/store";
+import { enter } from "@/stores/auth/authSlice";
+import { User } from "@/types/shared";
 
 const navLinks = [
     { name: "Home", link: RoutesManager.home },
     { name: "Registration", link: RoutesManager.registration },
-    { name: "Schedule", link: '' },
-    { name: "Abstract", link: '' },
-    { name: "about", link: '' },
-    { name: "accomedation", link: '' },
-    { name: "sponsors", link: '' },
-    { name: "profile", link: '/profile' },
+    { name: "Schedule", link: "" },
+    { name: "Abstract", link: "" },
+    { name: "about", link: "" },
+    { name: "accomedation", link: "" },
+    { name: "sponsors", link: "" },
+    { name: "profile", link: "/profile" },
 ];
 // const navLinks = [
 //     { name: "Home", link: RoutesManager.home },
@@ -30,7 +33,6 @@ const navLinks = [
 //     { name: "profile", link: RoutesManager.profile },
 // ];
 
-
 type Props = {
     colorInverted: Boolean;
     isWithSponsors: Boolean;
@@ -38,8 +40,15 @@ type Props = {
 
 const sponsorsImg = [elements.sponsor1, elements.sponsor2, elements.sponsor3];
 
+
+
+
 export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     const pathName = usePathname();
+    const dispatch = useDispatch<AppDispatch>();
+    useEffect(() => {
+        dispatch(enter())
+     });
     return (
         <>
             <div className="container absolute z-30 left-[50%] -translate-x-[50%]  top-10 ">
@@ -65,8 +74,6 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                         <BaseBtn isWithArrow={false}>
                             <span>Register Now !</span>
                         </BaseBtn>
-                       
-
                     </div>
                 )}
                 <div
@@ -83,7 +90,11 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                             href={item.link}
                             className={
                                 item.link == pathName
-                                    ? `relative before:absolute before:w-full before:content-[''] ${colorInverted ? 'before:bg-background' : 'before:bg-primary'} before:bg-background  before:h-1  before:top-7 `
+                                    ? `relative before:absolute before:w-full before:content-[''] ${
+                                          colorInverted
+                                              ? "before:bg-background"
+                                              : "before:bg-primary"
+                                      } before:bg-background  before:h-1  before:top-7 `
                                     : "bg-yellow"
                             }
                         >
@@ -91,7 +102,6 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                         </Link>
                     ))}
                 </div>
-              
             </div>
         </>
     );
