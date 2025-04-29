@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "c4af5fc1-f400-4a2e-9bfb-3d5fca5fce13",
+		"_postman_id": "8f2f6788-bc5e-4891-afa1-0509c0f92e98",
 		"name": "EAOMS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "9625780",
-		"_collection_link": "https://grey-shadow-7239.postman.co/workspace/My-Workspace~0eaed8ae-3d90-43a4-891f-d71c09057367/collection/9625780-c4af5fc1-f400-4a2e-9bfb-3d5fca5fce13?action=share&source=collection_link&creator=9625780"
+		"_exporter_id": "18482891"
 	},
 	"item": [
 		{
@@ -147,6 +146,136 @@
 						"api",
 						"Data",
 						"Registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetProfileData?userid=9188845f-da56-42e4-8958-b7cc2ecd9c1f",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetProfileData?userid=9188845f-da56-42e4-8958-b7cc2ecd9c1f",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"GetProfileData"
+					],
+					"query": [
+						{
+							"key": "userid",
+							"value": "9188845f-da56-42e4-8958-b7cc2ecd9c1f"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"Email\":\"testkjk@mail.com\",\r\n    \"Password\":\"32432432\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Login",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"Login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/ChangePassword",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"UserID\":\"9188845f-da56-42e4-8958-b7cc2ecd9c1f\",\r\n    \"oldPassword\":\"32432432\",\r\n    \"NewPassword\":\"32432432\",\r\n    \"NewPasswordConfirm\":\"32432432\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/ChangePassword",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"ChangePassword"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/EditProfile",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 41,\r\n    \"fullName\": \"sddsdsrtt324324 test\",\r\n    \"academicDegree\": 1,\r\n    \"phoneNumber\": \"4234324324\",\r\n    \"nationality\": 1,\r\n    \"nationalId\": \"324324324\",\r\n    \"nationalIdPath\": null,\r\n    \"syndicateCard\": null,\r\n    \"personalPhoto\": null,\r\n    \"address\": \"324324\",\r\n    \r\n    \"jobTitle\": null,\r\n    \"facebookUrl\": \"facebook.com\",\r\n    \"instagramUrl\": null,\r\n    \"linkedinUrl\": null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/EditProfile",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"EditProfile"
 					]
 				}
 			},

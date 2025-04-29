@@ -1,44 +1,168 @@
-
-'use client'
+"use client";
 
 import BaseBtn from "@/components/Base/BaseBtn";
 import FormCard from "@/components/Base/FormCard";
+import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedTextInput from "@/components/shared/SharedInput";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
-import { brand, elements, heros } from "@/core/AssetsManager";
+import { brand, elements, heros, icons } from "@/core/AssetsManager";
+import { updateForm } from "@/services/authService";
+import { RootState } from "@/stores/store";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function page() {
+    const user = useSelector((state: RootState) => state.counter.user);
+    const [profileImg, setProfileImg] = useState("");
 
-    const [profileImg,setProfileImg]=useState('')
+    const handleChangeInput = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        name: string
+    ) => {
+        setFormData((prev) => ({
+            ...prev,
+            [name]: e.target.value,
+        }));
+    };
+    const handleChangeImg = () => {};
+    // const user = useSelector((state: RootState) => state.counter.user);
+    const [formData, setFormData] = useState({
+        id:1,
+        fullName: "",
+        jobTitle: "",
+        facebookUrl: "",
+        instagramUrl: "",
+        linkedinUrl: "",
+    });
+    useEffect(() => {
+        if (user) {
+            setFormData({
+                id:user.id,
+                fullName: user.fullName || "",
+                jobTitle: user.jobTitle || "",
+                facebookUrl: user.facebookUrl || "",
+                instagramUrl: user.instagramUrl || "",
+                linkedinUrl: user.linkedinUrl || "",
+            });
+        }
+    }, [user]);
 
-    const handleChangeInput=(e)=>{
+    const submit = (e: any) => {
+        e.preventDefault();
+        const x = {
+            ...formData,
+        };
 
-    }
-    const handleChangeImg=()=>{
+        const updateFormObjJson = JSON.stringify(x);
+        updateForm(updateFormObjJson);
+    };
 
-    }
     return (
         <div>
             <SharedHeader pageName="" />
 
-            <form>
+            <form onSubmit={submit}>
                 <div className="grid md:grid-cols-10 container py-20 ">
                     <FormCard
-                    isBackBtn={true}
+                        isBackBtn={true}
                         colNum="md:col-span-6 md:order-1 order-2 "
                         title="Edit Personal Iformation"
                         actionName=""
                     >
-                        
-                        <SharedUploadPhoto imageUploaded={profileImg? profileImg : brand.logo.src}  changeImageUploaded={handleChangeImg}/>
+                        <SharedUploadPhoto
+                            imageUploaded={user?.personalPhoto}
+                            changeImageUploaded={handleChangeImg}
+                        />
                         <p className="text-primary mt-2 mb-6">Profile Photo</p>
 
-                        <SharedTextInput name="userName" id="userName" value='nehal' sendInputValue={(e)=>handleChangeInput(e)}/>
-                        <SharedTextInput name="title" id="title" value='Head of the Department of Oral and Dental Surgery' sendInputValue={(e)=>handleChangeInput(e)}/>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16   mt-10 ">
+                            <div className="md:col-span-1 col-span-2">
+                                <SharedTextInput
+                                    name="fullName"
+                                    id="fullName"
+                                    placeholder="Enter your full name"
+                                    value={formData.fullName}
+                                    sendInputValue={(e) =>
+                                        handleChangeInput(e, "fullName")
+                                    }
+                                />
+                            </div>
+                            <div className="md:col-span-1 col-span-2">
+                                <SharedTextInput
+                                    name="jobTitle"
+                                    id="jobTitle"
+                                    placeholder="Enter your job title"
+                                    value={formData.jobTitle}
+                                    sendInputValue={(e) =>
+                                        handleChangeInput(e, "jobTitle")
+                                    }
+                                />
+                            </div>
+                            <div className=" col-span-2 grid grid-cols-12 items-center">
+                                <div className="col-span-1 w-5 h-5">
+                                    <img
+                                        className="w-full h-full object-contain"
+                                        src={icons.icon_facebook.src}
+                                        alt=""
+                                    />
+                                </div>
 
+                                <div className="col-span-11">
+                                    <SharedTextInput
+                                        name="facebookUrl"
+                                        id="facebookUrl"
+
+                                        placeholder="Enter your Facebook link"
+                                        value={formData.facebookUrl}
+                                        sendInputValue={(e) =>
+                                            handleChangeInput(e, "facebookUrl")
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-span-2 grid grid-cols-12 items-center">
+                                <div className="col-span-1 w-5 h-5">
+                                    <img
+                                        className="w-full h-full object-contain"
+                                        src={icons.icon_linkedin.src}
+                                        alt=""
+                                    />
+                                </div>
+                                <div className="col-span-11">
+                                    <SharedTextInput
+                                        name="linkedinUrl"
+                                        id="linkedinUrl"
+                                        placeholder="Enter your LinkedIn link"
+                                        value={formData.linkedinUrl}
+                                        sendInputValue={(e) =>
+                                            handleChangeInput(e, "linkedinUrl")
+                                        }
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-span-2 grid grid-cols-12 items-center">
+                                <div className="col-span-1 w-5 h-5">
+                                    <img
+                                        className="w-full h-full object-contain"
+                                        src={icons.icon_instgram.src}
+                                        alt=""
+                                    />
+                                </div>
+                                <div className="col-span-11">
+                                    <SharedTextInput
+                                        name="instgram"
+                                        placeholder="Enter your Instagram link"
+                                        id="title"
+                                        value={formData.instagramUrl}
+                                        sendInputValue={(e) =>
+                                            handleChangeInput(e, "instagramUrl")
+                                        }
+                                    />
+                                </div>
+                            </div>
+                        </div>
 
                         <BaseBtn minWidth="w-40">
                             <span>Save update</span>
@@ -55,6 +179,7 @@ export default function page() {
                     </div>
                 </div>
             </form>
+            <SharedCountDown />
         </div>
     );
 }

@@ -5,40 +5,42 @@ import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedTextInput from "@/components/shared/SharedInput";
 import { brand, icons } from "@/core/AssetsManager";
-import { validateAllInputs, validateInput } from "@/utils/shared";
+import { errorHandler, validateAllInputs, validateInput } from "@/utils/shared";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import * as Yup from "yup";
-import {login} from '@/stores/auth/authSlice'
+import { setUser, setError } from "@/stores/auth/authSlice";
 import { AppDispatch, RootState } from "@/stores/store";
+import { loginService } from "@/services/authService";
 
 interface FormDataInputErrors {
-    username: string | null;
-    password: string | null;
+    Email: string | null;
+    Password: string | null;
 }
 interface FormDataInputs {
-    username: string;
-    password: string;
+    Email: string;
+    Password: string;
 }
 
 export default function LoginPage() {
     const [formData, setFormData] = useState<FormDataInputs>({
-        username: "",
-        password: "",
+        Email: "",
+        Password: "",
     });
     const [formErrors, setFormErrors] = useState<FormDataInputErrors>({
-        username: null,
-        password: null,
+        Email: null,
+        Password: null,
     });
     const formSchema = Yup.object().shape({
-        username: Yup.string().required(),
-        password: Yup.string().required().min(8),
+        Email: Yup.string().required().email(),
+        Password: Yup.string().required().min(8),
     });
 
-
-    const dispatch = useDispatch<AppDispatch>()
-    const authErrorMsg=useSelector((state:RootState)=>state.counter.authErrorMsg)
+    const dispatch = useDispatch<AppDispatch>();
+    const authErrorMsg = useSelector(
+        (state: RootState) => state.counter.authErrorMsg
+    );
 
     // const validateAllInputs = async () => {
     //     try {
@@ -101,6 +103,8 @@ export default function LoginPage() {
 
         const message = await validateInput(formSchema, inputName, value);
 
+        console.log("error message", message);
+
         setFormErrors((prev) => ({
             ...prev,
             [inputName]: message ? message : "",
@@ -118,18 +122,30 @@ export default function LoginPage() {
             setFormErrors({ ...messages });
         }
 
-        if (formErrors.password || formErrors.username) return;
-        if (!formData.password || !formData.username) return;
-        const fd = new FormData()
-        fd.append('username',formData.username)
-        fd.append('password',formData.password)
-        dispatch(login(fd))
+        if (formErrors.Password || formErrors.Email) return;
+        if (!formData.Password || !formData.Email) return;
+
+        const loginForm = {
+            ...formData,
+        };
+        const loginFormConvertedJson = JSON.stringify(loginForm);
+
+        loginService(loginFormConvertedJson)
+            .then((response) => {
+                dispatch(setUser(response));
+                localStorage.setItem("user", JSON.stringify(response));
+                setFormData({
+                    Email: "",
+                    Password: "",
+                });
+            })
+            .catch((error) => {
+                const errorMsg = errorHandler(error);
+                dispatch(setError(errorMsg));
+            });
 
         console.log("submitted");
         console.log("submitted", { ...formData });
-
-
-
     };
 
     useEffect(() => {
@@ -141,61 +157,37 @@ export default function LoginPage() {
             <SharedHeader pageName="Login" />
             <form onSubmit={submit}>
                 <div className="grid md:grid-cols-10 container py-20 ">
-                    <FormCard isBackBtn={false}
+                    <FormCard
+                        isBackBtn={false}
                         colNum="md:col-span-6 md:order-1 order-2"
                         title="Sign-In"
                         actionName="Sign In"
                     >
                         <div className="grid md:grid-cols-2 gap-4 mb-4">
                             <div className="">
-                                {/* <input
-                                    className="outline-input"
-                                    type="text"
-                                    name="username"
-                                    value={formData.username}
-                                    onChange={(e) =>
-                                        inputChangeHandler(e, "username")
-                                    }
-                                    placeholder="Enter your usename"
-                                /> */}
                                 <SharedTextInput
-                                    name="username"
-                                    value={formData.username}
-                                    id="username"
-                                    placeholder="Enter your usename"
+                                    errorMessage={formErrors.Email || ""}
+                                    name="Email"
+                                    value={formData.Email}
+                                    id="Email"
+                                    placeholder="example@mail.com"
                                     sendInputValue={(e) =>
-                                        inputChangeHandler(e, "username")
+                                        inputChangeHandler(e, "Email")
                                     }
                                 />
-                                <span className="error text-error text-xs">
-                                    {formErrors.username}
-                                </span>
                             </div>
                             <div className="">
-                                {/* <input
-                                    className="outline-input"
-                                    type="password"
-                                    name="password"
-                                    value={formData.password}
-                                    onChange={(e) =>
-                                        inputChangeHandler(e, "password")
-                                    }
-                                    placeholder="Enter your password"
-                                /> */}
-
                                 <SharedTextInput
+                                    errorMessage={formErrors.Password || ""}
+                                    id="password"
                                     name="password"
-                                    value={formData.password}
+                                    value={formData.Password}
                                     type="password"
                                     placeholder="Enter your password"
                                     sendInputValue={(e) =>
-                                        inputChangeHandler(e, "password")
+                                        inputChangeHandler(e, "Password")
                                     }
                                 />
-                                <span className="error text-error text-xs">
-                                    {" "}
-                                    {formErrors.password}{" "}
-                                </span>
                             </div>
                         </div>
                         <div className="text-center mb-5">
