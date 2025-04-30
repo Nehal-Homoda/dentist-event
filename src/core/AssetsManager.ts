@@ -61,6 +61,12 @@ import register_img from "@/assets/images/heros/register-img.png";
 import abstract_img_1 from "@/assets/images/heros/abstract-img-1.png";
 import abstract_img_2 from "@/assets/images/heros/abstract-img-2.png";
 import abstract_img_3 from "@/assets/images/heros/abstract-img-3.png";
+import dr_photo from "@/assets/images/heros/dr-photo.jpg";
+import dr_about_photo from "@/assets/images/heros/dr-about-img.png";
+import dr_media from "@/assets/images/heros/dr-media.png";
+import media_dr_1 from "@/assets/images/heros/media-dr-1.png";
+import media_dr_2 from "@/assets/images/heros/media-dr-2.png";
+import media_vedio from "@/assets/images/heros/media-vedio.png";
 
 export const heros = {
     why_submit,
@@ -73,5 +79,11 @@ export const heros = {
     register_img,
     abstract_img_1,
     abstract_img_2,
-    abstract_img_3
+    abstract_img_3,
+    dr_photo,
+    dr_about_photo,
+    dr_media,
+    media_dr_1,
+    media_dr_2,
+    media_vedio,
 };
