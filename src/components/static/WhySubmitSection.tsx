@@ -29,17 +29,19 @@ export default function WhySubmitSection() {
                     <div className="md:col-span-3">
                         <p className=" text-sm font-semibold">Why Submit ?</p>
                         <h2 className="section-title mt-5 mb-5">
-                            Lorem Ipsum is
-                            <br />
-                            simply dummy text of printing
+                            
+                            This biennial event is more than just a
+                            conference
                         </h2>
 
                         <p className="text-muted text-justify mb-10 lg:pe-20">
-                            Lorem Ipsum  is simply dummy text of the printing
-                            and typesetting industry . c Lorem Ipsum has been
-                            the industry's standard dummy text ever since the
-                            1500s, when an unknown printer took a galley of type
-                            and scra
+                           it’s a celebration of
+                            excellence,innovation, and collaboration in Oral &
+                            Maxillofacial Surgery. Whether you're seeking to
+                            deepen your expertise, connect with global leaders,
+                            or explore the latest advancements, this event
+                            promises to inspire and elevate your professional
+                            journey.
                         </p>
 
                         <BaseBtn minWidth="min-w-[175px]">Register now</BaseBtn>

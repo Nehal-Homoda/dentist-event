@@ -9,16 +9,20 @@ export default function RegisterSectionWithVedio() {
                 <div className="lg:w-[45%] h-full py-20 px-10 text-white">
                     <p className=" text-sm font-semibold">Watch Some Video</p>
                     <h2 className="section-title mt-5 mb-5">
-                        What is Lorem
+                        What submit
                         <br />
-                        Ipsum?
+                        Make?
                     </h2>
 
                     <p className="text-justify mb-10 lg:pe-10">
-                        Lorem Ipsum  is simply dummy text of the printing and
-                        typesetting industry . c Lorem Ipsum has been the
-                        industry's standard dummy text ever since the 1500s,
-                        when an unknown printer took a galley of type and scra
+                        Cutting-Edge Training Courses: Delve into the recent
+                        advances and breakthrough technologies shaping the
+                        future of Oral & Maxillofacial Surgery. * Engaging
+                        Lectures and Workshops: Learn from elite international
+                        speakers and top level Egyptian experts, renowned for
+                        their expertise and visionary insights. * A Premier
+                        Commercial Exhibition: Explore a wide range of products
+                        and innovations from leading companies in the industry.
                     </p>
 
                     <BaseBtn inverted>Register now</BaseBtn>

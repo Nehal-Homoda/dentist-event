@@ -10,20 +10,20 @@ import WhySubmitSection from "@/components/static/WhySubmitSection";
 import { icons, bg } from "@/core/AssetsManager";
 
 export default function Home() {
-
-    
     const headerStats = [
         { amount: 500, title: "Visitors" },
         { amount: 150, title: "Speakers" },
         { amount: 1000, title: "Doctors" },
         { amount: 75, title: "Sponsors" },
     ];
-    
 
     return (
         <>
             <div className="home-page">
-                <header style={{ backgroundImage: `url('${bg.header_bg.src}')` }} className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.4]  bg-no-repeat bg-cover bg-top">
+                <header
+                    style={{ backgroundImage: `url('${bg.header_bg.src}')` }}
+                    className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.4]  bg-no-repeat bg-cover bg-top"
+                >
                     <div className="w-full h-full bg-black/50 flex flex-col justify-end">
                         <div className="container ">
                             <div className="wrap flex gap-5 sm:gap-10 mb-5 md:mb-10">
@@ -38,7 +38,7 @@ export default function Home() {
                                             className="w-full h-full object-contain"
                                         />
                                     </div>
-                                    <span>17 - 18 May 2025</span>
+                                    <span>1 - 3 October 2025</span>
                                 </div>
                                 {/* LOCATION */}
                                 <div className="sm:text-xl flex items-center gap-3">

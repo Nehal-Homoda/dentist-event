@@ -17,7 +17,7 @@ const navLinks = [
     { name: "Registration", link: RoutesManager.registration },
     { name: "Schedule", link: "" },
     { name: "Abstract", link: RoutesManager.abstract },
-    { name: "about", link: "" },
+    { name: "about", link: "/about" },
     { name: "accomedation", link: "" },
     { name: "sponsors", link: "" },
     { name: "profile", link: "/profile" },
