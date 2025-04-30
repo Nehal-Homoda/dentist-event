@@ -13,6 +13,11 @@ import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
 
 import React, { FormEvent, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { AppDispatch, RootState } from "@/stores/store";
+import { setError } from "@/stores/auth/authSlice";
+import { errorHandler } from "@/utils/shared";
 
 export default function SignupPage() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
@@ -86,7 +91,15 @@ export default function SignupPage() {
         AccommodationBooking: 1,
     });
 
-    const handleChangeValue = (e: React.ChangeEvent<HTMLInputElement>, name: any) => {
+    const errorMsg = useSelector(
+        (state: RootState) => state.counter.authErrorMsg
+    );
+    const dispatch = useDispatch();
+
+    const handleChangeValue = (
+        e: React.ChangeEvent<HTMLInputElement>,
+        name: any
+    ) => {
         const isAssociation = Object.keys(associatioFormData).includes(name);
         if (isAssociation) {
             setAssociatioFormData((prev) => ({
@@ -133,10 +146,12 @@ export default function SignupPage() {
             setIsJoinEvent(true);
             return;
         }
+
         setIsJoinEvent(false);
     };
 
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
+        dispatch(setError(''));
         e.preventDefault();
 
         const x = {
@@ -162,7 +177,8 @@ export default function SignupPage() {
 
         register(convertDataToJson)
             .then((response) => {
-                if(response.code=403) return 
+                // @ts-ignore
+                if ((response.code = 403)) return;
                 setAssociatioFormData({
                     // id:11,
                     FullName: "",
@@ -188,11 +204,15 @@ export default function SignupPage() {
                 });
             })
             .catch((error) => {
+                const errorMsg = errorHandler(error);
+                dispatch(setError(errorMsg));
                 console.log(error.message);
             });
         registerFiles(fd)
             .then((response) => {})
             .catch((error) => {
+                const errorMsg = errorHandler(error);
+                dispatch(setError(errorMsg));
                 console.log(error.message);
             });
     };
@@ -206,12 +226,19 @@ export default function SignupPage() {
             <SharedHeader pageName="Register" />
             <div className="grid md:grid-cols-10 container py-20 ">
                 <FormCard
-                isBackBtn={false}
+                    isBackBtn={false}
                     colNum="md:col-span-6 md:order-1 order-2"
                     title="Registration for EAOMS Members"
                     actionName="s"
                 >
-                    <form onSubmit={submitForm}>
+                    {errorMsg && (
+                        <span className="text-red-800 mb-10 "> {errorMsg}</span>
+                    )}
+
+                    <form
+                        className={errorMsg ? "mt-5" : "mt-0"}
+                        onSubmit={submitForm}
+                    >
                         <SharedUploadPhoto
                             imageUploaded={
                                 imageSentFromChild
@@ -241,18 +268,20 @@ export default function SignupPage() {
                                         }
                                     />
                                 </div>
+
                                 <div className="md:col-span-1 col-span-2">
                                     <SharedTextInput
-                                        name="password"
-                                        id="password"
-                                        placeholder="Enter Your Password"
-                                        type="password"
-                                        value={associatioFormData.Password}
+                                        name="email"
+                                        id="email"
+                                        type="email"
+                                        value={associatioFormData.Email}
+                                        placeholder="Enter Your Email"
                                         sendInputValue={(e) =>
-                                            handleChangeValue(e, "Password")
+                                            handleChangeValue(e, "Email")
                                         }
                                     />
                                 </div>
+
                                 <div className="md:col-span-1 col-span-2">
                                     <SharedTextInput
                                         name="phone"
@@ -267,13 +296,13 @@ export default function SignupPage() {
 
                                 <div className="md:col-span-1 col-span-2">
                                     <SharedTextInput
-                                        name="email"
-                                        id="email"
-                                        type="email"
-                                        value={associatioFormData.Email}
-                                        placeholder="Enter Your Email"
+                                        name="password"
+                                        id="password"
+                                        placeholder="Enter Your Password"
+                                        type="password"
+                                        value={associatioFormData.Password}
                                         sendInputValue={(e) =>
-                                            handleChangeValue(e, "Email")
+                                            handleChangeValue(e, "Password")
                                         }
                                     />
                                 </div>
@@ -320,7 +349,7 @@ export default function SignupPage() {
                                 <div className="md:col-span-2 col-span-2 flex gap-10 items-center">
                                     <div className="flex items-center gap-2">
                                         <input
-                                            onClick={handleRadioValue}
+                                            onChange={handleRadioValue}
                                             className=""
                                             type="radio"
                                             name="personId"
@@ -338,7 +367,7 @@ export default function SignupPage() {
 
                                     <div className="flex items-center gap-2">
                                         <input
-                                            onClick={handleRadioValue}
+                                            onChange={handleRadioValue}
                                             className=""
                                             type="radio"
                                             name="personId"
@@ -384,11 +413,11 @@ export default function SignupPage() {
 
                                 <div className="col-span-2 mt-8">
                                     <input
-                                        onClick={(e)=>handleCompleteForm}
+                                        onChange={handleCompleteForm}
                                         type="checkbox"
                                         id="complete"
                                         name="completeForm"
-                                        value="complete"
+                                        value=""
                                     />
                                     <label
                                         className="ms-3 text-primary"

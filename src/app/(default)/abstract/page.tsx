@@ -22,8 +22,9 @@ export default function page() {
             <SharedHeader pageName="Abstract" />
             <div className="container py-20">
                 <div>
-                    <h2 className="text-xl text-center my-10">
-                        Lorem Ipsum is simply dummy text of the printing{" "}
+                    <h2 className="section-title text-center">
+                    Achievements Of <br />
+                    Egyptian Association of Oral & Maxillofacial Surgery
                     </h2>
                     <div className="grid grid-cols-12  gap-4">
                         <div className="col-span-3">
@@ -41,13 +42,13 @@ export default function page() {
                                 }}
                                 className="px-3 w-full h-full flex flex-shrink-0 flex-grow-0 items-end justify-center lg:pb-6 pb-3 rounded-lg bg-no-repeat bg-cover "
                             >
-                                <div className=" bg-primary rounded-xl text-white lg:text-lg text-sm lg:px-7 px-4 lg:py-4 py-2">
+                                {/* <div className="lg:block hidden bg-primary rounded-xl text-white lg:text-lg text-sm lg:px-7 px-4 lg:py-4 py-2">
                                     <span>Lorem Ipsum</span> <br />
                                     <span className="font-bold">
                                         Egyptian Association of Oral &
                                         Maxillofacial Surgery
                                     </span>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                         <div className="col-span-3">
@@ -55,23 +56,19 @@ export default function page() {
                                 style={{
                                     backgroundImage: `url(${heros.abstract_img_2.src})`,
                                 }}
-                                className="w-full h-full bg-no-repeat bg-cover rounded-lg "
+                                className="w-full lg:aspect-[3/3.5] aspect-[3/4.5] bg-no-repeat bg-cover rounded-lg "
                             >
-                                <img
-                                    className="w-full h-full object-cover"
-                                    src={heros.abstract_img_2.src}
-                                    alt=""
-                                />
+                               
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div>
-                    <h2 className="text-xl text-center my-10">
+                <div className="py-20">
+                    <h2 className="text-center section-title">
                         Important Dates
                     </h2>
-                    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-10">
+                    <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-10 gap-5">
                         {importantDates.map((item, index) => (
                             <div
                                 key={index}

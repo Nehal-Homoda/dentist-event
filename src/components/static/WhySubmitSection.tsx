@@ -9,7 +9,7 @@ export default function WhySubmitSection() {
                 <img
                     src={elements.logo_year.src}
                     alt=""
-                    className="absolute -top-10 left-[50%] translate-x-[-50%]"
+                    className="absolute -top-28 left-[50%] translate-x-[-50%]"
                 />
                 <div className="grid grid-cols-1 md:grid-cols-5 relative gap-16 md:gap-16 lg:gap-28 items-center">
                     <div className="md:col-span-2 pt-10 relative flex  md:justify-end">
