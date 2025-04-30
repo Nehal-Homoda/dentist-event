@@ -45,9 +45,9 @@ export default function SharedUploadPhoto({
                     id="uploadImage"
                     className="absolute z-30  opacity-0  w-full h-full"
                 />
-                {isImage ? (
+                {isImage  && image ? (
                     <img
-                        src={image ||''}
+                        src={image}
                         alt=""
                         className="w-full h-full object-cover rounded-full"
                     />

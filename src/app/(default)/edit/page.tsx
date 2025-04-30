@@ -37,7 +37,7 @@ export default function page() {
     const handleChangeImg = () => { };
     // const user = useSelector((state: RootState) => state.counter.user);
     const [formData, setFormData] = useState({
-        id: 1,
+        id: user?.id,
         fullName: "",
         jobTitle: "",
         facebookUrl: "",

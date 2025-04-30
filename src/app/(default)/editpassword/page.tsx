@@ -8,12 +8,22 @@ import SharedTextInput from "@/components/shared/SharedInput";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros } from "@/core/AssetsManager";
 import { changePassword } from "@/services/authService";
+import { setError, setUser } from "@/stores/auth/authSlice";
+import { errorHandler } from "@/utils/shared";
+import { RootState } from "@/stores/store";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function page() {
+    const [errorMsg,setErrorMsg]=useState('')
+    const user = useSelector((state: RootState) => state.counter.user);
     const [profileImg, setProfileImg] = useState("");
+    const dispatch = useDispatch()
+    const router = useRouter()
+    // const errorMsg = useSelector((state: RootState) => state.counter.authErrorMsg)
 
-    const handleChangeImg = () => {};
+    const handleChangeImg = () => { };
 
     const inputChangeHandler = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -26,7 +36,7 @@ export default function page() {
     };
 
     const [formData, setFormData] = useState({
-        UserID: "1",
+        UserID: user?.id,
         oldPassword: "",
         NewPassword: "",
         NewPasswordConfirm: "",
@@ -38,7 +48,14 @@ export default function page() {
             ...formData
         };
         const changePasswordFormJson = JSON.stringify(changePasswordForm);
-        changePassword(changePasswordFormJson);
+        changePassword(changePasswordFormJson).then((response) => {
+            dispatch(setUser(response))
+            router.push('/profile')
+        }).catch((error) => {
+            setErrorMsg(error?.message)
+            // const errorMsg = errorHandler(error)
+            // dispatch(setError(errorMsg))
+        })
     };
     return (
         <div>
@@ -52,12 +69,16 @@ export default function page() {
                         title="Edit Personal Iformation"
                         actionName=""
                     >
+                        {errorMsg && <span className="text-red-800"> {errorMsg}</span>}
+                        <div  className={errorMsg ? "mt-5" : "mt-0"}>
                         <SharedUploadPhoto
                             imageUploaded={
                                 profileImg ? profileImg : brand.logo.src
                             }
                             changeImageUploaded={handleChangeImg}
                         />
+
+                        </div>
                         <p className="text-primary mt-2 mb-6">Profile Photo</p>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16   mt-10 ">
