@@ -20,15 +20,16 @@ export const authSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload;
+            localStorage.setItem('user', JSON.stringify(state.user))
         },
         setError: (state, action: PayloadAction<string>) => {
             state.authErrorMsg = action.payload;
         },
         enter: (state) => {
-          const x=localStorage.getItem('user')
-          if(x){
-            state.user = JSON.parse(x);
-          }
+            const x = localStorage.getItem('user')
+            if (x) {
+                state.user = JSON.parse(x);
+            }
         },
     },
 });

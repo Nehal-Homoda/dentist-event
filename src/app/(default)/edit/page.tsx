@@ -7,15 +7,23 @@ import SharedHeader from "@/components/shared/SharedHeader";
 import SharedTextInput from "@/components/shared/SharedInput";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
-import { updateForm } from "@/services/authService";
-import { RootState } from "@/stores/store";
+import { updateProfileService } from "@/services/authService";
+import { setError, setUser } from "@/stores/auth/authSlice";
+import { AppDispatch, RootState } from "@/stores/store";
+import { errorHandler } from "@/utils/shared";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function page() {
     const user = useSelector((state: RootState) => state.counter.user);
     const [profileImg, setProfileImg] = useState("");
+    const dispatch = useDispatch<AppDispatch>()
+    const router = useRouter()
+    const errorMsg = useSelector(
+        (state: RootState) => state.counter.authErrorMsg
+    );
 
     const handleChangeInput = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -26,10 +34,10 @@ export default function page() {
             [name]: e.target.value,
         }));
     };
-    const handleChangeImg = () => {};
+    const handleChangeImg = () => { };
     // const user = useSelector((state: RootState) => state.counter.user);
     const [formData, setFormData] = useState({
-        id:1,
+        id: 1,
         fullName: "",
         jobTitle: "",
         facebookUrl: "",
@@ -39,7 +47,7 @@ export default function page() {
     useEffect(() => {
         if (user) {
             setFormData({
-                id:user.id,
+                id: user.id,
                 fullName: user.fullName || "",
                 jobTitle: user.jobTitle || "",
                 facebookUrl: user.facebookUrl || "",
@@ -56,7 +64,13 @@ export default function page() {
         };
 
         const updateFormObjJson = JSON.stringify(x);
-        updateForm(updateFormObjJson);
+        updateProfileService(updateFormObjJson).then((response) => {
+            dispatch(setUser(response))
+            router.push('/profile')
+        }).catch((error) => {
+            const errorMsg = errorHandler(error)
+            dispatch(setError(errorMsg))
+        })
     };
 
     return (
@@ -71,6 +85,7 @@ export default function page() {
                         title="Edit Personal Iformation"
                         actionName=""
                     >
+                        {errorMsg && <span className="text-red-800"> {errorMsg}</span>}
                         <SharedUploadPhoto
                             imageUploaded={user?.personalPhoto}
                             changeImageUploaded={handleChangeImg}

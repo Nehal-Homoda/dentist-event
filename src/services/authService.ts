@@ -44,7 +44,7 @@ export const changePassword = async (form: string) => {
         throw new Error(errorHandler(error));
     }
 };
-export const updateForm = async (form: string) => {
+export const updateProfileService = async (form: string) => {
     try {
         const response = await apiCall.post(`/Data/EditProfile`, {
             body: form,
