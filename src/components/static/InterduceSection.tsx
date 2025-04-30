@@ -6,11 +6,11 @@ export default function InterduceSection() {
     return (
         <>
             <div className="my-20 grid grid-cols-1 lg:grid-cols-5 lg:gap-20 gap-10">
-                <div className="lg:col-span-2 aspect-[3/1.5] lg:aspect-[3/2.75] relative rounded-xl overflow-hidden">
+                <div className="lg:col-span-2 aspect-[3/3.25] lg:aspect-[3/2.75] relative rounded-xl overflow-hidden">
                     <img
                         src={heros.dr_photo.src}
                         alt=""
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover object-top"
                     />
                     {/* <button className="play-btn w-16 h-16 text-4xl ps-2 text-primary bg-white rounded-full absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]">
                         <span className="mdi mdi-play-outline"></span>

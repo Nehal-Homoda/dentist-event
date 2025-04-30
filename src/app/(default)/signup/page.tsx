@@ -162,6 +162,7 @@ export default function SignupPage() {
 
         register(convertDataToJson)
             .then((response) => {
+                // @ts-ignore
                 if(response.code=403) return 
                 setAssociatioFormData({
                     // id:11,
@@ -320,7 +321,7 @@ export default function SignupPage() {
                                 <div className="md:col-span-2 col-span-2 flex gap-10 items-center">
                                     <div className="flex items-center gap-2">
                                         <input
-                                            onClick={handleRadioValue}
+                                            onChange={handleRadioValue}
                                             className=""
                                             type="radio"
                                             name="personId"
@@ -338,7 +339,7 @@ export default function SignupPage() {
 
                                     <div className="flex items-center gap-2">
                                         <input
-                                            onClick={handleRadioValue}
+                                            onChange={handleRadioValue}
                                             className=""
                                             type="radio"
                                             name="personId"
