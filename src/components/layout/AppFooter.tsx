@@ -55,7 +55,7 @@ export default function AppFooter() {
 
     return (
         <>
-            <div className="container">
+            <div >
                 <footer
                     className="text-white w-full bg-cover px-5 rounded-t-2xl"
                     style={{

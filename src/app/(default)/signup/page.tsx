@@ -162,6 +162,7 @@ export default function SignupPage() {
 
         register(convertDataToJson)
             .then((response) => {
+                if(response.code=403) return 
                 setAssociatioFormData({
                     // id:11,
                     FullName: "",

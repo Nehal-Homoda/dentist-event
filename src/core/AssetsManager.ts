@@ -58,6 +58,9 @@ import package_card_img_2 from "@/assets/images/heros/package-card-img-2.png";
 import package_card_img_3 from "@/assets/images/heros/package-card-img-3.png";
 import package_card_img_4 from "@/assets/images/heros/package-card-img-4.png";
 import register_img from "@/assets/images/heros/register-img.png";
+import abstract_img_1 from "@/assets/images/heros/abstract-img-1.png";
+import abstract_img_2 from "@/assets/images/heros/abstract-img-2.png";
+import abstract_img_3 from "@/assets/images/heros/abstract-img-3.png";
 
 export const heros = {
     why_submit,
@@ -68,4 +71,7 @@ export const heros = {
     package_card_img_3,
     package_card_img_4,
     register_img,
+    abstract_img_1,
+    abstract_img_2,
+    abstract_img_3
 };
