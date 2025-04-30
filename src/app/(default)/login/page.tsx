@@ -13,6 +13,8 @@ import * as Yup from "yup";
 import { setUser, setError } from "@/stores/auth/authSlice";
 import { AppDispatch, RootState } from "@/stores/store";
 import { loginService } from "@/services/authService";
+import { useRouter } from "next/navigation";
+import { Span } from "next/dist/trace";
 
 interface FormDataInputErrors {
     Email: string | null;
@@ -28,6 +30,7 @@ export default function LoginPage() {
         Email: "",
         Password: "",
     });
+    const router = useRouter();
     const [formErrors, setFormErrors] = useState<FormDataInputErrors>({
         Email: null,
         Password: null,
@@ -36,6 +39,10 @@ export default function LoginPage() {
         Email: Yup.string().required().email(),
         Password: Yup.string().required().min(8),
     });
+
+    const errorMsg = useSelector(
+        (state: RootState) => state.counter.authErrorMsg
+    );
 
     const dispatch = useDispatch<AppDispatch>();
     const authErrorMsg = useSelector(
@@ -138,6 +145,7 @@ export default function LoginPage() {
                     Email: "",
                     Password: "",
                 });
+                router.push(`/`);
             })
             .catch((error) => {
                 const errorMsg = errorHandler(error);
@@ -156,6 +164,7 @@ export default function LoginPage() {
         <div>
             <SharedHeader pageName="Login" />
             <form onSubmit={submit}>
+                
                 <div className="grid md:grid-cols-10 container py-20 ">
                     <FormCard
                         isBackBtn={false}
@@ -163,6 +172,7 @@ export default function LoginPage() {
                         title="Sign-In"
                         actionName="Sign In"
                     >
+                        {errorMsg && <span className="text-red-800"> {errorMsg}</span>}
                         <div className="grid md:grid-cols-2 gap-4 mb-4">
                             <div className="">
                                 <SharedTextInput

@@ -38,7 +38,7 @@ export default function RootLayout({
             <StoreProvider>
             <body>
                 
-                <ScreensIndicator />
+                {/* <ScreensIndicator /> */}
                 {children}
             </body>
             </StoreProvider>
