@@ -25,7 +25,7 @@ export default function SharedRegisterCard({ offer, actionHander }: Props) {
     const router=useRouter()
     const getNowHander = () => {
         // actionHander(offer, selected);
-        router.push('/login')
+        // router.push('/login')
     };
 
     return (

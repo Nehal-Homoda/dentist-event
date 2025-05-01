@@ -25,6 +25,10 @@ export const authSlice = createSlice({
         setError: (state, action: PayloadAction<string>) => {
             state.authErrorMsg = action.payload;
         },
+        logout: (state) => {
+            state.user = null;
+            localStorage.removeItem('user')
+        },
         enter: (state) => {
             const x = localStorage.getItem('user')
             if (x) {
@@ -35,6 +39,6 @@ export const authSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { setUser, setError, enter } = authSlice.actions;
+export const { setUser, setError, enter, logout } = authSlice.actions;
 
 export default authSlice.reducer;

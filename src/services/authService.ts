@@ -12,9 +12,15 @@ export const loginService = async (form: string) => {
         });
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            if (
+                errorData &&
+                errorData.errors &&
+                typeof errorData.errors === "object"
+            ) {
+                const messages = [...Object.values(errorData.errors)].join(", ");
+                throw new Error(messages);
+            }
+            throw new Error("Failed to login!");
         }
         const data = (await response.json()) as User;
         console.log("response data =>>>>", data);
@@ -33,9 +39,15 @@ export const changePassword = async (form: string) => {
         });
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            if (
+                errorData &&
+                errorData.errors &&
+                typeof errorData.errors === "object"
+            ) {
+                const messages = [...Object.values(errorData.errors)].join(", ");
+                throw new Error(messages);
+            }
+            throw new Error("Failed to change password!");
         }
         const data = await response.json();
         console.log("response data =>>>>", data);
@@ -54,9 +66,16 @@ export const updateProfileService = async (form: string) => {
         });
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            if (
+                errorData &&
+                errorData.errors &&
+                typeof errorData.errors === "object"
+            ) {
+                const messages = [...Object.values(errorData.errors)].join(", ");
+
+                throw new Error(messages);
+            }
+            throw new Error("Failed to edit profile!");
         }
         const data = await response.json();
         console.log("response data =>>>>", data);

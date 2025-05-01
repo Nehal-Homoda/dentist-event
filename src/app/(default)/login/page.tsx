@@ -40,9 +40,8 @@ export default function LoginPage() {
         Password: Yup.string().required().min(8),
     });
 
-    const errorMsg = useSelector(
-        (state: RootState) => state.counter.authErrorMsg
-    );
+        const [errorMsg, setErrorMsg] = useState("");
+    
 
     const dispatch = useDispatch<AppDispatch>();
     const authErrorMsg = useSelector(
@@ -148,8 +147,8 @@ export default function LoginPage() {
                 router.push(`/`);
             })
             .catch((error) => {
-                const errorMsg = errorHandler(error);
-                dispatch(setError(errorMsg));
+                setErrorMsg(error?.message)
+                
             });
 
         console.log("submitted");

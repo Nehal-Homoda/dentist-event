@@ -49,14 +49,26 @@ export const register = async (fd: any) => {
         const response = await apiCall.post(`/Data/Registration`, {
             body: fd,
             headers: {
-                "Content-Type": "application/json"
-            }
+                "Content-Type": "application/json",
+            },
         });
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            if (
+                errorData &&
+                errorData.errors &&
+                typeof errorData.errors === "object"
+            ) {
+                const messages = [...Object.values(errorData.errors)].join(
+                    ", "
+                );
+                throw new Error(messages);
+            }
+            if(errorData && errorData.message) {
+
+                throw new Error(errorData.message);
+            }
+            throw new Error("Failed to register!");
         }
         const data = (await response.json()) as RegistrationData[];
         console.log("response data =>>>>", data);
@@ -73,9 +85,17 @@ export const registerFiles = async (file: any) => {
         });
         if (!response.ok) {
             const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            if (
+                errorData &&
+                errorData.errors &&
+                typeof errorData.errors === "object"
+            ) {
+                const messages = [...Object.values(errorData.errors)].join(
+                    ", "
+                );
+                throw new Error(messages);
+            }
+            throw new Error("Failed to upload files!");
         }
         const data = (await response.json()) as RegistrationData[];
         return data;
