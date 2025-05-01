@@ -6,12 +6,14 @@ export interface AuthState {
     user: User | null;
     token: string;
     authErrorMsg: string;
+    fullForm: boolean;
 }
 
 const initialState: AuthState = {
     user: null,
     token: "",
     authErrorMsg: "",
+    fullForm: false,
 };
 
 export const authSlice = createSlice({
@@ -20,19 +22,23 @@ export const authSlice = createSlice({
     reducers: {
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload;
-            localStorage.setItem('user', JSON.stringify(state.user))
+            state.fullForm = true;
+            localStorage.setItem("user", JSON.stringify(state.user));
         },
         setError: (state, action: PayloadAction<string>) => {
             state.authErrorMsg = action.payload;
         },
         logout: (state) => {
             state.user = null;
-            localStorage.removeItem('user')
+            state.fullForm = false;
+            localStorage.removeItem("user");
         },
         enter: (state) => {
-            const x = localStorage.getItem('user')
+            const x = localStorage.getItem("user");
             if (x) {
                 state.user = JSON.parse(x);
+
+                state.fullForm = true;
             }
         },
     },

@@ -8,6 +8,8 @@ import {
     RegistrationPackageOfferProgram,
 } from "@/types/shared";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
+import { RootState } from "@/stores/store";
 
 type Props = {
     offer: RegistrationPackageOffer;
@@ -21,11 +23,19 @@ export default function SharedRegisterCard({ offer, actionHander }: Props) {
     const [selected, setSelected] = useState<RegistrationPackageOfferProgram>(
         offer.programs[0]
     );
+    const user = useSelector((state: RootState) => state.counter.user);
     
     const router=useRouter()
     const getNowHander = () => {
+
+        if (user) {
+
+            router.push('/signup')
+
+            return;
+        }
+        router.push('/login')
         // actionHander(offer, selected);
-        // router.push('/login')
     };
 
     return (

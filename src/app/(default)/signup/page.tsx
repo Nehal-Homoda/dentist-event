@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
+    const fullForm = useSelector((state: RootState) => state.counter.fullForm);
 
     const nationalityList = [
         { id: "1", name: "Egyptain" },
@@ -48,7 +49,7 @@ export default function SignupPage() {
 
     const [isNumberInput, setIsNumberInput] = useState(true);
     const [isFileInput, setIsFileInput] = useState(false);
-    const [isJoinEvent, setIsJoinEvent] = useState(false);
+    const [isJoinEvent, setIsJoinEvent] = useState(fullForm);
     const [dataLoading, setDataLoading] = useState(false);
     const [uploadFilseLoading, setUploadFilseLoading] = useState(false);
 
