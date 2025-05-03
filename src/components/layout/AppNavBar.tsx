@@ -18,7 +18,7 @@ const navLinks = [
     { name: "Schedule", link: "" },
     { name: "Abstract", link: RoutesManager.abstract },
     { name: "about", link: "/about" },
-    { name: "accomedation", link: "" },
+    { name: "accomedation", link: RoutesManager.accomedation },
     { name: "sponsors", link: "" },
     { name: "profile", link: "/profile" },
 ];
@@ -47,7 +47,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     const pathName = usePathname();
     const dispatch = useDispatch<AppDispatch>();
     useEffect(() => {
-        dispatch(enter())
+        // dispatch(enter())
      });
     return (
         <>
