@@ -19,7 +19,7 @@ const navLinks = [
     { name: "Abstract", link: RoutesManager.abstract },
     { name: "about", link: "/about" },
     { name: "accomedation", link: RoutesManager.accomedation },
-    { name: "sponsors", link: "" },
+    { name: "sponsors", link: RoutesManager.sponsors },
     { name: "profile", link: "/profile" },
 ];
 // const navLinks = [
@@ -48,7 +48,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     const dispatch = useDispatch<AppDispatch>();
     useEffect(() => {
         // dispatch(enter())
-     });
+    });
     return (
         <>
             <div className="container absolute z-30 left-[50%] -translate-x-[50%]  top-10 ">
@@ -77,12 +77,11 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                     </div>
                 )}
                 <div
-                    className={`overflow-auto  ${
-                        colorInverted
+                    className={`overflow-auto  ${colorInverted
                             ? "bg-primary-light "
                             : "bg-white text-primary rounded-md gap-12"
-                    }  text-background  flex gap-7 px-5  lg:px-12 py-4`}
-                    // }  text-background  flex justify-between px-5  lg:px-12 py-4`}
+                        }  text-background  flex gap-7 px-5  lg:px-12 py-4`}
+                // }  text-background  flex justify-between px-5  lg:px-12 py-4`}
                 >
                     {navLinks.map((item, index) => (
                         <Link
@@ -90,11 +89,10 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                             href={item.link}
                             className={
                                 item.link == pathName
-                                    ? `relative before:absolute before:w-full before:content-[''] ${
-                                          colorInverted
-                                              ? "before:bg-background"
-                                              : "before:bg-primary"
-                                      } before:bg-background  before:h-1  before:top-7 `
+                                    ? `relative before:absolute before:w-full before:content-[''] ${colorInverted
+                                        ? "before:bg-background"
+                                        : "before:bg-primary"
+                                    } before:bg-background  before:h-1  before:top-7 `
                                     : "bg-yellow"
                             }
                         >
