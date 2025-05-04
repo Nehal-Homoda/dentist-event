@@ -1,8 +1,12 @@
+'use client'
+
+
 import BaseBtn from "@/components/Base/BaseBtn";
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedMenuDropDown from "@/components/shared/SharedMenuDropDown";
 import { elements, heros } from "@/core/AssetsManager";
+import { useState } from "react";
 
 
 
@@ -12,13 +16,23 @@ export default function page() {
 
     const x = [{ subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }]
     const arr = ['1', '2', '3', '4']
+    const [selectedValueFromChild, setSelectedValueFromChild] = useState()
+    const [selectedContent, setSelectedContent] = useState()
+    const takeSelectedValue = (selectedItem) => {
+        setSelectedValueFromChild(selectedItem)
+        console.log('selected item in parent', selectedItem)
+    }
+
+    const takeSelectedContent = (item) => {
+        setSelectedContent(item)
+    }
 
     return <div>
 
 
         <SharedHeader pageName="Schedule" />
         <div className="container py-20">
-            <div className="bg-primary grid grid-cols-4 px-10 py-10 rounded-xl text-white mb-20 ">
+            <div className="bg-primary grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 px-10 py-10 rounded-xl text-white mb-20 ">
                 <div className="border-l-2 border-white  px-4">
                     <p>Filter By Conference Day</p>
 
@@ -27,13 +41,13 @@ export default function page() {
 
                 </div>
                 <div className="border-l-2 border-primary-light-700 px-7 ">
-                    <p className="mb-4">Filter by Session Type</p>
-                    <SharedMenuDropDown menuList={arr} btnName="See All" />
+                    <p className="md:mb-4">Filter by Session Type</p>
+                    <SharedMenuDropDown type="string" sendSelectedValue={takeSelectedValue} menuList={arr} btnName="See All" />
 
                 </div>
                 <div className="border-l-2 border-primary-light-700  px-7">
-                    <p className="mb-4">Filter by Content Tag</p>
-                    <SharedMenuDropDown menuList={arr} btnName="See All" />
+                    <p className="md:mb-4">Filter by Content Tag</p>
+                    <SharedMenuDropDown type="date" sendSelectedValue={takeSelectedContent} menuList={arr} btnName="See All" />
                 </div>
                 <div className="border-l-2 border-primary-light-700 px-4">
                     <p>Search Speaker</p>
