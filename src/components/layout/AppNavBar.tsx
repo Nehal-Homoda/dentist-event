@@ -15,7 +15,7 @@ import { User } from "@/types/shared";
 const navLinks = [
     { name: "Home", link: RoutesManager.home },
     { name: "Registration", link: RoutesManager.registration },
-    { name: "Schedule", link: "" },
+    { name: "Schedule", link: RoutesManager.schedule },
     { name: "Abstract", link: RoutesManager.abstract },
     { name: "about", link: "/about" },
     { name: "accomedation", link: RoutesManager.accomedation },

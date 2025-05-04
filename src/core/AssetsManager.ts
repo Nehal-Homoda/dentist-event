@@ -40,6 +40,7 @@ import sponsor4 from "@/assets/images/elements/sponsor-4.png";
 import card_frame from "@/assets/images/elements/card-frame.png";
 import logo_year from "@/assets/images/elements/logo-year.png";
 import logo_year_clear from "@/assets/images/elements/logo-year-clear.png";
+import schedule_bg from "@/assets/images/elements/schedule-bg.png";
 export const elements = {
     sponsor1,
     sponsor2,
@@ -48,6 +49,7 @@ export const elements = {
     card_frame,
     logo_year,
     logo_year_clear,
+    schedule_bg
 };
 //========= [HEROS]
 import why_submit from "@/assets/images/heros/why-submit.png";
