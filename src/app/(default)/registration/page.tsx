@@ -5,6 +5,7 @@ import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import { REGISTRATION_PACKAGES } from "@/core/data/registrationPackages";
 import RegistrationPackageListing from "@/components/registration/RegistrationPackageListing";
+import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 
 
 export default function page() {
@@ -18,6 +19,7 @@ export default function page() {
                 <div className="container">
                     <RegistrationPackageListing packages={REGISTRATION_PACKAGES}></RegistrationPackageListing>
                     <SharedCountDown />
+                    <StaticSponsorsAnimatedSection />
                 </div>
             </div>
         </>

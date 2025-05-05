@@ -9,6 +9,8 @@ import SharedMenuDropDown from "@/components/shared/SharedMenuDropDown";
 import SharedSearchInput from "@/components/shared/SharedSearchInput";
 import { elements } from "@/core/AssetsManager";
 import { useState } from "react";
+import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
+
 
 
 
@@ -17,10 +19,10 @@ export default function page() {
     const x = [{ subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }]
     const arr = ['1', '2', '3', '4']
     const [selectedValueFromChild, setSelectedValueFromChild] = useState()
-    
+
     const [selectedContent, setSelectedContent] = useState()
-    
-    
+
+
     const takeSelectedValue = (selectedItem) => {
         setSelectedValueFromChild(selectedItem)
         console.log('selected item in parent', selectedItem)
@@ -91,7 +93,7 @@ export default function page() {
             </div>
 
             <SharedCountDown />
-
+            <StaticSponsorsAnimatedSection />
 
         </div>
     </div>;
