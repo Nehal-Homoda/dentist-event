@@ -3,12 +3,11 @@
 
 import BaseBtn from "@/components/Base/BaseBtn";
 import SharedCountDown from "@/components/shared/SharedCountDown";
+import SharedDatePicker from "@/components/shared/SharedDatePicker";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedMenuDropDown from "@/components/shared/SharedMenuDropDown";
 import { elements, heros } from "@/core/AssetsManager";
 import { useState } from "react";
-
-
 
 
 
@@ -26,30 +25,42 @@ export default function page() {
     const takeSelectedContent = (item) => {
         setSelectedContent(item)
     }
+    const takeSelectedDate = (item) => {
 
+    }
     return <div>
 
 
         <SharedHeader pageName="Schedule" />
         <div className="container py-20">
             <div className="bg-primary grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 px-10 py-10 rounded-xl text-white mb-20 ">
-                <div className="border-l-2 border-white  px-4">
-                    <p>Filter By Conference Day</p>
+                <div className="border-l-2 border-white  px-4 flex flex-col gap-5 ">
+                    <p className="">Filter By Conference Day</p>
+                    <div className="border-2 border-white rounded-xl px-3">
+                        <SharedDatePicker  btnName="See All" sendSelectedValue={takeSelectedDate} />
+                    </div>
+
 
 
 
 
                 </div>
-                <div className="border-l-2 border-primary-light-700 px-7 ">
-                    <p className="md:mb-4">Filter by Session Type</p>
-                    <SharedMenuDropDown type="string" sendSelectedValue={takeSelectedValue} menuList={arr} btnName="See All" />
+                <div className="border-l-2 border-primary-light-700 px-7  flex flex-col gap-5">
+                    <p className="">Filter by Session Type</p>
+                    <div className="border-2 border-white rounded-xl px-3">
+                        <SharedMenuDropDown sendSelectedValue={takeSelectedValue} menuList={arr} btnName="See All" />
+
+                    </div>
 
                 </div>
-                <div className="border-l-2 border-primary-light-700  px-7">
-                    <p className="md:mb-4">Filter by Content Tag</p>
-                    <SharedMenuDropDown type="date" sendSelectedValue={takeSelectedContent} menuList={arr} btnName="See All" />
+                <div className="border-l-2 border-primary-light-700  px-7 flex flex-col gap-5 ">
+                    <p className="">Filter by Content Tag</p>
+                    <div className="border-2 border-white rounded-xl px-3">
+                        <SharedMenuDropDown sendSelectedValue={takeSelectedContent} menuList={arr} btnName="See All" />
+
+                    </div>
                 </div>
-                <div className="border-l-2 border-primary-light-700 px-4">
+                <div className="border-l-2 border-primary-light-700 px-4 flex flex-col gap-5">
                     <p>Search Speaker</p>
                 </div>
 

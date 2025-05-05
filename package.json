@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^2.2.2",
-    "@heroui/date-picker": "^2.3.19",
     "@reduxjs/toolkit": "^2.7.0",
     "next": "15.3.0",
     "react": "^19.0.0",
+    "react-day-picker": "^9.6.7",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
     "yup": "^1.6.1"
