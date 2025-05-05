@@ -24,18 +24,18 @@ export default function page() {
                     >
                         <p className='font-bold mb-3 '>Nextgen Symposium</p>
                         <span className='text-secondary-200'>Leadership</span>
-                        <div className='grid grid-cols-3 py-10 gap-4'>
-                            <div className='bg-white px-3 py-2 rounded-xl'>
+                        <div className='grid lg:grid-cols-3 grid-cols-1 py-10 gap-4'>
+                            <div className='bg-white px-3 py-2 rounded-xl flex lg:flex-col lg:gap-1 flex-row '>
                                 <span className='text-primary text-lg'>Date:</span>
-                                <span className='text-secondary-300 text-xs ps-2'> Tue - 17 May </span>
+                                <span className='text-secondary-300 lg:text-sm text-sm lg:ps-0  ps-2'> Tue - 17 May </span>
                             </div>
-                            <div className='bg-white px-3 py-2 rounded-xl'>
+                            <div className='bg-white px-3 py-2 rounded-xl flex lg:flex-col lg:gap-1 flex-row '>
                                 <span className='text-primary text-lg'>Time:</span>
-                                <span className='text-secondary-300 text-xs ps-2'>10:30 AM - 12:00 PM</span>
+                                <span className='text-secondary-300 lg:text-xs text-sm lg:ps-0  ps-2'>10:30 AM - 12:00 PM</span>
                             </div>
-                            <div className='bg-white px-3 py-2 rounded-xl'>
+                            <div className='bg-white px-3 py-2 rounded-xl flex lg:gap-1 lg:flex-col flex-row items-center justify-start'>
                                 <span className='text-primary text-lg'>Location:</span>
-                                <span className='text-secondary-300 text-xs ps-2'>Egypt , Cairo </span>
+                                <span className='text-secondary-300 lg:text-xs text-sm lg:ps-0 ps-2'>Egypt , Cairo </span>
                             </div>
 
                         </div>
@@ -48,14 +48,14 @@ export default function page() {
 
 
 
-                            <div className='flex items-center h-full gap-8 bg-white mb-5'>
+                            <div className='flex items-center h-full gap-8 bg-white py-5  mb-5'>
                                 <div className='w-24 h-24'>
                                     <img className='w-full h-full object-contain' src={heros.speaker_1.src} alt="" />
                                 </div>
 
                                 <div className='w-full h-full  border-l-2 border-primary px-5'>
                                     <h2 className='mb-5'>Dr.Ahmed ehab</h2>
-                                    <span className='text-secondary-200'>Head of the Department of Oral and Dental Surgery</span>
+                                    <span className='text-secondary-200 lg:text-base text-sm'>Head of the Department of Oral and Dental Surgery</span>
                                 </div>
 
                             </div>
@@ -66,7 +66,7 @@ export default function page() {
 
                                 <div className='w-full h-full  border-l-2 border-primary px-5'>
                                     <h2 className='mb-5'>Dr.Ahmed ehab</h2>
-                                    <span className='text-secondary-200'>Head of the Department of Oral and Dental Surgery</span>
+                                    <span className='text-secondary-200 lg:text-base text-sm'>Head of the Department of Oral and Dental Surgery</span>
                                 </div>
 
                             </div>
