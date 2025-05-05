@@ -34,11 +34,18 @@ export const authSlice = createSlice({
             localStorage.removeItem("user");
         },
         enter: (state) => {
-            const x = localStorage.getItem("user");
-            if (x) {
-                state.user = JSON.parse(x);
+            try {
+                const x = localStorage.getItem("user");
+                if (x) {
+                    state.user = JSON.parse(x);
 
-                state.fullForm = true;
+                    state.fullForm = true;
+                }
+            } catch (error: any) {
+                state.user = null;
+                state.fullForm = false;
+                localStorage.removeItem("user");
+                console.log("Enter error ", error.message);
             }
         },
     },

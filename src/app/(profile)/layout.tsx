@@ -1,5 +1,5 @@
 import AppFooter from '@/components/layout/AppFooter'
-import AppNavBar from '@/components/layout/AppNavBar'
+// import AppNavBar from '@/components/layout/AppNavBar'
 import React from 'react'
 
 
@@ -10,7 +10,7 @@ type Props={
 export default function profilelayout({children}:Props) {
   return (
     <div>
-        <AppNavBar isWithSponsors={true} colorInverted={true}></AppNavBar>
+        {/* <AppNavBar isWithSponsors={true} colorInverted={true}></AppNavBar> */}
         {children}
         <AppFooter/>
     </div>
