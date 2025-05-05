@@ -4,6 +4,7 @@ import BaseBtn from '@/components/Base/BaseBtn'
 import SharedCountDown from '@/components/shared/SharedCountDown'
 import SharedHeader from '@/components/shared/SharedHeader'
 import { heros } from '@/core/AssetsManager'
+import { getAccomedation } from '@/services/appSharedServices'
 import React, { useEffect, useState } from 'react'
 
 export default function page() {
@@ -19,7 +20,7 @@ export default function page() {
 
     const [accomedation, setAccomedation] = useState([])
 
-    const getAccomedation = async () => {
+    const getAccomedationHotels = async () => {
         getAccomedation().then((response) => {
             setAccomedation(response)
 
@@ -28,7 +29,7 @@ export default function page() {
     }
 
     useEffect(() => {
-        getAccomedation()
+        getAccomedationHotels()
     }, [])
     return (
         <div>
@@ -42,23 +43,23 @@ export default function page() {
                             </div>
                             <div className={`pt-5 ${index % 2 == 0 ? 'md:order-2' : 'md:order-1 '}`}>
 
-                                <h2 className='font-bold mb-5'>Head Title</h2>
-                                <p className='text-secondary-100 mb-5'>Lorem   Ipsum  is    simply    dummy   text  of  the    printing and  typesetting  industry . Lorem  Ipsum   has  been  the   industry's  standard dummy text ever since the  1500s </p>
+                                <h2 className='font-bold mb-5'>{item.name}</h2>
+                                <p className='text-secondary-100 mb-5'>{item.description} </p>
                                 <div className='grid grid-cols-2 gap-y-16'>
                                     <div className="border-l-2 border-primary-light-600 px-3">
-                                        <p className='text-primary mb-5'>Cairo</p>
+                                        <p className='text-primary mb-5'>{item.location}</p>
                                         <p>City</p>
                                     </div>
                                     <div className='border-l-2 border-primary-light-600 px-3'>
-                                        <p className='text-primary mb-5'>5 Star</p>
-                                        <p>Service</p>
+                                        <p className='text-primary mb-5'>{item.price}</p>
+                                        <p>Price</p>
                                     </div>
                                     <div className="border-l-2 border-primary-light-600 px-3 ">
-                                        <p className='text-primary mb-5'>Cairo</p>
-                                        <p>City</p>
+                                        <p className='text-primary mb-5'>{item.distance}</p>
+                                        <p>Distance</p>
                                     </div>
                                     <div className='border-l-2 border-primary-light-600 px-3'>
-                                        <p className='text-primary mb-5'>5 Star</p>
+                                        <p className='text-primary mb-5'>{item.starts} Star</p>
                                         <p>Service</p>
                                     </div>
 
