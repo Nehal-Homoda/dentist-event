@@ -21,7 +21,6 @@ export default function page() {
     const [profileImg, setProfileImg] = useState("");
     const dispatch = useDispatch()
     const router = useRouter()
-    // const errorMsg = useSelector((state: RootState) => state.counter.authErrorMsg)
 
     const handleChangeImg = () => { };
 
@@ -70,21 +69,12 @@ export default function page() {
                         actionName=""
                     >
                         {errorMsg && <span className="text-red-800"> {errorMsg}</span>}
-                        <div  className={errorMsg ? "mt-5" : "mt-0"}>
-                        <SharedUploadPhoto
-                            imageUploaded={
-                                profileImg ? profileImg : brand.logo.src
-                            }
-                            changeImageUploaded={handleChangeImg}
-                        />
-
-                        </div>
-                        <p className="text-primary mt-2 mb-6">Profile Photo</p>
+                        
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mb-16   mt-10 ">
                             <div className="md:col-span-1 col-span-2">
                                 <SharedTextInput
-                                    id="password"
+                                    id="oldpassword"
                                     name="password"
                                     value={formData.oldPassword}
                                     type="password"
@@ -96,7 +86,7 @@ export default function page() {
                             </div>
                             <div className="md:col-span-1 col-span-2">
                                 <SharedTextInput
-                                    id="password"
+                                    id="newpassword"
                                     name="password"
                                     value={formData.NewPassword}
                                     type="password"
@@ -108,7 +98,7 @@ export default function page() {
                             </div>
                             <div className="md:col-span-1 col-span-2">
                                 <SharedTextInput
-                                    id="password"
+                                    id="confirmpassword"
                                     name="password"
                                     value={formData.NewPasswordConfirm}
                                     type="password"

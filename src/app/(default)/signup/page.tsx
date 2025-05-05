@@ -16,11 +16,13 @@ import React, { FormEvent, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { AppDispatch, RootState } from "@/stores/store";
-import { setError } from "@/stores/auth/authSlice";
+import { setError, setUser } from "@/stores/auth/authSlice";
 import { errorHandler } from "@/utils/shared";
+import { useRouter } from "next/navigation";
 
 export default function SignupPage() {
     const [imageSentFromChild, setImageSentFromChild] = useState(null);
+    const fullForm = useSelector((state: RootState) => state.counter.fullForm);
 
     const nationalityList = [
         { id: "1", name: "Egyptain" },
@@ -47,7 +49,9 @@ export default function SignupPage() {
 
     const [isNumberInput, setIsNumberInput] = useState(true);
     const [isFileInput, setIsFileInput] = useState(false);
-    const [isJoinEvent, setIsJoinEvent] = useState(false);
+    const [isJoinEvent, setIsJoinEvent] = useState(fullForm);
+    const [dataLoading, setDataLoading] = useState(false);
+    const [uploadFilseLoading, setUploadFilseLoading] = useState(false);
 
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("");
@@ -81,7 +85,7 @@ export default function SignupPage() {
     const [eventFormData, setEventFormData] = useState({
         packageId: "1",
         Workplace: 1,
-        TitleOfLecture: "erwrewr",
+        TitleOfLecture: "TitleOfLecture",
         MedicalSpecialty: "",
         Country: "Egypt",
         TypeofParticipation: 1,
@@ -91,10 +95,10 @@ export default function SignupPage() {
         AccommodationBooking: 1,
     });
 
-    const errorMsg = useSelector(
-        (state: RootState) => state.counter.authErrorMsg
-    );
+    const [errorMsg, setErrorMsg] = useState("");
+
     const dispatch = useDispatch();
+    const router = useRouter();
 
     const handleChangeValue = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -150,8 +154,24 @@ export default function SignupPage() {
         setIsJoinEvent(false);
     };
 
+    const submitUploadFiles = (fd: FormData) => {
+        setUploadFilseLoading(true);
+        registerFiles(fd)
+            .then((response) => {
+                router.push("/");
+            })
+            .catch((error) => {
+                setErrorMsg(error?.message);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            })
+            .finally(() => {
+                setUploadFilseLoading(false);
+            });
+    };
+
     const submitForm = (e: React.FormEvent<HTMLFormElement>) => {
-        dispatch(setError(''));
+        if(dataLoading || uploadFilseLoading) return;
+        dispatch(setError(""));
         e.preventDefault();
 
         const x = {
@@ -175,45 +195,19 @@ export default function SignupPage() {
         console.log("submit", convertDataToJson);
         console.log("submitFile", fd);
 
+        setDataLoading(true);
         register(convertDataToJson)
             .then((response) => {
-                // @ts-ignore
-                if ((response.code = 403)) return;
-                setAssociatioFormData({
-                    // id:11,
-                    FullName: "",
-                    Password: "",
-                    AcademicDegree: 1,
-                    PhoneNumber: "",
-                    Email: "",
-                    Nationality: 1,
-                    NationalId: "",
-                    Address: "",
-                });
-                setEventFormData({
-                    packageId: "1",
-                    Workplace: 1,
-                    TitleOfLecture: "erwrewr",
-                    MedicalSpecialty: "",
-                    Country: "Egypt",
-                    TypeofParticipation: 1,
-                    AbstractOfLecture: "",
-                    // AbstractOfLecturePath: "",
-                    AttendanceDate: new Date(),
-                    AccommodationBooking: 1,
-                });
+                //@ts-ignore
+                dispatch(setUser(response.registrationData));
+                submitUploadFiles(fd);
             })
             .catch((error) => {
-                const errorMsg = errorHandler(error);
-                dispatch(setError(errorMsg));
-                console.log(error.message);
-            });
-        registerFiles(fd)
-            .then((response) => {})
-            .catch((error) => {
-                const errorMsg = errorHandler(error);
-                dispatch(setError(errorMsg));
-                console.log(error.message);
+                setErrorMsg(error?.message);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            })
+            .finally(() => {
+                setDataLoading(false);
             });
     };
 
@@ -554,7 +548,11 @@ export default function SignupPage() {
                             </>
                         </div>
 
-                        <BaseBtn minWidth="w-40">
+                        <BaseBtn
+                            disabled={dataLoading || uploadFilseLoading}
+                            loading={dataLoading || uploadFilseLoading}
+                            minWidth="w-40"
+                        >
                             <span>Send Now</span>
                         </BaseBtn>
                     </form>

@@ -8,10 +8,16 @@ import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedS
 import BaseOutlineBtn from "@/components/Base/BaseOutlineBtn";
 import Link from "next/link";
 import RoutesManager from "@/core/RoutesManager";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/stores/store";
+import { logout } from "@/stores/auth/authSlice";
+import { useRouter } from "next/navigation";
+
 
 export default function page() {
+    const dispatch = useDispatch()
+    const router = useRouter();
+
     const socialLinks = [
         {
             name: "Linked in",
@@ -31,6 +37,11 @@ export default function page() {
     ];
 
     const user = useSelector((state: RootState) => state.counter.user);
+
+    const logoutHandler = () => {
+        dispatch(logout())
+        router.replace('/')
+    }
     return (
         <div>
             <SharedHeader pageName="profile" />
@@ -91,6 +102,13 @@ export default function page() {
                             <span className="mdi mdi-account-key text-primary me-2"></span>
                             Edit Password
                         </Link>
+                        <button
+                            onClick={logoutHandler}
+                            className=" font-semibold text-primary flex-grow-0 flex-shrink-0  underline "
+                        >
+                            <span className="mdi mdi-logout text-primary me-2"></span>
+                            Log out
+                        </button>
                     </div>
                 </div>
 

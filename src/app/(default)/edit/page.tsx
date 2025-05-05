@@ -19,11 +19,9 @@ import { useDispatch, useSelector } from "react-redux";
 export default function page() {
     const user = useSelector((state: RootState) => state.counter.user);
     const [profileImg, setProfileImg] = useState("");
-    const dispatch = useDispatch<AppDispatch>()
-    const router = useRouter()
-    const errorMsg = useSelector(
-        (state: RootState) => state.counter.authErrorMsg
-    );
+    const dispatch = useDispatch<AppDispatch>();
+    const router = useRouter();
+    const [errorMsg, setErrorMsg] = useState("");
 
     const handleChangeInput = (
         e: React.ChangeEvent<HTMLInputElement>,
@@ -34,7 +32,7 @@ export default function page() {
             [name]: e.target.value,
         }));
     };
-    const handleChangeImg = () => { };
+    const handleChangeImg = () => {};
     // const user = useSelector((state: RootState) => state.counter.user);
     const [formData, setFormData] = useState({
         id: user?.id,
@@ -64,13 +62,14 @@ export default function page() {
         };
 
         const updateFormObjJson = JSON.stringify(x);
-        updateProfileService(updateFormObjJson).then((response) => {
-            dispatch(setUser(response))
-            router.push('/profile')
-        }).catch((error) => {
-            const errorMsg = errorHandler(error)
-            dispatch(setError(errorMsg))
-        })
+        updateProfileService(updateFormObjJson)
+            .then((response) => {
+                dispatch(setUser(response));
+                router.push("/profile");
+            })
+            .catch((error) => {
+                setErrorMsg(error?.message)
+            });
     };
 
     return (
@@ -85,7 +84,9 @@ export default function page() {
                         title="Edit Personal Iformation"
                         actionName=""
                     >
-                        {errorMsg && <span className="text-red-800"> {errorMsg}</span>}
+                        {errorMsg && (
+                            <span className="text-red-800"> {errorMsg}</span>
+                        )}
                         <SharedUploadPhoto
                             imageUploaded={user?.personalPhoto}
                             changeImageUploaded={handleChangeImg}
@@ -128,7 +129,6 @@ export default function page() {
                                     <SharedTextInput
                                         name="facebookUrl"
                                         id="facebookUrl"
-
                                         placeholder="Enter your Facebook link"
                                         value={formData.facebookUrl}
                                         sendInputValue={(e) =>
