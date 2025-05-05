@@ -12,17 +12,6 @@ import { AppDispatch, RootState } from "@/stores/store";
 import { enter } from "@/stores/auth/authSlice";
 import { User } from "@/types/shared";
 
-
-const navLinks = [
-    { name: "Home", link: RoutesManager.home },
-    { name: "Registration", link: RoutesManager.registration },
-    { name: "Schedule", link: RoutesManager.schedule },
-    { name: "Abstract", link: RoutesManager.abstract },
-    { name: "about", link: "/about" },
-    { name: "accomedation", link: RoutesManager.accomedation },
-    { name: "sponsors", link: RoutesManager.sponsors },
-    { name: "profile", link: "/profile" },
-];
 // const navLinks = [
 //     { name: "Home", link: RoutesManager.home },
 //     { name: "Registration", link: RoutesManager.registration },
@@ -50,11 +39,11 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     const navLinks = [
         { name: "Home", link: RoutesManager.home },
         { name: "Registration", link: RoutesManager.registration },
-        { name: "Schedule", link: "" },
+        { name: "Schedule", link: RoutesManager.schedule },
         { name: "Abstract", link: RoutesManager.abstract },
         { name: "about", link: "/about" },
-        { name: "accomedation", link: "" },
-        { name: "sponsors", link: "" },
+        { name: "accomedation", link: RoutesManager.accomedation },
+        { name: "sponsors", link: RoutesManager.sponsors },
     ];
 
     const loginBtnHandler = () => {
@@ -112,10 +101,11 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                             href={item.link}
                             className={
                                 item.link == pathName
-                                    ? `relative before:absolute before:w-full before:content-[''] ${colorInverted
-                                        ? "before:bg-background"
-                                        : "before:bg-primary"
-                                    } before:bg-background  before:h-1  before:top-7 `
+                                    ? `relative before:absolute before:w-full before:content-[''] ${
+                                          colorInverted
+                                              ? "before:bg-background"
+                                              : "before:bg-primary"
+                                      } before:bg-background  before:h-1  before:top-7 `
                                     : "bg-yellow"
                             }
                         >
