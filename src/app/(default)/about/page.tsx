@@ -2,6 +2,7 @@ import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import { heros } from "@/core/AssetsManager";
 import React from "react";
+import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 
 export default function page() {
     return (
@@ -58,7 +59,7 @@ export default function page() {
                                 }}
                                 className="lg:order-1 md:order-2 order-1 w-full lg:h-full aspect-[3/2.5]  bg-cover bg-no-repeat"
                             ></div>
-                            <div className= " lg:order-2 md:order-1 order-2 bg-primary-light text-md text-white leading-8 lg:py-8 lg:px-9 py-5 px-3 ">
+                            <div className=" lg:order-2 md:order-1 order-2 bg-primary-light text-md text-white leading-8 lg:py-8 lg:px-9 py-5 px-3 ">
                                 <p>
                                     EAOMS organizes a biennial International
                                     Conference in which eminent international
@@ -147,6 +148,7 @@ export default function page() {
             </div>
 
             <SharedCountDown />
+            <StaticSponsorsAnimatedSection />
         </div>
     );
 }

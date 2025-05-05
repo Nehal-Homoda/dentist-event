@@ -4,6 +4,7 @@ import SharedCountDown from '@/components/shared/SharedCountDown'
 import SharedHeader from '@/components/shared/SharedHeader'
 import { heros } from '@/core/AssetsManager'
 import React from 'react'
+import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 
 export default function page() {
     return (
@@ -86,6 +87,7 @@ export default function page() {
 
 
                 <SharedCountDown />
+                <StaticSponsorsAnimatedSection />
             </div>
         </div>
     )

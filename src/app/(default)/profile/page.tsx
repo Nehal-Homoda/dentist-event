@@ -115,7 +115,7 @@ export default function page() {
                 <SharedCountDown></SharedCountDown>
             </div>
 
-            {/* <StaticSponsorsAnimatedSection /> */}
+            <StaticSponsorsAnimatedSection />
         </div>
     );
 }

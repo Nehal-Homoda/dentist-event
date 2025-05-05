@@ -3,6 +3,7 @@ import SharedHeader from "@/components/shared/SharedHeader";
 import WhySubmitSection from "@/components/static/WhySubmitSection";
 import { heros } from "@/core/AssetsManager";
 import React from "react";
+import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 
 export default function page() {
     const importantDates = [
@@ -23,8 +24,8 @@ export default function page() {
             <div className="container py-20">
                 <div>
                     <h2 className="section-title text-center">
-                    Achievements Of <br />
-                    Egyptian Association of Oral & Maxillofacial Surgery
+                        Achievements Of <br />
+                        Egyptian Association of Oral & Maxillofacial Surgery
                     </h2>
                     <div className="grid grid-cols-12  gap-4">
                         <div className="col-span-3">
@@ -58,7 +59,7 @@ export default function page() {
                                 }}
                                 className="w-full lg:aspect-[3/3.5] aspect-[3/4.5] bg-no-repeat bg-cover rounded-lg "
                             >
-                               
+
                             </div>
                         </div>
                     </div>
@@ -87,6 +88,7 @@ export default function page() {
 
                 <WhySubmitSection></WhySubmitSection>
                 <SharedCountDown />
+                <StaticSponsorsAnimatedSection />
             </div>
         </div>
     );
