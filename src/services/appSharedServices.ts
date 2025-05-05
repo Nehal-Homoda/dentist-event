@@ -43,6 +43,24 @@ export const getMasterClasses = async () => {
         throw new Error(errorHandler(error));
     }
 };
+export const getAccomedation = async () => {
+    try {
+        const response = await apiCall.get(`/Data/GetAccommodations`)
+        if (!response.ok) {
+            // Try to read the error message if available
+            const errorData = await response.json();
+            throw new Error(
+                errorData?.message || "Failed to fetch master classes."
+            );
+        }
+        const data = (await response.json()) ;
+        return data;
+
+    }
+    catch (error) {
+        throw new Error(errorHandler(error))
+    }
+}
 
 export const register = async (fd: any) => {
     try {
@@ -64,7 +82,7 @@ export const register = async (fd: any) => {
                 );
                 throw new Error(messages);
             }
-            if(errorData && errorData.message) {
+            if (errorData && errorData.message) {
 
                 throw new Error(errorData.message);
             }

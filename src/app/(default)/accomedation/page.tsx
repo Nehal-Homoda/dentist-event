@@ -1,8 +1,10 @@
+'use client'
+
 import BaseBtn from '@/components/Base/BaseBtn'
 import SharedCountDown from '@/components/shared/SharedCountDown'
 import SharedHeader from '@/components/shared/SharedHeader'
 import { heros } from '@/core/AssetsManager'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export default function page() {
 
@@ -13,15 +15,30 @@ export default function page() {
         { id: 3, image: heros.hotel_img.src, title: 'Head Title', subtitle: "Lorem Ipsum  is simply dummy text of the printing and typesetting industry . Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", location: 'Cairo', service: '5 Star', price: '$250', distance: '27 M' },
 
     ]
+
+
+    const [accomedation, setAccomedation] = useState([])
+
+    const getAccomedation = async () => {
+        getAccomedation().then((response) => {
+            setAccomedation(response)
+
+        })
+
+    }
+
+    useEffect(() => {
+        getAccomedation()
+    }, [])
     return (
         <div>
             <SharedHeader pageName='Accomedation' />
             <div className='container py-20'>
                 <div className=''>
-                    {hotels.map((item, index) => (
+                    {accomedation.map((item, index) => (
                         <div key={index} className='grid md:grid-cols-2 gap-10 py-6'>
                             <div className={` w-full h-full rounded-2xl overflow-hidden ${index % 2 == 0 ? 'md:order-1' : 'md:order-2 '} `}>
-                                <img className='w-full h-full object-cover' src={heros.hotel_img.src} alt="" />
+                                <img className='w-full h-full object-cover' src={item.accommodationImages[0].image} alt="" />
                             </div>
                             <div className={`pt-5 ${index % 2 == 0 ? 'md:order-2' : 'md:order-1 '}`}>
 
@@ -61,7 +78,7 @@ export default function page() {
                     ))}
                 </div>
 
-                <SharedCountDown/>
+                <SharedCountDown />
 
 
             </div>
