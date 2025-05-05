@@ -6,6 +6,7 @@ import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedDatePicker from "@/components/shared/SharedDatePicker";
 import SharedHeader from "@/components/shared/SharedHeader";
 import SharedMenuDropDown from "@/components/shared/SharedMenuDropDown";
+import SharedSearchInput from "@/components/shared/SharedSearchInput";
 import { elements, heros } from "@/core/AssetsManager";
 import { useState } from "react";
 
@@ -37,7 +38,7 @@ export default function page() {
                 <div className="border-l-2 border-white  px-4 flex flex-col gap-5 ">
                     <p className="">Filter By Conference Day</p>
                     <div className="border-2 border-white rounded-xl px-3">
-                        <SharedDatePicker  btnName="See All" sendSelectedValue={takeSelectedDate} />
+                        <SharedDatePicker btnName="See All" sendSelectedValue={takeSelectedDate} />
                     </div>
 
 
@@ -62,6 +63,9 @@ export default function page() {
                 </div>
                 <div className="border-l-2 border-primary-light-700 px-4 flex flex-col gap-5">
                     <p>Search Speaker</p>
+                  
+                        <SharedSearchInput />
+
                 </div>
 
 

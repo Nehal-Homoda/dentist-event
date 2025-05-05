@@ -27,7 +27,7 @@ export default function SharedMenuDropDown({ menuList, btnName, sendSelectedValu
                 <MenuItems
                     transition
                     anchor="bottom center"
-                    className="w-52  rounded-xl border border-white/5 bg-white text-black p-1 text-sm/6  transition duration-100 ease-out  focus:outline-none "
+                    className="w-52 mt-2 rounded-xl border border-white/5 bg-white text-black p-1 text-sm/6  transition duration-100 ease-out  focus:outline-none "
                 >
 
                     {menuList.map((item, index) => (

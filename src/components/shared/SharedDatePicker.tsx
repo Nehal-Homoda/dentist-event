@@ -11,7 +11,7 @@ import { format } from 'date-fns';
 
 type Props = {
     btnName: string
-    sendSelectedValue: (item) => void
+    sendSelectedValue: (item:Date|undefined) => void
 }
 export default function SharedMenuDropDown({ sendSelectedValue, btnName }: Props) {
     const [selectedItem, setSelectedItem] = useState(null)
@@ -30,6 +30,9 @@ export default function SharedMenuDropDown({ sendSelectedValue, btnName }: Props
     };
 
     const handleSelectedItem = (item) => {
+        if(!item){
+            return
+        }
         const x = item.toString()
         console.log(item)
         setSelectedItem(x)
