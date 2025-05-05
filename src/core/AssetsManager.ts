@@ -71,6 +71,7 @@ import media_dr_2 from "@/assets/images/heros/media-dr-2.png";
 import media_vedio from "@/assets/images/heros/media-vedio.png";
 import hotel_img from "@/assets/images/heros/hotel-img.png";
 import schedule_details_img from "@/assets/images/heros/schedule-details-img.png";
+import speaker_1 from "@/assets/images/heros/speaker-1.png";
 
 export const heros = {
     why_submit,
@@ -91,5 +92,6 @@ export const heros = {
     media_dr_2,
     media_vedio,
     hotel_img,
-    schedule_details_img
+    schedule_details_img,
+    speaker_1
 };
