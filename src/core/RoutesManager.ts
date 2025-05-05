@@ -8,6 +8,7 @@ const sponsors = "/sponsors";
 const profile = "/profile";
 const register = "/signup";
 const edit = "/edit";
+const scheduleDetails="/scheduleDetails"
 
 const editpassword = "/editpassword";
 
@@ -23,4 +24,5 @@ export default {
     register,
     edit,
     editpassword,
+    scheduleDetails
 };
