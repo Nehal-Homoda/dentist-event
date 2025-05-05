@@ -1,13 +1,13 @@
 {
 	"info": {
-		"_postman_id": "8f2f6788-bc5e-4891-afa1-0509c0f92e98",
+		"_postman_id": "2560a0f3-68ed-4ff1-b05a-e8c7ac84e937",
 		"name": "EAOMS",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "18482891"
 	},
 	"item": [
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting",
+			"name": "GetSetting",
 			"event": [
 				{
 					"listen": "test",
@@ -44,7 +44,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetMasterClasses",
+			"name": "GetMasterClasses",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -76,7 +76,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Upload",
+			"name": "Data/Upload",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -111,7 +111,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Registration",
+			"name": "Data/Registration",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -152,7 +152,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetProfileData?userid=9188845f-da56-42e4-8958-b7cc2ecd9c1f",
+			"name": "Data/GetProfileData",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -180,7 +180,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/Login",
+			"name": "Data/Login",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -214,7 +214,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/ChangePassword",
+			"name": "Data/ChangePassword",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -248,7 +248,7 @@
 			"response": []
 		},
 		{
-			"name": "http://yousofsalah-001-site4.anytempurl.com/api/Data/EditProfile",
+			"name": "Data/EditProfile",
 			"request": {
 				"auth": {
 					"type": "noauth"
@@ -276,6 +276,56 @@
 						"api",
 						"Data",
 						"EditProfile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data/GetAccommodations",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetAccommodations",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"GetAccommodations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Data/GetSponsors",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSponsors",
+					"protocol": "http",
+					"host": [
+						"yousofsalah-001-site4",
+						"anytempurl",
+						"com"
+					],
+					"path": [
+						"api",
+						"Data",
+						"GetSponsors"
 					]
 				}
 			},
