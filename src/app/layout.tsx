@@ -38,7 +38,10 @@ export default function RootLayout({
             <StoreProvider>
             <body>
                 
-                <ScreensIndicator />
+                {
+                    process.env.NODE_ENV == "development" ? (<ScreensIndicator />) : ''
+                }
+                
                 {children}
             </body>
             </StoreProvider>

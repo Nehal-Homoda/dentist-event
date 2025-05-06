@@ -1,8 +1,9 @@
 import { errorHandler, responseErrorServiceHandler } from "@/utils/shared";
-// import { apiCall } from "./apiCall"
 import {
+    Accommodation,
     AppMasterClass,
     AppSettingData,
+    Sponsor,
 } from "@/types/shared";
 import { apiCall } from "./apiCall";
 
@@ -42,7 +43,7 @@ export const getSponsorsService = async () => {
         if (!response.ok) {
             await responseErrorServiceHandler(response, 'get sponsors')
         }
-        const data = (await response.json());
+        const data = (await response.json()) as Sponsor[];
         return data;
 
     }
@@ -57,7 +58,7 @@ export const getAccomedationService = async () => {
             await responseErrorServiceHandler(response, 'get accomedation')
             
         }
-        const data = (await response.json());
+        const data = (await response.json()) as Accommodation[];
         return data;
 
     }

@@ -147,8 +147,10 @@ export default function page() {
                 </div>
             </div>
 
-            <SharedCountDown />
-            <StaticSponsorsAnimatedSection />
+            <div className="container">
+                <SharedCountDown />
+                <StaticSponsorsAnimatedSection />
+            </div>
         </div>
     );
 }

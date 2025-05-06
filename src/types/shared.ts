@@ -74,24 +74,54 @@ export interface EventData {
 }
 
 export interface User {
+    id: number;
+    fullName: string;
+    academicDegree: number;
+    phoneNumber: string;
+    email: string;
+    nationality: number;
+    nationalId: string;
+    nationalIdPath: any;
+    syndicateCard: any;
+    personalPhoto: any;
+    address: string;
+    deleted: number;
+    password: string;
+    userID: string;
+    jobTitle: any;
+    facebookUrl: string;
+    instagramUrl: any;
+    linkedinUrl: any;
+    createDate: string;
+}
+
+export interface Accommodation {
+    id: number;
+    name: string;
+    description: string;
+    distance: string;
+    price: number;
+    starts: number;
+    location: string;
+    deleted: number;
+    createDate: string;
+    createBy: string;
+    accommodationImages: AccommodationImage[];
+}
+
+export interface AccommodationImage {
+    id: number;
+    accommodationID: number;
+    image: string;
+    accommodationIDNavigation: any;
+}
+
+
+export interface Sponsor {
     id: number
-    fullName: string
-    academicDegree: number
-    phoneNumber: string
-    email: string
-    nationality: number
-    nationalId: string
-    nationalIdPath: any
-    syndicateCard: any
-    personalPhoto: any
-    address: string
+    image: string
+    url?: string
     deleted: number
-    password: string
-    userID: string
-    jobTitle: any
-    facebookUrl: string
-    instagramUrl: any
-    linkedinUrl: any
+    createBy: string
     createDate: string
   }
-  

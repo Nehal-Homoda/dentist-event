@@ -6,7 +6,6 @@ import BaseBtn from "../Base/BaseBtn";
 import { getSettingService } from "@/services/appSharedServices";
 import { error } from "console";
 import { AppSettingData } from "@/types/shared";
-// import { fetchFooterSetting } from "@/services/settings/footerSetting";
 
 export default function AppFooter() {
     const [data, setData] = useState<AppSettingData | null>(null);
@@ -21,22 +20,6 @@ export default function AppFooter() {
                 setErrorMessage(error.message);
             });
     };
-    // const fetchData = async () => {
-
-    //     try {
-    //         const res = await fetch('http://yousofsalah-001-site4.anytempurl.com/api/Data/GetSetting');
-
-    //         if (!res.ok) throw('connection error');
-
-    //         const data = res.json();
-
-    //         console.log("response data =>> ", data)
-    //     } catch (error) {
-
-    //         //@ts-ignore
-    //         console.log(error.message)
-    //     }
-    // }
 
     const sendAction = () => {};
 
