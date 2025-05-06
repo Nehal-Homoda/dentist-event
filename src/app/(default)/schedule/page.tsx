@@ -21,6 +21,7 @@ export default function page() {
     const [selectedValueFromChild, setSelectedValueFromChild] = useState()
 
     const [selectedContent, setSelectedContent] = useState()
+    const [searchValue,setSearchValue]=useState('')
 
 
     const takeSelectedValue = (selectedItem) => {
@@ -32,6 +33,10 @@ export default function page() {
         setSelectedContent(item)
     }
     const takeSelectedDate = (item) => {
+
+    }
+    const takeSearchValue=(e)=>{
+        setSearchValue(e)
 
     }
     return <div>
@@ -69,7 +74,7 @@ export default function page() {
                 <div className="border-l-2 border-primary-light-700 px-4 flex flex-col gap-5">
                     <p>Search Speaker</p>
 
-                    <SharedSearchInput />
+                    <SharedSearchInput inputValue={searchValue} sendValueToParent={takeSearchValue} />
 
                 </div>
 
