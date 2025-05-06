@@ -10,6 +10,7 @@ import SharedSearchInput from "@/components/shared/SharedSearchInput";
 import { elements } from "@/core/AssetsManager";
 import { useState } from "react";
 import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
+import { useRouter } from "next/navigation";
 
 
 
@@ -19,6 +20,7 @@ export default function page() {
     const x = [{ subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }, { subject: 'The Well-Rounded Surgeon Leader', date: 'Tue - 17 May - 03 :00 pm' }]
     const arr = ['1', '2', '3', '4']
     const [selectedValueFromChild, setSelectedValueFromChild] = useState()
+    const router = useRouter();
 
     const [selectedContent, setSelectedContent] = useState()
     const [searchValue,setSearchValue]=useState('')
@@ -39,6 +41,11 @@ export default function page() {
         setSearchValue(e)
 
     }
+
+    const openScheduleHandler = (id: number) => {
+        router.push(`/schedule/${id}`)
+    }
+
     return <div>
 
 
@@ -90,7 +97,7 @@ export default function page() {
                     </div>
                     <div>
                         <p className="mb-4 text-sm">Tue - 17 May - 03 :00 pm</p>
-                        <BaseBtn minHeight="h-9">
+                        <BaseBtn handleBtnAction={() => openScheduleHandler(1)} minHeight="h-9">
                             <span>Details</span>
                         </BaseBtn>
                     </div>
