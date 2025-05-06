@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { bg, brand } from "@/core/AssetsManager";
 import BaseBtn from "../Base/BaseBtn";
-import { getSetting } from "@/services/appSharedServices";
+import { getSettingService } from "@/services/appSharedServices";
 import { error } from "console";
 import { AppSettingData } from "@/types/shared";
 // import { fetchFooterSetting } from "@/services/settings/footerSetting";
@@ -13,7 +13,7 @@ export default function AppFooter() {
     const [errorMessage, setErrorMessage] = useState("");
 
     const fetchFooterSetting = async () => {
-        getSetting()
+        getSettingService()
             .then((response) => {
                 setData(response);
             })

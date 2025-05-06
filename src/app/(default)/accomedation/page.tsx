@@ -4,7 +4,7 @@ import BaseBtn from '@/components/Base/BaseBtn'
 import SharedCountDown from '@/components/shared/SharedCountDown'
 import SharedHeader from '@/components/shared/SharedHeader'
 import { heros } from '@/core/AssetsManager'
-import { getAccomedation } from '@/services/appSharedServices'
+import { getAccomedationService } from '@/services/appSharedServices'
 import React, { useEffect, useState } from 'react'
 import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 
@@ -22,7 +22,7 @@ export default function page() {
     const [accomedation, setAccomedation] = useState([])
 
     const getAccomedationHotels = async () => {
-        getAccomedation().then((response) => {
+        getAccomedationService().then((response) => {
             setAccomedation(response)
 
         })

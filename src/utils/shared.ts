@@ -84,10 +84,6 @@ export const validateInput = async (
         return err.message; // Return the validation error message.
     }
 };
-
-
-
-
 /**
  * errorHandler Utility Function
  * Purpose:
@@ -110,4 +106,44 @@ export const errorHandler = (error: any): string => {
 
     // Default fallback message
     return "Something went wrong. Please try again.";
+};
+/**
+ * Handles and throws descriptive error messages from a failed HTTP response.
+ *
+ * This utility function is typically used in service layers to extract and throw
+ * appropriate error messages from a response object, often returned from a `fetch` request.
+ *
+ * @async
+ * @function
+ * @param {Response} response - The HTTP response object returned by a failed request.
+ * @param {string} serviceMessage - A custom fallback message describing the service action (e.g., "fetch user data").
+ *
+ * @throws {Error} - Throws an error with one of the following messages:
+ * - A concatenated string of messages from `errorData.errors` if it exists and is an object.
+ * - A single error message from `errorData.message` if it exists.
+ * - A fallback message using the provided `serviceMessage` if no detailed error is available.
+ *
+ * @example
+ * try {
+ *   const response = await fetch('/api/some-endpoint');
+ *   if (!response.ok) {
+ *     await responseErrorServiceHandler(response, 'fetch data');
+ *   }
+ * } catch (error) {
+ *   console.error(error.message);
+ * }
+ */
+export const responseErrorServiceHandler = async (
+    response: any,
+    serviceMessage: string
+) => {
+    const errorData = await response.json();
+    if (errorData && errorData.errors && typeof errorData.errors === "object") {
+        const messages = [...Object.values(errorData.errors)].join(", ");
+        throw new Error(messages);
+    }
+    if (errorData && errorData.message) {
+        throw new Error(errorData.message);
+    }
+    throw new Error(`Failed to ${serviceMessage}!`);
 };

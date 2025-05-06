@@ -1,46 +1,16 @@
+"use client"
 import { elements } from "@/core/AssetsManager";
-import { getSponsor } from "@/services/appSharedServices";
+import { getSponsorsService } from "@/services/appSharedServices";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
 export default function SponsorsAnimatedSection() {
-    // const sponsorsImg = [
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    //     elements.sponsor1,
-    //     elements.sponsor2,
-    //     elements.sponsor3,
-    // ];
+
 
      const [sponsors, setSponsor] = useState([])
     
         const fetchSponsor = async () => {
-            getSponsor().then((response) => {
+            getSponsorsService().then((response) => {
                 setSponsor(response)
             })
         }

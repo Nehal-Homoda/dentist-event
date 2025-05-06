@@ -7,7 +7,7 @@ import SharedHeader from "@/components/shared/SharedHeader";
 import SharedTextInput from "@/components/shared/SharedInput";
 import SharedListBox from "@/components/shared/SharedListBox";
 import SharedUploadFile from "@/components/shared/SharedUploadFile";
-import { register, registerFiles } from "@/services/appSharedServices";
+import { registerService, uploadFilesService } from "@/services/authService";
 
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros, icons } from "@/core/AssetsManager";
@@ -156,7 +156,7 @@ export default function SignupPage() {
 
     const submitUploadFiles = (fd: FormData) => {
         setUploadFilseLoading(true);
-        registerFiles(fd)
+        uploadFilesService(fd)
             .then((response) => {
                 router.push("/");
             })
@@ -196,7 +196,7 @@ export default function SignupPage() {
         console.log("submitFile", fd);
 
         setDataLoading(true);
-        register(convertDataToJson)
+        registerService(convertDataToJson)
             .then((response) => {
                 //@ts-ignore
                 dispatch(setUser(response.registrationData));

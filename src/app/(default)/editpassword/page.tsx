@@ -7,7 +7,7 @@ import SharedHeader from "@/components/shared/SharedHeader";
 import SharedTextInput from "@/components/shared/SharedInput";
 import SharedUploadPhoto from "@/components/shared/SharedUploadPhoto";
 import { brand, elements, heros } from "@/core/AssetsManager";
-import { changePassword } from "@/services/authService";
+import { changePasswordService } from "@/services/authService";
 import { setError, setUser } from "@/stores/auth/authSlice";
 import { errorHandler } from "@/utils/shared";
 import { RootState } from "@/stores/store";
@@ -47,7 +47,7 @@ export default function page() {
             ...formData
         };
         const changePasswordFormJson = JSON.stringify(changePasswordForm);
-        changePassword(changePasswordFormJson).then((response) => {
+        changePasswordService(changePasswordFormJson).then((response) => {
             dispatch(setUser(response))
             router.push('/profile')
         }).catch((error) => {

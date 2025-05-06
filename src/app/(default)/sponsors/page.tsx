@@ -3,7 +3,7 @@
 import SharedCountDown from '@/components/shared/SharedCountDown'
 import SharedHeader from '@/components/shared/SharedHeader'
 import { elements, heros } from '@/core/AssetsManager'
-import { getSponsor } from '@/services/appSharedServices'
+import { getSponsorsService } from '@/services/appSharedServices'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 
@@ -13,7 +13,7 @@ export default function page() {
     const [sponsors, setSponsor] = useState([])
 
     const fetchSponsor = async () => {
-        getSponsor().then((response) => {
+        getSponsorsService().then((response) => {
             setSponsor(response)
         })
     }

@@ -1,20 +1,17 @@
-import { errorHandler } from "@/utils/shared";
+import { errorHandler, responseErrorServiceHandler } from "@/utils/shared";
 // import { apiCall } from "./apiCall"
 import {
     AppMasterClass,
     AppSettingData,
-    RegistrationData,
 } from "@/types/shared";
-import { apiCall, APP_API_HEADERS } from "./apiCall";
+import { apiCall } from "./apiCall";
 
-export const getSetting = async () => {
+export const getSettingService = async () => {
     try {
         const response = await apiCall.get(`/Data/GetSetting`);
 
         if (!response.ok) {
-            // Try to read the error message if available
-            const errorData = await response.json();
-            throw new Error(errorData?.message || "Failed to fetch settings.");
+            await responseErrorServiceHandler(response, 'get settings')
         }
         const data = (await response.json()) as AppSettingData;
         return data;
@@ -24,16 +21,12 @@ export const getSetting = async () => {
         throw new Error(errorHandler(error));
     }
 };
-export const getMasterClasses = async () => {
+export const getMasterClassesService = async () => {
     try {
         const response = await apiCall.get(`/Data/GetMasterClasses`);
 
         if (!response.ok) {
-            // Try to read the error message if available
-            const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            await responseErrorServiceHandler(response, 'get master classes')
         }
         const data = (await response.json()) as AppMasterClass[];
         return data;
@@ -43,15 +36,11 @@ export const getMasterClasses = async () => {
         throw new Error(errorHandler(error));
     }
 };
-export const getSponsor = async () => {
+export const getSponsorsService = async () => {
     try {
         const response = await apiCall.get(`/Data/GetSponsors`)
         if (!response.ok) {
-            // Try to read the error message if available
-            const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            await responseErrorServiceHandler(response, 'get sponsors')
         }
         const data = (await response.json());
         return data;
@@ -61,15 +50,12 @@ export const getSponsor = async () => {
         throw new Error(errorHandler(error))
     }
 }
-export const getAccomedation = async () => {
+export const getAccomedationService = async () => {
     try {
         const response = await apiCall.get(`/Data/GetAccommodations`)
         if (!response.ok) {
-            // Try to read the error message if available
-            const errorData = await response.json();
-            throw new Error(
-                errorData?.message || "Failed to fetch master classes."
-            );
+            await responseErrorServiceHandler(response, 'get accomedation')
+            
         }
         const data = (await response.json());
         return data;
@@ -80,62 +66,3 @@ export const getAccomedation = async () => {
     }
 }
 
-export const register = async (fd: any) => {
-    try {
-        const response = await apiCall.post(`/Data/Registration`, {
-            body: fd,
-            headers: {
-                "Content-Type": "application/json",
-            },
-        });
-        if (!response.ok) {
-            const errorData = await response.json();
-            if (
-                errorData &&
-                errorData.errors &&
-                typeof errorData.errors === "object"
-            ) {
-                const messages = [...Object.values(errorData.errors)].join(
-                    ", "
-                );
-                throw new Error(messages);
-            }
-            if (errorData && errorData.message) {
-
-                throw new Error(errorData.message);
-            }
-            throw new Error("Failed to register!");
-        }
-        const data = (await response.json()) as RegistrationData[];
-        console.log("response data =>>>>", data);
-        return data;
-    } catch (error: any) {
-        throw new Error(errorHandler(error));
-    }
-};
-export const registerFiles = async (file: any) => {
-    try {
-        const response = await apiCall.post(`/Data/Upload`, {
-            body: file,
-            // headers: { "Content-Type": "multipart/form-data" },
-        });
-        if (!response.ok) {
-            const errorData = await response.json();
-            if (
-                errorData &&
-                errorData.errors &&
-                typeof errorData.errors === "object"
-            ) {
-                const messages = [...Object.values(errorData.errors)].join(
-                    ", "
-                );
-                throw new Error(messages);
-            }
-            throw new Error("Failed to upload files!");
-        }
-        const data = (await response.json()) as RegistrationData[];
-        return data;
-    } catch (error: any) {
-        throw new Error(errorHandler(error));
-    }
-};

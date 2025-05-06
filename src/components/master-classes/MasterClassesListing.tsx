@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import SharedCardWithShadow from "@/components/shared/SharedCardWithShadow";
-import { getMasterClasses } from "@/services/appSharedServices";
+import { getMasterClassesService } from "@/services/appSharedServices";
 import { AppMasterClass } from "@/types/shared";
 
 export default function MasterClassesListing() {
@@ -10,7 +10,7 @@ export default function MasterClassesListing() {
 
     const fetchMasterClasses = async () => {
 
-        getMasterClasses()
+        getMasterClassesService()
         .then(resposne => {
 
             setData(resposne);
