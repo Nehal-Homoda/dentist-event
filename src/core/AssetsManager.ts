@@ -1,9 +1,11 @@
 //========= [BRAND]
 import logo from "@/assets/images/logo.png";
 import logo_text from "@/assets/images/logo-text.png";
+import new_logo from "@/assets/images/logo-without-bg.png";
 
 export const brand = {
     logo,
+    new_logo,
     logo_text,
 };
 //========= [ICONS]
@@ -49,7 +51,7 @@ export const elements = {
     card_frame,
     logo_year,
     logo_year_clear,
-    schedule_bg
+    schedule_bg,
 };
 //========= [HEROS]
 import why_submit from "@/assets/images/heros/why-submit.png";
@@ -93,5 +95,5 @@ export const heros = {
     media_vedio,
     hotel_img,
     schedule_details_img,
-    speaker_1
+    speaker_1,
 };

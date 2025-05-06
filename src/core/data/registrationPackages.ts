@@ -1,12 +1,9 @@
 import { heros } from "@/core/AssetsManager";
 import type { RegistrationPackage } from "@/types/shared";
 
-
-
-
 export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
     {
-        title: "Early Bird Registration",
+        title: "Physical Registration",
         description: "March 17, 2025",
         offers: [
             {
@@ -52,7 +49,7 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
         ],
     },
     {
-        title: "Early Bird Registration",
+        title: "Scientific Registration",
         description: "March 17, 2025",
         offers: [
             {
@@ -98,7 +95,7 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
         ],
     },
     {
-        title: "Early Bird Registration",
+        title: "Virtual Registration",
         description: "March 17, 2025",
         offers: [
             {
