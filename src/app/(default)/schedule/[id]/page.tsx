@@ -12,8 +12,8 @@ export function generateStaticParams() {
     return [{ id: "1" }, { id: "2" }, { id: "3" }];
 }
 
-export default function page({ params }: { params: { id: string } }) {
-    const { id } = params;
+export default async function page({ params }: { params: { id: string } }) {
+    const { id } = await params;
 
     const item = getScheduleById(id);
     // const router = useRouter();
