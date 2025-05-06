@@ -41,7 +41,7 @@ export default function AppFooter() {
                         <div className="grid grid-cols-1 md:grid-cols-10 py-16">
                             <div className="brand col-span-1">
                                 <img
-                                    src={brand.logo.src}
+                                    src={brand.new_logo.src}
                                     className="max-h-[200px] object-contain"
                                     alt=""
                                 />

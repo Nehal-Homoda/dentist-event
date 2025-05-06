@@ -1,9 +1,11 @@
 //========= [BRAND]
 import logo from "@/assets/images/logo.png";
 import logo_text from "@/assets/images/logo-text.png";
+import new_logo from "@/assets/images/logo-without-bg.png";
 
 export const brand = {
     logo,
+    new_logo,
     logo_text,
 };
 //========= [ICONS]
@@ -27,10 +29,14 @@ export const icons = {
 import footer_bg from "@/assets/images/bg/footer-bg.png";
 import header_bg from "@/assets/images/bg/header.png";
 import header_img_bg from "@/assets/images/bg/header-img.png";
+import header from "@/assets/images/bg/header.jpg";
+import new_header from "@/assets/images/bg/D-B.png";
 export const bg = {
     footer_bg,
     header_bg,
     header_img_bg,
+    header,
+    new_header,
 };
 //========= [ELEMENTS]
 import sponsor1 from "@/assets/images/elements/sponsor-1.png";
@@ -49,7 +55,7 @@ export const elements = {
     card_frame,
     logo_year,
     logo_year_clear,
-    schedule_bg
+    schedule_bg,
 };
 //========= [HEROS]
 import why_submit from "@/assets/images/heros/why-submit.png";
@@ -93,5 +99,5 @@ export const heros = {
     media_vedio,
     hotel_img,
     schedule_details_img,
-    speaker_1
+    speaker_1,
 };
