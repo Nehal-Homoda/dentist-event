@@ -31,10 +31,10 @@ export default function page() {
                     {sponsors.map((item, index) => (
                         <div
                             key={index}
-                            className="flex items-center  justify-center px-4 py-5 bg-primary-light-800 rounded-xl border border-primary-light-400 "
+                            className="flex items-center  justify-center px-4  py-5 bg-primary-light-800 rounded-xl border border-primary-light-400 "
                         >
                             <Link href={item.url || ""}>
-                                <div className="w-44 h-44 ">
+                                <div className="lg:w-44 lg:h-44 w-36 h-36 ">
                                     <img
                                         className="w-full h-full object-contain"
                                         src={item.image}
