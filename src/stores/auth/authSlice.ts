@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { loginService } from "@/services/authService";
 import { errorHandler } from "@/utils/shared";
 import { User } from "@/types/shared";
+import Cookies from 'js-cookie'
+
 export interface AuthState {
     user: User | null;
     token: string;
@@ -23,7 +25,8 @@ export const authSlice = createSlice({
         setUser: (state, action: PayloadAction<User>) => {
             state.user = action.payload;
             state.fullForm = true;
-            localStorage.setItem("user", JSON.stringify(state.user));
+            // localStorage.setItem("user", );
+            Cookies.set('user', JSON.stringify(state.user))
         },
         setError: (state, action: PayloadAction<string>) => {
             state.authErrorMsg = action.payload;
@@ -31,11 +34,13 @@ export const authSlice = createSlice({
         logout: (state) => {
             state.user = null;
             state.fullForm = false;
-            localStorage.removeItem("user");
+            // localStorage.removeItem("user");
+            Cookies.remove('user')
         },
         enter: (state) => {
             try {
-                const x = localStorage.getItem("user");
+                // const x = localStorage.getItem("user");
+                const x = Cookies.get('user');
                 if (x) {
                     state.user = JSON.parse(x);
 
@@ -44,7 +49,8 @@ export const authSlice = createSlice({
             } catch (error: any) {
                 state.user = null;
                 state.fullForm = false;
-                localStorage.removeItem("user");
+                // localStorage.removeItem("user");
+                Cookies.remove('user')
                 console.log("Enter error ", error.message);
             }
         },

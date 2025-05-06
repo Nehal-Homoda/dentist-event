@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
 import SharedCountDown from "@/components/shared/SharedCountDown";
 import SharedHeader from "@/components/shared/SharedHeader";
 import { heros, icons } from "@/core/AssetsManager";
-import React from "react";
+import React, { useEffect } from "react";
 import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedSection";
 import BaseOutlineBtn from "@/components/Base/BaseOutlineBtn";
 import Link from "next/link";
@@ -13,9 +13,8 @@ import { RootState } from "@/stores/store";
 import { logout } from "@/stores/auth/authSlice";
 import { useRouter } from "next/navigation";
 
-
 export default function page() {
-    const dispatch = useDispatch()
+    const dispatch = useDispatch();
     const router = useRouter();
 
     const socialLinks = [
@@ -39,9 +38,16 @@ export default function page() {
     const user = useSelector((state: RootState) => state.counter.user);
 
     const logoutHandler = () => {
-        dispatch(logout())
-        router.replace('/')
-    }
+        dispatch(logout());
+        router.replace("/");
+    };
+
+    // useEffect(() => {
+    //     if (!user) {
+    //         router.push("/login");
+    //     }
+    // }, []);
+
     return (
         <div>
             <SharedHeader pageName="profile" />
@@ -49,15 +55,17 @@ export default function page() {
                 <div className="flex flex-col lg:flex-row   justify-between items-start   ">
                     <div className="lg:flex lg:flex-row flex flex-col lg:gap-5 lg:items-center">
                         <div className=" bg-white rounded-full overflow-hidden lg:p-2 p-1 lg:w-36 lg:h-36 w-24 h-24  z-50  lg:-mt-36 -mt-12">
-                           {user?.personalPhoto && <img
-                                className="rounded-full  w-full h-full object-cover "
-                                src={icons.icon_facebook.src}
-                                alt=""
-                            />} 
+                            {user?.personalPhoto && (
+                                <img
+                                    className="rounded-full  w-full h-full object-cover "
+                                    src={icons.icon_facebook.src}
+                                    alt=""
+                                />
+                            )}
                         </div>
                         <div className="py-5  md:text-md ">
                             <h2 className="text-primary md:text-xl  text-md mb-5">
-                               {user?.fullName}
+                                {user?.fullName}
                             </h2>
                             <p className="text-secondary-100 mb-2">
                                 {user?.jobTitle}
