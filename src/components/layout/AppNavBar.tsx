@@ -60,11 +60,15 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                     <div className="w-full bg-background flex justify-between items-center px-5 lg:px-12 ">
                         <div className="w-24 h-24">
                             <img
-                                src={brand.logo_text.src}
+                                src={brand.new_logo.src}
                                 className="w-full h-full object-contain"
                                 alt=""
                             />
                         </div>
+
+                        <h2 className="lg:text-3xl md:text-lg text-sm">
+                            Egyptian Association of Oral & Maxillofacial Surgery
+                        </h2>
 
                         {/* {sponsorsImg.map((item, index) => (
                             <div key={index} className="w-28 h-28 ">
