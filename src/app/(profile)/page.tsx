@@ -21,14 +21,14 @@ export default function Home() {
         <>
             <div className="home-page">
                 <header
-                    style={{ backgroundImage: `url('${bg.header_bg.src}')` }}
-                    className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.4]  bg-no-repeat bg-cover bg-top"
+                    style={{ backgroundImage: `url('${bg.new_header.src}')` }}
+                    className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.5]  bg-no-repeat bg-cover bg-bottom-left"
                 >
                     <div className="w-full h-full bg-black/50 flex flex-col justify-end">
                         <div className="container ">
                             <div className="wrap flex gap-5 sm:gap-10 mb-5 md:mb-10">
                                 {/* CALENDER */}
-                                <div className=" sm:text-xl flex items-center gap-3">
+                                {/* <div className=" sm:text-xl flex items-center gap-3">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 sm:mb-1">
                                         <img
                                             src={
@@ -37,11 +37,11 @@ export default function Home() {
                                             alt=""
                                             className="w-full h-full object-contain"
                                         />
-                                    </div>
-                                    <span>1 - 3 October 2025</span>
-                                </div>
+                                    </div> */}
+                                {/* <span>1 - 3 October 2025</span> */}
+                                {/* </div> */}
                                 {/* LOCATION */}
-                                <div className="sm:text-xl flex items-center gap-3">
+                                {/* <div className="sm:text-xl flex items-center gap-3">
                                     <div className="w-5 h-5 sm:w-6 sm:h-6 sm:mb-1">
                                         <img
                                             src={
@@ -50,16 +50,16 @@ export default function Home() {
                                             alt=""
                                             className="w-full h-full object-contain"
                                         />
-                                    </div>
-                                    <span>Egypt , Cairo</span>
-                                </div>
+                                    </div> */}
+                                {/* <span>Egypt , Cairo</span> */}
+                                {/* </div> */}
                             </div>
-                            <h1 className=" text-2xl sm:text-4xl lg:text-5xl font-semibold">
+                            {/* <h1 className=" text-2xl sm:text-4xl lg:text-5xl font-semibold">
                                 Egyptian Association of Oral &
                                 <br />
                                 Maxillofacial Surgery
-                            </h1>
-                            <div className="wrap flex flex-wrap items-center py-7 md:py-14 md:gap-10">
+                            </h1> */}
+                            {/* <div className="wrap flex flex-wrap items-center py-7 md:py-14 md:gap-10">
                                 {headerStats.map((item, index) => (
                                     <div
                                         key={index}
@@ -73,7 +73,7 @@ export default function Home() {
                                         </p>
                                     </div>
                                 ))}
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </header>

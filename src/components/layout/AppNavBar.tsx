@@ -66,7 +66,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                             />
                         </div>
 
-                        <h2 className="lg:text-3xl md:text-lg text-sm">
+                        <h2 className="lg:text-3xl md:text-lg text-center  font-semibold text-sm">
                             Egyptian Association of Oral & Maxillofacial Surgery
                         </h2>
 
