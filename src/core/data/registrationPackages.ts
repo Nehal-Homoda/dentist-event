@@ -13,22 +13,22 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 programs: [
                     {
                         title: "3,500LE",
-                        subtitle: "Till, 17 Jul",
+                        subtitle: "Early bird Registration till, 17 Jul",
                         id: "offer_1",
                     },
                     {
                         title: "4,000LE",
-                        subtitle: "Till, 17 Aug",
+                        subtitle: "Regular Registration till, 17 Aug",
                         id: "offer_2",
                     },
                     {
                         title: "5,000LE",
-                        subtitle: "Till, 17 Sep",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
                         title: "6,000LE",
-                        subtitle: "Till, 17 Oct",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -39,10 +39,26 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 price: "$170",
                 image: heros.package_card_img_3.src,
                 programs: [
-                    { title: "$250", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "$300", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "$350", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "$400", subtitle: "Till, 17 Oct", id: "offer_4" },
+                    {
+                        title: "$250",
+                        subtitle: "Early bird Registration till, 17 Jul",
+                        id: "offer_1",
+                    },
+                    {
+                        title: "$300",
+                        subtitle: "Regular Registration till, 17 Aug",
+                        id: "offer_2",
+                    },
+                    {
+                        title: "$350",
+                        subtitle: "Late Registration till, 17 Sep",
+                        id: "offer_3",
+                    },
+                    {
+                        title: "$400",
+                        subtitle: "onsite Registration till, 17 Oct",
+                        id: "offer_4",
+                    },
                 ],
             },
 
@@ -53,22 +69,22 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 programs: [
                     {
                         title: "4,500LE",
-                        subtitle: "Till, 17 Jul",
+                        subtitle: "Early bird Registration till, 17 Jul",
                         id: "offer_1",
                     },
                     {
                         title: "5,000LE",
-                        subtitle: "Till, 17 Aug",
+                        subtitle: "Regular Registration, 17 Aug",
                         id: "offer_2",
                     },
                     {
                         title: "5,500LE",
-                        subtitle: "Till, 17 Sep",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
                         title: "6,500LE",
-                        subtitle: "Till, 17 Oct",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -78,20 +94,25 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 price: "$170",
                 image: heros.package_card_img_4.src,
                 programs: [
-                    { title: "$300", subtitle: "Till, 17 Jul", id: "offer_1" },
                     {
-                        title: "$350LE",
-                        subtitle: "Till, 17 Aug",
+                        title: "$300",
+                        subtitle: "Early bird Registration till, 17 Jul",
+                        id: "offer_1",
+                    },
+                    {
+                        title: "$350",
+                        subtitle: "Regular Registration till, 17 Aug",
+
                         id: "offer_2",
                     },
                     {
-                        title: "$400LE",
-                        subtitle: "Till, 17 Sep",
+                        title: "$400",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
-                        title: "$300LE",
-                        subtitle: "Till, 17 Oct",
+                        title: "$300",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -109,22 +130,22 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 programs: [
                     {
                         title: "2,500LE",
-                        subtitle: "Till, 17 Jul",
+                        subtitle: "Early bird Registration till, 17 Jul",
                         id: "offer_1",
                     },
                     {
                         title: "3,000LE",
-                        subtitle: "Till, 17 Aug",
+                        subtitle: "Regular Registration till, 17 Aug",
                         id: "offer_2",
                     },
                     {
                         title: "3,500LE",
-                        subtitle: "Till, 17 Sep",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
                         title: "4,000LE",
-                        subtitle: "Till, 17 Oct",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -134,10 +155,26 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 price: "$170",
                 image: heros.package_card_img_3.src,
                 programs: [
-                    { title: "$150", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "$200", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "$250", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "$300", subtitle: "Till, 17 Oct", id: "offer_4" },
+                    {
+                        title: "$150",
+                        subtitle: "Early bird Registration till, 17 Jul",
+                        id: "offer_1",
+                    },
+                    {
+                        title: "$200",
+                        subtitle: "Regular Registration till, 17 Aug",
+                        id: "offer_2",
+                    },
+                    {
+                        title: "$250",
+                        subtitle: "Late Registration till, 17 Sep",
+                        id: "offer_3",
+                    },
+                    {
+                        title: "$300",
+                        subtitle: "onsite Registration till, 17 Oct",
+                        id: "offer_4",
+                    },
                 ],
             },
             {
@@ -147,22 +184,22 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 programs: [
                     {
                         title: "3,000LE",
-                        subtitle: "Till, 17 Jul",
+                        subtitle: "Early bird Registration till, 17 Jul",
                         id: "offer_1",
                     },
                     {
                         title: "3,600LE",
-                        subtitle: "Till, 17 Aug",
+                        subtitle: "Regular Registration till, 17 Aug",
                         id: "offer_2",
                     },
                     {
                         title: "4,200LE",
-                        subtitle: "Till, 17 Sep",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
                         title: "4,800LE",
-                        subtitle: "Till, 17 Oct",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -173,10 +210,26 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 price: "$170",
                 image: heros.package_card_img_4.src,
                 programs: [
-                    { title: "$180", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "$240", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "$300", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "$360", subtitle: "Till, 17 Oct", id: "offer_4" },
+                    {
+                        title: "$180",
+                        subtitle: "Early bird Registration till, 17 Jul",
+                        id: "offer_1",
+                    },
+                    {
+                        title: "$240",
+                        subtitle: "Regular Registration till, 17 Aug",
+                        id: "offer_2",
+                    },
+                    {
+                        title: "$300",
+                        subtitle: "Late Registration till, 17 Sep",
+                        id: "offer_3",
+                    },
+                    {
+                        title: "$360",
+                        subtitle: "onsite Registration till, 17 Oct",
+                        id: "offer_4",
+                    },
                 ],
             },
         ],
@@ -192,22 +245,22 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 programs: [
                     {
                         title: "1,500LE",
-                        subtitle: "Till, 17 Jul",
+                        subtitle: "Early bird Registration till, 17 Jul",
                         id: "offer_1",
                     },
                     {
                         title: "2,000LE",
-                        subtitle: "Till, 17 Aug",
+                        subtitle: "  Regular Registration till, 17 Aug",
                         id: "offer_2",
                     },
                     {
                         title: "2,500LE",
-                        subtitle: "Till, 17 Sep",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
                         title: "3,000LE",
-                        subtitle: "Till, 17 Oct",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -218,10 +271,26 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 price: "$170",
                 image: heros.package_card_img_3.src,
                 programs: [
-                    { title: "$80", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "$130", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "$180", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "$230", subtitle: "Till, 17 Oct", id: "offer_4" },
+                    {
+                        title: "$80",
+                        subtitle: "Early bird Registration till, 17 Jul",
+                        id: "offer_1",
+                    },
+                    {
+                        title: "$130",
+                        subtitle: " Regular Registration till, 17 Aug",
+                        id: "offer_2",
+                    },
+                    {
+                        title: "$180",
+                        subtitle: "Late Registration till, 17 Sep",
+                        id: "offer_3",
+                    },
+                    {
+                        title: "$230",
+                        subtitle: "onsite Registration till, 17 Oct",
+                        id: "offer_4",
+                    },
                 ],
             },
             {
@@ -231,22 +300,22 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 programs: [
                     {
                         title: "2,000LE",
-                        subtitle: "Till, 17 Jul",
+                        subtitle: "Early bird Registration till, 17 Jul",
                         id: "offer_1",
                     },
                     {
                         title: "2,500LE",
-                        subtitle: "Till, 17 Aug",
+                        subtitle: "Regular Registration till, 17 Aug",
                         id: "offer_2",
                     },
                     {
                         title: "3,000LE",
-                        subtitle: "Till, 17 Sep",
+                        subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
                         title: "3,500LE",
-                        subtitle: "Till, 17 Oct",
+                        subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },
                 ],
@@ -257,10 +326,26 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 price: "$170",
                 image: heros.package_card_img_4.src,
                 programs: [
-                    { title: "$130", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "$180", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "$230", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "$280", subtitle: "Till, 17 Oct", id: "offer_4" },
+                    {
+                        title: "$130",
+                        subtitle: "Early bird Registration till, 17 Jul",
+                        id: "offer_1",
+                    },
+                    {
+                        title: "$180",
+                        subtitle: " Regular Registration till, 17 Aug",
+                        id: "offer_2",
+                    },
+                    {
+                        title: "$230",
+                        subtitle: "Late Registration till, 17 Sep",
+                        id: "offer_3",
+                    },
+                    {
+                        title: "$280",
+                        subtitle: "onsite Registration till, 17 Oct",
+                        id: "offer_4",
+                    },
                 ],
             },
         ],

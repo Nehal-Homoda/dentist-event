@@ -117,11 +117,16 @@ export default function AppFooter() {
                                     {data?.about}
                                 </p>
 
-                                <div className="input-wrap flex gap-5 mt-12">
+                                <div className="input-wrap flex flex-col gap-5 mt-12">
+                                    <input
+                                        type="email"
+                                        placeholder="Enter your email"
+                                        className="w-full rounded-full placeholder:text-xs text-foreground outline-none border-none px-5 py-1"
+                                    />
                                     <input
                                         type="text"
-                                        placeholder="Enter your email"
-                                        className="w-full rounded-full placeholder:text-xs text-foreground outline-none border-none px-5"
+                                        placeholder="Enter your text"
+                                        className="w-full rounded-full placeholder:text-xs text-foreground outline-none border-none px-5 py-1"
                                     />
                                     <BaseBtn
                                         handleBtnAction={sendAction}

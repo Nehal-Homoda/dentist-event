@@ -22,9 +22,9 @@ export default function Home() {
             <div className="home-page">
                 <header
                     style={{ backgroundImage: `url('${bg.new_header.src}')` }}
-                    className="text-white w-full aspect-[3/4.75] sm:aspect-[3/2.75] md:aspect-[3/2.25] lg:aspect-[3/1.75] xl:aspect-[3/1.5]  bg-no-repeat bg-cover bg-top-left"
+                    className="text-white w-full aspect-[3/1.69]  bg-no-repeat bg-contain bg-top-left"
                 >
-                    <div className="w-full h-full bg-black/50 flex flex-col justify-end">
+                    <div className="w-full h-full bg-black/25 flex flex-col justify-end">
                         <div className="container ">
                             <div className="wrap flex gap-5 sm:gap-10 mb-5 md:mb-10">
                                 {/* CALENDER */}
