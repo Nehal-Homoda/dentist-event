@@ -138,7 +138,7 @@ export default function page() {
                     <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 lg:gap-10 gap-5">
                         {importantDates.map((item, index) => (
                             <div
-                                onClick={index == 0 ? open : undefined}
+                                onClick={open}
                                 key={index}
                                 className="cursor-pointer flex flex-col gap-4  items-center rounded-xl border border-primary bg-primary-light-800 px-5 py-10 "
                             >
