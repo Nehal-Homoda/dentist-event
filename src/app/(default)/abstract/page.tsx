@@ -73,11 +73,11 @@ export default function page() {
         };
         const abstractFormJson = JSON.stringify(abstractFormData);
 
-        getSettingService().then((response) => {
-            if (response.ok) {
-                close();
-            }
-        });
+        // getSettingService().then((response) => {
+        //     if (response.ok) {
+        //         close();
+        //     }
+        // });
     };
 
     const open = () => {
