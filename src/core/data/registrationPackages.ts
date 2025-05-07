@@ -33,6 +33,19 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                     },
                 ],
             },
+
+            {
+                title: "Non-Egyption Member",
+                price: "$170",
+                image: heros.package_card_img_3.src,
+                programs: [
+                    { title: "$250", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    { title: "$300", subtitle: "Till, 17 Aug", id: "offer_2" },
+                    { title: "$350", subtitle: "Till, 17 Sep", id: "offer_3" },
+                    { title: "$400", subtitle: "Till, 17 Oct", id: "offer_4" },
+                ],
+            },
+
             {
                 title: "Egyption Non-Member",
                 price: "$250",
@@ -61,25 +74,26 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                 ],
             },
             {
-                title: "Non-Egyption Member",
-                price: "$170",
-                image: heros.package_card_img_3.src,
-                programs: [
-                    { title: "250LE", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "300LE", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "350LE", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "400LE", subtitle: "Till, 17 Oct", id: "offer_4" },
-                ],
-            },
-            {
                 title: "Non-Egyption Non-Member",
                 price: "$170",
                 image: heros.package_card_img_4.src,
                 programs: [
-                    { title: "300LE", subtitle: "Till, 17 Jul", id: "offer_1" },
-                    { title: "350LE", subtitle: "Till, 17 Aug", id: "offer_2" },
-                    { title: "400LE", subtitle: "Till, 17 Sep", id: "offer_3" },
-                    { title: "300LE", subtitle: "Till, 17 Oct", id: "offer_4" },
+                    { title: "$300", subtitle: "Till, 17 Jul", id: "offer_1" },
+                    {
+                        title: "$350LE",
+                        subtitle: "Till, 17 Aug",
+                        id: "offer_2",
+                    },
+                    {
+                        title: "$400LE",
+                        subtitle: "Till, 17 Sep",
+                        id: "offer_3",
+                    },
+                    {
+                        title: "$300LE",
+                        subtitle: "Till, 17 Oct",
+                        id: "offer_4",
+                    },
                 ],
             },
         ],
