@@ -6,6 +6,7 @@ import BaseBtn from "../Base/BaseBtn";
 import { getSettingService } from "@/services/appSharedServices";
 import { error } from "console";
 import { AppSettingData } from "@/types/shared";
+import SharedTextInput from "../shared/SharedInput";
 
 export default function AppFooter() {
     const [data, setData] = useState<AppSettingData | null>(null);
@@ -21,7 +22,12 @@ export default function AppFooter() {
             });
     };
 
+    const [email, setEmail] = useState("");
+
     const sendAction = () => {};
+    const takeInputValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setEmail(e.target.value);
+    };
 
     useEffect(() => {
         fetchFooterSetting();
@@ -107,33 +113,36 @@ export default function AppFooter() {
                                         LinkedIn
                                     </a>
                                 </div>
-                            </div>
-                            {/* <div className="p-5 col-span-1"></div> */}
-                            <div className="md:col-span-4 mt-10">
-                                <h5 className="text-white font-semibold mb-5">
+                                <h5 className="text-white font-semibold mt-5 ">
                                     Stay in touch with us
                                 </h5>
                                 <p className="text-xs pe-10 leading-6">
                                     {data?.about}
                                 </p>
-
-                                <div className="input-wrap flex flex-col gap-5 mt-12">
-                                    <input
+                            </div>
+                            {/* <div className="p-5 col-span-1"></div> */}
+                            <div className="md:col-span-4 ">
+                                <div className="input-wrap flex flex-col gap-5 ">
+                                    <SharedTextInput
+                                        name="email"
+                                        sendInputValue={takeInputValue}
+                                        value={email}
                                         type="email"
                                         placeholder="Enter your email"
-                                        className="w-full rounded-full placeholder:text-xs text-foreground outline-none border-none px-5 py-1"
                                     />
-                                    <input
-                                        type="text"
+                                    <textarea
+                                        rows={5}
                                         placeholder="Enter your text"
-                                        className="w-full rounded-full placeholder:text-xs text-foreground outline-none border-none px-5 py-1"
+                                        className="h-auto outline-input py-4"
                                     />
+                                    <div>
+
                                     <BaseBtn
                                         handleBtnAction={sendAction}
-                                        minWidth="min-w-[5rem]"
                                     >
                                         Send Now
                                     </BaseBtn>
+                                    </div>
                                 </div>
                             </div>
                         </div>
