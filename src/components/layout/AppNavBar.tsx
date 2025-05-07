@@ -55,7 +55,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     }, []);
     return (
         <>
-            <div className="container absolute z-30 left-[50%] -translate-x-[50%]  top-10 ">
+            <div className="sticky  z-30  w-full  ">
                 {isWithSponsors && (
                     <div className="w-full bg-background flex justify-between items-center px-5 lg:px-12 ">
                         <div className="w-24 h-24">
