@@ -88,7 +88,7 @@ export default function Home() {
 
                     {/* <ProgramsActionsDates></ProgramsActionsDates> */}
 
-                    {/* <SponsorsAnimatedSection></SponsorsAnimatedSection> */}
+                    <SponsorsAnimatedSection></SponsorsAnimatedSection>
                 </div>
             </div>
         </>
