@@ -127,15 +127,15 @@ export default async function page({ params }: { params: { id: string } }) {
                         </div>
                         {/* </FormCard> */}
                     </div>
-                        <div className=" hidden md:block md:col-span-4  md:order-2 order-1 mx-auto mt-24  ">
-                            <div className="w-full aspect-[3/3.5] ">
-                                <img
-                                    className="w-full h-full object-cover rounded-r-2xl"
-                                    src={heros.schedule_details_img.src}
-                                    alt=""
-                                />
-                            </div>
+                    <div className=" hidden md:block md:col-span-4  md:order-2 order-1 mx-auto mt-24  ">
+                        <div className="w-full aspect-[3/3.5] ">
+                            <img
+                                className="w-full h-full object-cover rounded-r-2xl"
+                                src={heros.schedule_details_img.src}
+                                alt=""
+                            />
                         </div>
+                    </div>
                 </div>
 
                 <SharedCountDown />

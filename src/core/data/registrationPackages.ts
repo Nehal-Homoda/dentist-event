@@ -100,18 +100,18 @@ export const REGISTRATION_PACKAGES: RegistrationPackage[] = [
                         id: "offer_1",
                     },
                     {
-                        title: "$350LE",
+                        title: "$350",
                         subtitle: "Regular Registration till, 17 Aug",
 
                         id: "offer_2",
                     },
                     {
-                        title: "$400LE",
+                        title: "$400",
                         subtitle: "Late Registration till, 17 Sep",
                         id: "offer_3",
                     },
                     {
-                        title: "$300LE",
+                        title: "$300",
                         subtitle: "onsite Registration till, 17 Oct",
                         id: "offer_4",
                     },

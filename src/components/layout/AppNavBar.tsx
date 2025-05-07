@@ -55,7 +55,7 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
     }, []);
     return (
         <>
-            <div className="sticky  z-30  w-full  ">
+            <div className="w-full sticky  ">
                 {isWithSponsors && (
                     <div className="w-full bg-background flex justify-between items-center px-5 lg:px-12 ">
                         <div className="w-24 h-24">
@@ -65,10 +65,14 @@ export default function AppNavBar({ colorInverted, isWithSponsors }: Props) {
                                 alt=""
                             />
                         </div>
-
-                        <h2 className="lg:text-3xl md:text-lg text-center  font-semibold text-sm">
-                            Egyptian Association of Oral & Maxillofacial Surgery
-                        </h2>
+                        <div className="text-center">
+                            <h2 className="lg:text-3xl md:text-lg text-center  font-semibold text-sm mb-3">
+                                Where evidence meets controversy
+                            </h2>
+                            <p className="text-secondary-100 lg:text-base text-sm">
+                                A new Frontier of advanced education
+                            </p>
+                        </div>
 
                         {/* {sponsorsImg.map((item, index) => (
                             <div key={index} className="w-28 h-28 ">
