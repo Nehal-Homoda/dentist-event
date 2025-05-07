@@ -23,10 +23,7 @@ export default function page() {
             <SharedHeader pageName="Abstract" />
             <div className="container py-20">
                 <div>
-                    <h2 className="section-title text-center">
-                        Achievements Of <br />
-                        Egyptian Association of Oral & Maxillofacial Surgery
-                    </h2>
+                   
                     <div className="grid grid-cols-12  gap-4">
                         <div className="col-span-3">
                             <div
