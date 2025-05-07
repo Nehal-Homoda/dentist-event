@@ -37,16 +37,16 @@ export default function page() {
     const [selectedContent, setSelectedContent] = useState();
     const [searchValue, setSearchValue] = useState("");
 
-    const takeSelectedValue = (selectedItem) => {
+    const takeSelectedValue = (selectedItem: any) => {
         setSelectedValueFromChild(selectedItem);
         console.log("selected item in parent", selectedItem);
     };
 
-    const takeSelectedContent = (item) => {
+    const takeSelectedContent = (item: any) => {
         setSelectedContent(item);
     };
-    const takeSelectedDate = (item) => {};
-    const takeSearchValue = (e) => {
+    const takeSelectedDate = (item: any) => {};
+    const takeSearchValue = (e: any) => {
         setSearchValue(e.target.value);
     };
 
@@ -92,6 +92,7 @@ export default function page() {
                         <p>Search Speaker</p>
 
                         <SharedSearchInput
+                        searchAction={() => {}}
                             inputValue={searchValue}
                             sendValueToParent={takeSearchValue}
                         />

@@ -8,12 +8,14 @@ import StaticSponsorsAnimatedSection from "@/components/static/SponsorsAnimatedS
 import { getScheduleById } from "@/services/appSharedServices";
 // import { useRouter } from "next/navigation";
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
     return [{ id: "1" }, { id: "2" }, { id: "3" }];
 }
 
+
 export default async function page({ params }: { params: { id: string } }) {
     const { id } = await params;
+
 
     const item = getScheduleById(id);
     // const router = useRouter();

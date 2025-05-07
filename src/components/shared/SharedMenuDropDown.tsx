@@ -7,11 +7,11 @@ import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 type Props = {
     menuList: string[],
     btnName: string
-    sendSelectedValue: (item) => void
+    sendSelectedValue: (item: any) => void
 }
 export default function SharedMenuDropDown({ menuList, btnName, sendSelectedValue }: Props) {
     const [selectedItem, setSelectedItem] = useState(null)
-    const handleSelectedItem = (item) => {
+    const handleSelectedItem = (item: any) => {
         console.log(item)
         setSelectedItem(item)
         sendSelectedValue(item)
@@ -26,6 +26,7 @@ export default function SharedMenuDropDown({ menuList, btnName, sendSelectedValu
 
                 <MenuItems
                     transition
+                    //@ts-ignore
                     anchor="bottom center"
                     className="w-52 mt-2 rounded-xl border border-white/5 bg-white text-black p-1 text-sm/6  transition duration-100 ease-out  focus:outline-none "
                 >

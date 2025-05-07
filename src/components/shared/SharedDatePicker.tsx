@@ -29,7 +29,7 @@ export default function SharedMenuDropDown({ sendSelectedValue, btnName }: Props
         to: new Date(2025, 9, 31)
     };
 
-    const handleSelectedItem = (item) => {
+    const handleSelectedItem = (item: any) => {
         if(!item){
             return
         }
@@ -49,6 +49,7 @@ export default function SharedMenuDropDown({ sendSelectedValue, btnName }: Props
 
                 <MenuItems
                     transition
+                    // @ts-ignore
                     anchor="bottom center"
                     className="w-80 mt-3  rounded-xl border border-white/5 bg-white text-black p-1 text-sm/6  transition duration-100 ease-out  focus:outline-none "
                 >
@@ -56,6 +57,7 @@ export default function SharedMenuDropDown({ sendSelectedValue, btnName }: Props
                         modifiers={modifiers}
                         onDayClick={(day, modifiers) => {
                             if (modifiers.selected) {
+                                // @ts-ignore
                                 setSelected(undefined);
                             } else {
                                 setSelected(day);
